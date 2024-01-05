@@ -33,9 +33,11 @@ images: "/_assets/images/MeAndWillie.jpg"
 ```
 
 To get the image to show up _somewhere_ in my post, I put the following `markdown` at the bottom of this post.
+<!-- {%raw%} -->
 ```markdown
 ![Me and Willie]({{ page.images | relative_url }})
 ```
+<!-- {%endraw%} -->
 
 It didn't work 😑.
 Back to Google...
