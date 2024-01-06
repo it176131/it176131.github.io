@@ -2,7 +2,7 @@
 layout: "post"
 title: "More Pictures Please"
 date: 2024-01-03
-images: "/assets/images/MeAndWillie.jpg"
+images: "/assets/images/2024-01-03-more-pics-please/MeAndWillie.jpg"
 ---
 
 As I shared my [first "official" post]({{ site.baseurl }}{% link _posts/2024-01-01-new-year.md %}) to some friends and family, I realized it would be better if I had included pictures.
