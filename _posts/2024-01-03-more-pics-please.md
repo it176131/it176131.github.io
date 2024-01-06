@@ -5,7 +5,7 @@ date: 2024-01-03
 images: "/assets/images/MeAndWillie.jpg"
 ---
 
-As I shared my first "official" post to some friends and family, I realized it would be better if I had included pictures.
+As I shared my [first "official" post]({{ site.baseurl }}{% link _posts/2024-01-01-new-year.md %}) to some friends and family, I realized it would be better if I had included pictures.
 Since I don't exactly know how to add pictures yet, this post will be more of a follow-along.
 That is you, the reader, will follow me, Ian, as I learn how to add pictures (and video?) to my posts.
 Here goes nothing!
