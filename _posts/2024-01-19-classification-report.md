@@ -18,163 +18,156 @@ MathJax = {
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
 
-Yesterday in a meeting, a principal software engineer bragged about a document classification model he'd worked on.
-"We achieved a classification score of 99%," he said.
-To the untrained ear this may sound impressive, but not to me or my manager.
+In a meeting earlier this week, I heard someone say, "We achieved a classification score of 99%."
+He was referring to accuracy.
+And to the untrained ear this may sound impressive, but not to me.
 
-My manager posed some questions in the chat:
-"What are the stats on the test set?"
-"How many documents of type X?"
-We knew that the majority of documents were X.
-Who knows after that.
-Document X is so common that I'd be willing to guess that it accounts for some 90% of all document volume.
-The other 10% are made up of some 50+ other document types.
+# Accuracy
+The data in this particular problem is what we call "imbalanced."
+If it were balanced or approximately balanced, I wouldn't have thought too much about the score.
+Why?
+Let me highlight the issue with an example.
 
-But what does it matter?
-Why don't we find a classification score of 99% impressive?
-Two words: _class imbalance_.
-
-# Balanced ⚖️
-When you get a 99% on a test, that's impressive.
-Even 95% or 90% could be considered praiseworthy.
-But what about convicting criminals?
-
-Suppose you're a judge, and you have to decide the fate of 100 defendants.
-Each one can be convicted or acquitted.
-Fifty of the defendants are criminals, the other 50 are innocents.
-You're an experienced judge and typically know what action to take, but this time you incorrectly assess five of them.
-What's your score?
+Suppose you're taking a test with 10 True or False questions.
+The number of actual True and False answers is five and five.
+You take the test and get eight out ten correct.
+Your accuracy is 80%.<br><br>
 
 $$
 \begin{align}
-\text{score} & = \frac{\text{number correct}}{\text{total}} \\\\
-& = \frac{95}{100} \\\\
-& = 0.95 \\\\
-& = 95\%
+Accuracy = \frac{Number\ correct}{Total}
 \end{align}
 $$
 
-Said another way, you correctly classified 95% of the defendants.
-And the "score" that we calculated is called
-[accuracy](https://en.wikipedia.org/wiki/Accuracy_and_precision#In_classification).
-You accurately labeled 95% of the cases correctly.
-
-Accuracy tells us exactly that, how accurate were we?
-Our rate of correct questions to total questions.
-It tells us how right and wrong we were _overall_.
-It does _not_ tell us _what kinds of errors_ we made.
+<br>
+Now suppose you take another test.
+This test also has 10 True or False questions, but only two of them are actually False.
+You get eight of ten correct again.
+Should we consider the two test scores equal?
+Mathematically, yes, but the quality of tester could be considered vastly different.
 
 # Confusion matrix
-Turns out we marked three defendants as innocent when they should have been convicted,
-and two defendants as criminals when they were innocent.
+This is a classic binary classification problem.
+We can look at the answers and differentiate _how_ we were correct or incorrect using a
+[confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix).
 
-|                     | Actually Criminal | Actually Innocent |
-|:-------------------:|:-----------------:|:-----------------:|
-| **Marked Criminal** |        47         |         2         |
-| **Marked Innocent** |         3         |        48         |
-
-This table is commonly referred to as a [confusion matrix](https://en.wikipedia.org/wiki/Confusion_matrix),
-and it allows us to understand our errors.
-To do so, we define the values in our confusion matrix:
-
-|                     |     Actual False      |      Actual True      |
+|                     |      Actual True      |     Actual False      |
 |:-------------------:|:---------------------:|:---------------------:|
-| **Predicted False** | True Positive ($TP$)  | False Positive ($FP$) |
-| **Predicted True**  | False Negative ($FN$) | True Negative ($TN$)  |
+| **Predicted True**  | True Positive ($TP$)  | False Positive ($FP$) |
+| **Predicted False** | False Negative ($FN$) | True Negative ($TN$)  |
 
 **True Positives** and **True Negatives** are the values we labeled correctly.
-**False Positives** are a [type I error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error)—we incorrectly convicted an innocent.
-**False Negatives** are a [type II error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error)—we incorrectly acquitted a criminal.
-Combining all four of these, we can define accuracy algebraically:
+**False Positives** are a [type I error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_I_error)—
+we incorrectly said True when it was False.
+**False Negatives** are a [type II error](https://en.wikipedia.org/wiki/Type_I_and_type_II_errors#Type_II_error)—
+we incorrectly said False when it was True.
+We define accuracy algebraically using all four:<br><br>
 
 $$
 Accuracy = \frac{TP + TN}{TP + FP + TN + FN}
 $$
 
-To better understand our judging skills, we can calculate additional metrics.
-Namely, [precision and recall](https://en.wikipedia.org/wiki/Precision_and_recall).
+<br>
+In the first test, our confusion matrix could look like this:
+
+|                     | Actual True | Actual False |
+|:-------------------:|:-----------:|:------------:|
+| **Predicted True**  |      4      |      1       |
+| **Predicted False** |      1      |      4       |
+
+Or maybe like this:
+
+|                     | Actual True | Actual False |
+|:-------------------:|:-----------:|:------------:|
+| **Predicted True**  |      5      |      2       |
+| **Predicted False** |      0      |      3       |
+
+Either way, our accuracy is 80%.
+To numerically understand the difference, we rely on two other metrics,
+[precision and recall](https://en.wikipedia.org/wiki/Precision_and_recall).
 
 # Precision
 > Precision can be seen as a measure of quality, ...
 
-Precision is algebraically defined as:
+<br>
 
 $$
 Precision = \frac{TP}{TP + FP}
 $$
 
-Because we have two ways of judging a defendant (a binary classification problem),
+<br>
+Because we have two ways of answering a question (True or False),
 we must calculate precision from both sides:
-- Where "criminal" is the positive and "innocent" is the negative,
-- and where "innocent" is the positive and "criminal" is the negative.
+- Where True is the positive and False is the negative,
+- and where False is the positive and True is the negative.
 
-First, where "criminal" is the positive:
+We'll do this for both tests.
 
-$$
-\begin{align}
-Precision_{criminal} & = \frac{47}{47 + 2} \\\\
-& = \frac{47}{49} \\\\
-& \approx 0.96
-\end{align}
-$$
+|                     |               Test #1               |               Test #2                |
+|:-------------------:|:-----------------------------------:|:------------------------------------:|
+| $Precision_{True}$  | $\frac{4}{4+1} = \frac{4}{5} = 0.8$ | $\frac{5}{5+2} = \frac{5}{7} = 0.71$ |
+| $Precision_{False}$ | $\frac{4}{4+1} = \frac{4}{5} = 0.8$ | $\frac{3}{3+0} = \frac{3}{3} = 1.00$ |
 
-And now the "innocent":
-
-$$
-\begin{align}
-Precision_{innocent} & = \frac{48}{48 + 3} \\\\
-& = \frac{48}{51} \\\\
-& \approx 0.94
-\end{align}
-$$
-
-Our precision when convicting someone as a criminal is 0.96 and 0.94 when judging someone as innocent.
-In other words,
-our judgment quality is _greater_ when we say someone is a criminal than when we say someone is innocent.
-
-What about the criminals who walked?
-Surely they should be accounted for.
-Enter recall.
+For test #1, our "quality" of correctly marking a question True or False is equal at 0.80.
+For test #2, our quality is maxed out when marking a question False i.e.,
+when we say False, we get it right 100% of the time.
+But when we mark a question as True, our quality falls.
+We're not as good at correctly guessing True compared to False.
 
 # Recall
 > ... and recall as a measure of quantity.
 
-Recall is algebraically defined as:
+<br>
 
 $$
 Recall = \frac{TP}{TP + FN}
 $$
 
-We can have high-quality judgment, but it doesn't mean we do it often.
-Similar to precision, we calculate recall from both sides.
-One for the criminal:
+<br>
+Having high precision ("quality") doesn't mean that we correctly label _all_ of the questions in a given category.
+Recall can show us that we miss some.
+
+|                  |               Test #1               |               Test #2                |
+|:----------------:|:-----------------------------------:|:------------------------------------:|
+| $Recall_{True}$  | $\frac{4}{4+1} = \frac{4}{5} = 0.8$ | $\frac{5}{5+0} = \frac{5}{5} = 1.00$ |
+| $Recall_{False}$ | $\frac{4}{4+1} = \frac{4}{5} = 0.8$ | $\frac{3}{3+2} = \frac{3}{5} = 0.60$ |
+
+The recall results for test #1 are the same as precision.
+This is because the balance of our correct to incorrect answers is split evenly between the classes.
+The recall for test #2, however, is a bit different.
+When we marked an answer as True, our recall is 1.00.
+You could say that we tend to mark more answers as True and therefore capture a higher quantity of the correct answers.
+On the False side, our recall is 0.60.
+While our quality in determining an answer as False is outstanding, we fail to capture all of them.
+Our quantity is low.
+
+# F1 score
+Precision and recall together give us a better idea of how we performed on the test.
+But looking at four (or more if there are more than two classes) numbers can be a tad confusing.
+So we have the F1 score.<br><br>
 
 $$
-\begin{align}
-Precision_{criminal} & = \frac{47}{47 + 3} \\\\
-& = \frac{47}{50} \\\\
-& = 0.94
-\end{align}
+F_{1} = 2\times\frac{precision \times recall}{precision + recall}
 $$
 
-And one for the innocent:
-
-$$
-\begin{align}
-Precision_{innocent} & = \frac{48}{48 + 2} \\\\
-& = \frac{48}{50} \\\\
-& = 0.96
-\end{align}
-$$
-
-These values look similar to the precision values (more on that in a bit), but reversed.
-The recall when convicting someone as a criminal is 0.94 and 0.96 when judging someone as innocent.
-Combining this with precision, we could say that our quality of convicting criminals is good, but we let a few get away.
-Likewise, our quality of judging someone as innocent isn't as great, but we tend to say more people are innocent.
-As a result, we correctly label more innocent people.
-Maybe you could say we're a "soft" judge.
+<br>
+...
 
 # Imbalanced 🙃
-Why do the values for precision and recall look so similar?
-Because the true labels of the classes are balanced and, while not perfect, our judgment was fairly balanced
-(51 innocents vs 49 criminals).
+
+<script src="https://giscus.app/client.js"
+        data-repo="it176131/it176131.github.io"
+        data-repo-id="R_kgDOK1ukqg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOK1ukqs4CcOnS"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
