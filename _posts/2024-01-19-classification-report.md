@@ -142,18 +142,66 @@ While our quality in determining an answer as False is outstanding, we fail to c
 Our quantity is low.
 
 # F1 score
-Precision and recall together give us a better idea of how we performed on the test.
-But looking at four (or more if there are more than two classes) numbers can be a tad confusing.
-So we have the F1 score.<br><br>
 
 $$
-F_{1} = 2\times\frac{precision \times recall}{precision + recall}
+\begin{align}
+F1 & = (\frac{precision^{-1} + recall^{-1}}{2})^{-1} \\\\
+& = 2\times\frac{precision \times recall}{precision + recall}
+\end{align}
 $$
 
 <br>
-...
+Precision and recall together give us a better idea of how we performed on the test.
+But looking at four numbers (or more when greater than two classes) can be a tad overwhelming.
+We can make it easier by calculating the F1 score—
+the [harmonic mean](https://en.wikipedia.org/wiki/Harmonic_mean) of precision and recall.
+
+|              |                                    Test #1                                    |                                       Test #2                                       |
+|:------------:|:-----------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|
+| $F1_{True}$  | $2 \times \frac{0.8 \times 0.8}{0.8 + 0.8} = 2 \times \frac{0.64}{1.6} = 0.8$ | $2 \times \frac{0.71 \times 1.00}{0.71 + 1.00} = 2 \times \frac{0.71}{1.71} = 0.83$ |
+| $F1_{False}$ | $2 \times \frac{0.8 \times 0.8}{0.8 + 0.8} = 2 \times \frac{0.64}{1.6} = 0.8$ | $2 \times \frac{1.00 \times 0.60}{1.00 + 0.60} = 2 \times \frac{0.60}{1.60} = 0.75$ |
 
 # Imbalanced 🙃
+The F1 scores look pretty close to the accuracy; how do all these metrics help us with an imbalanced data set?
+Let's explore an example.
+We work in radiology and are trying to detect breast cancer through imaging.
+Breast cancer is somewhat rare; [one in eight average women will develop it.](https://www.cancer.org/cancer/types/breast-cancer/about/how-common-is-breast-cancer.html)
+That's 13%.
+If we looked at every image and said "no cancer", we'd be correct 87% of the time.
+That's a pretty high accuracy!
+But it's not the right metric.
+With this method, we'd miss 100% of all cancer patients.
+To improve, perhaps we should focus on precision instead.
+
+Here are two classification reports for 100 potential cancer patients.
+Can you tell which one performed better?
+Note that "support" is the number of observations in a given class (cancer vs no cancer).
+
+Report #1
+
+|           | precision | recall | f1-score | support |
+|-----------|-----------|--------|----------|---------|
+| cancer    | NaN       | 0.00   | NaN      | 13      |
+| no cancer | 0.87      | 1.00   | 0.93     | 87      |
+|           |           |        |          |         |
+| accuracy  |           |        | 0.87     | 100     |
+
+Report #2
+
+|           | precision | recall | f1-score | support |
+|-----------|-----------|--------|----------|---------|
+| cancer    | 0.38      | 0.23   | 0.29     | 13      |
+| no cancer | 0.89      | 0.94   | 0.92     | 87      |
+|           |           |        |          |         |
+| accuracy  |           |        | 0.85     | 100     |
+
+If we care about successfully detecting breast cancer and potentially saving a life,
+then the second model performed significantly better.
+While the first model did classify more patients correctly, it completely missed all signs of cancer.
+The second model did mislabel some patients as having cancer, which has its own cost ramifications,
+but it may be better to be safe than sorry.
+
+Next time you hear someone say their model achieved 99% accuracy, ask them for a classification report.
 
 <script src="https://giscus.app/client.js"
         data-repo="it176131/it176131.github.io"
