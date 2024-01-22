@@ -136,9 +136,10 @@ The recall results for test #1 are the same as precision.
 This is because the balance of our correct to incorrect answers is split evenly between the classes.
 The recall for test #2, however, is a bit different.
 When we marked an answer as True, our recall is 1.00.
-You could say that we tend to mark more answers as True and therefore capture a higher quantity of the correct answers.
+You could say that we tend to mark more answers as True and therefore capture a higher quantity of the
+(correct and incorrect) answers.
 On the False side, our recall is 0.60.
-While our quality in determining an answer as False is outstanding, we fail to capture all of them.
+While our quality in determining an answer as False is outstanding, we don't mark enough answers as False.
 Our quantity is low.
 
 # F1 score
