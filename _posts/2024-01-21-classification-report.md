@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "Classification Report"
-date: 2024-01-19
+date: 2024-01-21
 ---
 
 <script>
@@ -18,7 +18,7 @@ MathJax = {
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
 </script>
 
-In a meeting earlier this week, I heard someone say, "We achieved a classification score of 99%."
+In a meeting last week, I heard someone say, "We achieved a classification score of 99%."
 He was referring to accuracy.
 And to the untrained ear this may sound impressive, but not to me.
 
