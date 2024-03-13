@@ -118,3 +118,6 @@ No more annoying convert-move-rename-copy-paste stuff.
 There you have it, folks.
 A post produced by an annoyance, that came from a post produced by a missing feature, that came from a post with a promise.
 I'll refrain from anymore promises until I keep the one I've delayed 😉.
+
+> P.S. here's a link to the
+> [_ipynb_to_post.py_](https://github.com/it176131/it176131.github.io/blob/main/ipynb_to_post.py) script.
