@@ -37,7 +37,7 @@ On to the next step.
 
 #### 2. Move/Rename
 There are a couple ways to do this, and I chose the one that uses the CLI.
-The commands to move and rename a file are the following:
+The command to move and rename a file are the following:
 ```shell
 mv path/to/your/notebook.html path/to/your/_posts/YYYY-MM-DD-notebook.html
 ```
