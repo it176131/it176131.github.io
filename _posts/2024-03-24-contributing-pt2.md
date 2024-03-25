@@ -129,7 +129,7 @@ Surprisingly (or maybe unsurprisingly at this point), 20 tests failed out of 694
 Drilling down to the test_transactionencoder.py file, one out of six tests failed.
 It's important to remember that my commits and PR should only handle what's in the scope of the feature request.
 Anything more and this can very quickly turn into a mess that's difficult to merge.
-With that, I will create a branch and add some new tests to help guide my test-driven development.
+With that, I created a branch and added some new tests to help guide my test-driven development.
 
 # New Branch, New Tests
 Normally when I create a branch I try to name it according to what's on it.
@@ -140,7 +140,7 @@ In this case I chose to name it "issue_1085" since my feature request has URL
 git checkout -b issue_1085
 ```
 
-From here I'm free to write and commit code.
+From here I was free to write and commit code.
 
 In true TDD fashion, [I added two tests to the tests/test_transactionencoder.py file first](https://github.com/rasbt/mlxtend/pull/1087/commits/45cb6cd5d86fcd037107e318225d722bd98d5668).
 
