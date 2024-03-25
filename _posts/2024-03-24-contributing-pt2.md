@@ -216,10 +216,10 @@ def test_set_output():
 Amazingly enough, the only part of the tests that failed was when I checked if the columns aligned.
 The `set_output` wrapper handled everything else automatically 🚀.
 
-To get back to a passing state, I had to modify the `get_feature_names_out` method.
+To get back to a passing state, [I had to modify the `get_feature_names_out` method](https://github.com/rasbt/mlxtend/pull/1087/commits/0167c8f59a890982bfbfa88352cb0ac3875a8bd9).
 I wanted to get an idea of what it should look like,
 so I took a peak at `scikit-learn`'s [`OneToOneFeatureMixin`](https://scikit-learn.org/stable/modules/generated/sklearn.base.OneToOneFeatureMixin.html) and [`ClassNamePrefixFeaturesOutMixin`](https://scikit-learn.org/stable/modules/generated/sklearn.base.ClassNamePrefixFeaturesOutMixin.html)
-and [used their implementations as a template](https://github.com/rasbt/mlxtend/pull/1087/commits/0167c8f59a890982bfbfa88352cb0ac3875a8bd9).
+and used their implementations as a template.
 
 ```python
 from sklearn.utils.validation import check_is_fitted, _check_feature_names_in
