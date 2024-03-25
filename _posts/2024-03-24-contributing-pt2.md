@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "Contributing, Part II: Unit Tests"
+title: "Contributing, Part II: Test-Driven Development"
 date: 2024-03-24
 images: "/assets/images/2024-03-24-contributing-pt2"
 ---
@@ -40,7 +40,7 @@ def test_add():
 
 While this unit test is valid, it doesn't highlight the power and importance of unit testing your code.
 
-# Test-Driven Development
+# Test First, Develop Second
 My memory may be failing me here,
 but I don't think introducing a function _and then_ a corresponding unit test is the best way to teach unit tests.
 In test-driven development (TDD),
@@ -140,8 +140,126 @@ In this case I chose to name it "issue_1085" since my feature request has URL
 git checkout -b issue_1085
 ```
 
-From here I'm free to start writing and committing code.
+From here I'm free to write and commit code.
 
+In true TDD fashion, [I added two tests to the tests/test_transactionencoder.py file first](https://github.com/rasbt/mlxtend/pull/1087/commits/45cb6cd5d86fcd037107e318225d722bd98d5668).
+
+```python
+def test_get_feature_names_out():
+    """Assert TransactionEncoder has attribute get_feature_names_out."""
+    oht = TransactionEncoder()
+    assert hasattr(oht, "get_feature_names_out")
+
+
+def test_set_output():
+    """Assert TransactionEncoder has attribute set_output."""
+    oht = TransactionEncoder()
+    assert hasattr(oht, "set_output")
+
+```
+
+Both of these immediately failed.
+To make them pass [I added the `get_feature_names_out` method to the `TransactionEncoder` in transactionencoder.py file](https://github.com/rasbt/mlxtend/pull/1087/commits/943457534788862512cc6d28d41963019b23c4b5).
+
+```python
+class TransactionEncoder(BaseEstimator, TransformerMixin):
+    
+    ...
+    
+    def get_feature_names_out(self, input_features=None):
+        """Used to get the column names of pandas output.
+        
+        This method combined with the TransformerMixin exposes the
+        set_output API to the TransactionEncoder. This allows the user
+        to set the transformed output to a pandas.DataFrame by default.
+        See  https://scikit-learn.org/stable/developers/develop.html#developer-api-set-output
+        for more details.
+        """
+        ...
+
+```
+
+This exposed the `set_output` method, resulting in both tests passing.
+I then needed to check that the `set_output` and `get_feature_names` methods actually worked,
+so [I updated the tests into a failing state again](https://github.com/rasbt/mlxtend/pull/1087/commits/b21bb21e8461225f455e8ea19c5f9cb948e16f29).
+
+```python
+import pandas as pd
+
+...
+
+def test_get_feature_names_out():
+    """Assert TransactionEncoder has attribute get_feature_names_out."""
+    oht = TransactionEncoder()
+    assert hasattr(oht, "get_feature_names_out")
+    oht.fit(dataset)
+    np.testing.assert_array_equal(oht.get_feature_names_out(), oht.columns_)
+
+
+def test_set_output():
+    """Assert TransactionEncoder has attribute set_output.
+    
+    When transform="pandas", the transformed output of
+    TransactionEncoder should be a pandas.DataFrame with the correct
+    column names and the values should match those of the original
+    numpy.array.
+    """
+    oht = TransactionEncoder()
+    assert hasattr(oht, "set_output")
+    oht = oht.set_output(transform="pandas")
+    out = oht.fit_transform(dataset)
+    assert isinstance(out, pd.DataFrame)
+    np.testing.assert_array_equal(out.columns, oht.columns_)
+
+```
+
+Amazingly enough, the only part of the tests that failed was when I checked if the columns aligned.
+The `set_output` wrapper handled everything else automatically 🚀.
+
+To get back to a passing state, I had to modify the `get_feature_names_out` method.
+I wanted to get an idea of what it should look like,
+so I took a peak at `scikit-learn`'s [`OneToOneFeatureMixin`](https://scikit-learn.org/stable/modules/generated/sklearn.base.OneToOneFeatureMixin.html) and [`ClassNamePrefixFeaturesOutMixin`](https://scikit-learn.org/stable/modules/generated/sklearn.base.ClassNamePrefixFeaturesOutMixin.html)
+and [used their implementations as a template](https://github.com/rasbt/mlxtend/pull/1087/commits/0167c8f59a890982bfbfa88352cb0ac3875a8bd9).
+
+```python
+from sklearn.utils.validation import check_is_fitted, _check_feature_names_in
+
+...
+
+class TransactionEncoder(BaseEstimator, TransformerMixin):
+
+    ...
+    
+    def get_feature_names_out(self):
+        """Used to get the column names of pandas output.
+
+        This method combined with the TransformerMixin exposes the
+        set_output API to the TransactionEncoder. This allows the user
+        to set the transformed output to a pandas.DataFrame by default.
+
+        See  https://scikit-learn.org/stable/developers/develop.html#developer-api-set-output
+        for more details.
+        """
+        check_is_fitted(self, attributes="columns_")
+        return _check_feature_names_in(estimator=self, input_features=self.columns_)
+
+```
+
+And with that, the unit tests passed and the `set_output` method had been successfully integrated!
+
+# Pull Request
+Just before pushing my code and opening a pull request to merge everything,
+I took one final look at the CONTRIBUTING.md file.
+I had checked off most of the boxes under [Quick Contributor Checklist](https://github.com/rasbt/mlxtend/blob/master/docs/sources/CONTRIBUTING.md#quick-contributor-checklist), but forgot two:
+- Modify documentation in the appropriate location under `mlxtend/docs/sources/`
+- Add a note about the modification/contribution to the `./docs/sources/changelog.md` file
+
+Because my feature is so small, the work to update the user guide and changelog was relatively light.
+The hardest part was figuring out how to word everything and then link to a PR that didn't exist yet.
+In the end it came out looking alright.
+I pushed my code to my forked repo and opened a pull request.
+Now I wait for feedback from the author and any other contributors.
+[Following along here!](https://github.com/rasbt/mlxtend/pull/1087)
 
 <script src="https://giscus.app/client.js"
         data-repo="it176131/it176131.github.io"
