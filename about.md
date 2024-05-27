@@ -6,10 +6,10 @@ title: "Résumé"
 ## Ian Thompson
 
 ### Languages
-`Python`, `Git`, `SQL`
+`Python`, `SQL`
 
 ### Tools
-`Jira`, `Azure DevOps`, `Git Bash`
+`Git`, `Jira`, `Azure DevOps`, `Git Bash`
 
 ### Skills
 `Machine Learning`, `Statistics`, `API (Develop & Consume)`,
@@ -85,9 +85,9 @@ title: "Résumé"
 - Published the subpackage, "ReturnAssistant," with the ability to 
   process 60,000 prior year returns in ~200ms.
 - Developed and trained a relation extraction pipeline to automate 
-  the construction of a directed acyclic graph, using a custom 
-  tokenizer, an enhanced named entity recognition component, and a 
-  custom relation extraction component.
+  the construction of a directed acyclic graph using a custom 
+  tokenizer, a fine-tuned named entity recognition component, and a 
+  custom trained relation extraction component.
 - Participated in the generative artificial intelligence research and 
   development team.
 - Developed a package to help navigate and validate the company tax
