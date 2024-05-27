@@ -1,24 +1,23 @@
 ---
 layout: "page"
-title: Résumé
 ---
 
-# Ian Thompson
+## Ian Thompson
 
-## Languages
+### Languages
 `Python`, `Git`, `SQL`
 
-# Tools
+### Tools
 `Jira`, `Azure DevOps`, `Git Bash`
 
-# Skills
+### Skills
 `Machine Learning`, `Statistics`, `API (Develop & Consume)`,
 `Classification`, `Regression`, `Data Visualization`,
 `Natural Language Processing (NLP)`, `Networkx Analysis/Graph Theory`,
 `Unsupervised Learning`, `Web Scraping/Crawling`,
 `Object Oriented Programming`, `Automation`
 
-# Third-Party Packages I Commonly Use (Clickable)
+### Third-Party Packages I Commonly Use (Clickable)
 [`pandas`](https://pandas.pydata.org/),
 [`scikit-learn`](https://scikit-learn.org/stable/index.html),
 [`networkx`](https://networkx.org/),
@@ -36,7 +35,7 @@ title: Résumé
 [`spacy`](https://spacy.io/),
 [`typer`](https://typer.tiangolo.com/)
 
-# Achievements
+### Achievements
 - [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519)
 —Stack Overflow
 - [_Bronze Python Tag Badge_](https://stackoverflow.com/help/badges/267/python?userid=6509519)
@@ -47,7 +46,7 @@ title: Résumé
 - Consulting Project Eagle Award—Cerner Corporation
 - DataCon 2017 Data Competition Winner—Cerner Corporation
 
-# Open Source Contributions
+### Open Source Contributions
 - [_BUG -- Requiring name argument in StackAPI makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52)
 —StackAPI
 - [_Update index handling in PandasAdapter_](https://github.com/scikit-learn/scikit-learn/issues/28731)
@@ -65,7 +64,7 @@ title: Résumé
 - [*add feature_names_in_ attribute to FeatureUnion*](https://github.com/scikit-learn/scikit-learn/issues/24754)
 —Scikit-learn
 
-# Presentations
+### Presentations
 - _Detecting Kidney Stone CPT Communities using the Louvain Method_
 —Health Analytics Summit @ Health Catalyst (09/2021)
 - _Exploring Null Space_
@@ -73,8 +72,8 @@ title: Résumé
 - _Automating Excel Report Generation with Python_
 —DataCont @ Cerner Corporation (09/2016)
 
-# Career
-## Senior Data Scientist @ H&R Block
+### Career
+#### Senior Data Scientist @ H&R Block
 04/2022—present
 - Developed a proof of concept to convert tax instructions into a 
   directed acyclic graph using named entity recognition and a key file.
@@ -93,7 +92,7 @@ title: Résumé
 - Developed a package to help navigate and validate the company tax
   engine using graph algorithms.
 
-## Data Scientist Principal @ The University of Kansas Health System
+#### Data Scientist Principal @ The University of Kansas Health System
 10/2021—04/2022
 - Automated PRM ticket creation saving 100 minutes per month.
 - Introduced Gaussian Processes (Kriging) as a data generation
@@ -102,7 +101,7 @@ title: Résumé
 - Created and maintained a private Python package to streamline my
   team's work.
 
-## Business Intelligence Statistician II @ The University of Kansas Health System
+#### Business Intelligence Statistician II @ The University of Kansas Health System
 06/2019—10/2021
 - Deployed a classification model via API to label cost accounting
   codes with 95% accuracy, shortening manual labeling time from 3 hours
@@ -118,7 +117,7 @@ title: Résumé
   data, providing an auto-updating dashboard to senior leadership to
   help with capacity and supply planning.
 
-## Statistician @ Cerner Corporation
+#### Statistician @ Cerner Corporation
 05/2017—05/2019
 - Designed and automated standard analyses, updating PowerPoint
   presentations directly.
@@ -131,3 +130,13 @@ title: Résumé
   and mathematically derived metrics.
 - Developed a Python module to generate and execute SQL, allowing the
   validation of data sets and simulation of changes.
+
+### Education
+#### B.S. Mathematics—Kansas State University
+08/2013—08/2015
+
+#### World Affairs—University of Oxford
+06/2013—07/2013
+
+#### Mathematics—Saint Charles Community College
+08/2011—06/2013
