@@ -6,10 +6,10 @@ title: "Résumé"
 ## Ian Thompson
 
 ### Languages
-`Python`, `Git`, `SQL`
+`Python`, `SQL`
 
 ### Tools
-`Jira`, `Azure DevOps`, `Git Bash`
+`Git`, `Jira`, `Azure DevOps`, `Git Bash`
 
 ### Skills
 `Machine Learning`, `Statistics`, `API (Develop & Consume)`,
