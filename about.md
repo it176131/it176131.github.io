@@ -34,7 +34,8 @@ title: "Résumé"
 [`mypy`](https://mypy.readthedocs.io/en/latest/),
 [`requests`](https://requests.readthedocs.io/en/latest/),
 [`spacy`](https://spacy.io/),
-[`typer`](https://typer.tiangolo.com/)
+[`typer`](https://typer.tiangolo.com/),
+[`pytest`](https://docs.pytest.org/en/latest/)
 
 ### Achievements
 - [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519)—Stack
