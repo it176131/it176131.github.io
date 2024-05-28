@@ -67,7 +67,7 @@ for Industrial and Applied Mathematics (SIAM)
 —Scikit-learn
 
 ### Presentations
-- _Detecting Kidney Stone CPT Communities using the Louvain Method_—Health
+- _Detecting Kidney Stone CPT Communities using the [Louvain Method](https://en.wikipedia.org/wiki/Louvain_method)_—Health
 Analytics Summit @ Health Catalyst (09/2021)
 - _Exploring Null Space_—DataCon
 @ Cerner Corporation (09/2018)
