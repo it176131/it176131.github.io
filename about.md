@@ -9,12 +9,12 @@ title: "Résumé"
 `Python`, `SQL`
 
 ### Tools
-`Git`, `Jira`, `Azure DevOps`, `Git Bash`
+`Git`, `Jira`, `Azure DevOps`
 
 ### Skills
 `Machine Learning`, `Statistics`, `API (Develop & Consume)`,
 `Classification`, `Regression`, `Data Visualization`,
-`Natural Language Processing (NLP)`, `Networkx Analysis/Graph Theory`,
+`Natural Language Processing (NLP)`, `Network Analysis/Graph Theory`,
 `Unsupervised Learning`, `Web Scraping/Crawling`,
 `Object Oriented Programming`, `Automation`
 
@@ -37,13 +37,14 @@ title: "Résumé"
 [`typer`](https://typer.tiangolo.com/)
 
 ### Achievements
-- [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519)
-—Stack Overflow
-- [_Bronze Python Tag Badge_](https://stackoverflow.com/help/badges/267/python?userid=6509519)
-—Stack Overflow
-- [_66 Days of Data Shoutout_](https://www.linkedin.com/posts/navidmashinchi_66daysofdata-66daysofdata-datascience-activity-6775646328463745024-v2RS/)—66 Days of Data
-- [_A Generalization of the Goresky-Klapper Conjecture, Part I_](https://doi.org/10.1137/18M1186381)
-—Society for Industrial and Applied Mathematics (SIAM)
+- [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519)—Stack
+Overflow
+- [_Bronze Python Tag Badge_](https://stackoverflow.com/help/badges/267/python?userid=6509519)—Stack
+Overflow
+- [_66 Days of Data Shoutout_](https://www.linkedin.com/posts/navidmashinchi_66daysofdata-66daysofdata-datascience-activity-6775646328463745024-v2RS/)—66
+Days of Data
+- [_A Generalization of the Goresky-Klapper Conjecture, Part I_](https://doi.org/10.1137/18M1186381)—Society
+for Industrial and Applied Mathematics (SIAM)
 - Consulting Project Eagle Award—Cerner Corporation
 - DataCon 2017 Data Competition Winner—Cerner Corporation
 
@@ -66,12 +67,12 @@ title: "Résumé"
 —Scikit-learn
 
 ### Presentations
-- _Detecting Kidney Stone CPT Communities using the Louvain Method_
-—Health Analytics Summit @ Health Catalyst (09/2021)
-- _Exploring Null Space_
-—DataCon @ Cerner Corporation (09/2018)
-- _Automating Excel Report Generation with Python_
-—DataCont @ Cerner Corporation (09/2016)
+- _Detecting Kidney Stone CPT Communities using the Louvain Method_—Health
+Analytics Summit @ Health Catalyst (09/2021)
+- _Exploring Null Space_—DataCon
+@ Cerner Corporation (09/2018)
+- _Automating Excel Report Generation with Python_—DataCon
+@ Cerner Corporation (09/2016)
 
 ### Career
 #### Senior Data Scientist @ H&R Block
