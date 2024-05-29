@@ -49,6 +49,8 @@ title: "Résumé"
   identify which lines in a tax form impacted other lines.
 - Published the subpackage, "ReturnAssistant," with the ability to 
   process 60,000 prior year returns in ~200ms.
+- Crawled the IRS website, extracted instructions for all forms and 
+  schedules, and preprocessed into training data.
 - Developed and trained a relation extraction pipeline to automate 
   the construction of a directed acyclic graph using a custom 
   tokenizer, a fine-tuned named entity recognition component, and a 
