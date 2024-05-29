@@ -38,6 +38,8 @@ title: "Résumé"
 [`pytest`](https://docs.pytest.org/en/latest/)
 
 ### Achievements
+- _Mapping Tax Structures Via Natural Language Processing Generated Acyclic Graphs_ (Patent Application #18/414,771)—HRB
+ Innovations
 - [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519)—Stack
 Overflow
 - [_Bronze Python Tag Badge_](https://stackoverflow.com/help/badges/267/python?userid=6509519)—Stack
