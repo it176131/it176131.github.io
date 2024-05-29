@@ -9,14 +9,14 @@ title: "Résumé"
 `Python`, `SQL`
 
 ### Tools
-`Git`, `Jira`, `Azure DevOps`
+`Git`, `Jira`, `Azure DevOps`, `PyCharm`, `CLI`
 
 ### Skills
+`Natural Language Processing (NLP)`, `Network Analysis/Graph Theory`,
 `Machine Learning`, `Statistics`, `API (Develop & Consume)`,
 `Classification`, `Regression`, `Data Visualization`,
-`Natural Language Processing (NLP)`, `Network Analysis/Graph Theory`,
-`Unsupervised Learning`, `Web Scraping/Crawling`,
-`Object Oriented Programming`, `Automation`
+`Unsupervised Learning`, `Web Scraping/Crawling`, `Code Review`
+`Object Oriented Programming`, `Automation`, `Unit Testing`,
 
 ### Third-Party Packages I Commonly Use (Clickable)
 [`pandas`](https://pandas.pydata.org/),
@@ -36,9 +36,10 @@ title: "Résumé"
 [`spacy`](https://spacy.io/),
 [`typer`](https://typer.tiangolo.com/),
 [`pytest`](https://docs.pytest.org/en/latest/)
+[`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#)
 
 ### Achievements
-- _Mapping Tax Structures Via Natural Language Processing Generated Acyclic Graphs_ (Patent Application #18/414,771)—HRB
+- _Mapping Tax Structures Via Natural Language Processing Generated Directed Acyclic Graphs_ (Patent Application #18/414,771)—HRB
  Innovations
 - [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519)—Stack
 Overflow
@@ -52,22 +53,14 @@ for Industrial and Applied Mathematics (SIAM)
 - DataCon 2017 Data Competition Winner—Cerner Corporation
 
 ### Open Source Contributions
-- [_BUG -- Requiring name argument in StackAPI makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52)
-—StackAPI
-- [_Update index handling in PandasAdapter_](https://github.com/scikit-learn/scikit-learn/issues/28731)
-—Scikit-learn
-- [_Most recent scikit-learn results in several failed unit tests_](https://github.com/rasbt/mlxtend/issues/1090)
-—mlxtend
-- [_Integrate scikit-learn's set_output method into TransactionEncoder_](https://github.com/rasbt/mlxtend/issues/1085)
-—mlxtend
-- [_ENH -- Replaced for-loops in :function:rescale_layout with numpy vectorized methods._](https://github.com/networkx/networkx/pull/6879)
-—Networkx
-- [_Typo fix in Language.replace_listeners docs_](https://github.com/explosion/spaCy/pull/12823)
-—spaCy
-- [_DOC Update MLPRegressor docs_](https://github.com/scikit-learn/scikit-learn/pull/25556)
-—Scikit-learn
-- [*add feature_names_in_ attribute to FeatureUnion*](https://github.com/scikit-learn/scikit-learn/issues/24754)
-—Scikit-learn
+- [_BUG -- Requiring name argument in StackAPI makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52)—StackAPI
+- [_Update index handling in PandasAdapter_](https://github.com/scikit-learn/scikit-learn/issues/28731)—Scikit-learn
+- [_Most recent scikit-learn results in several failed unit tests_](https://github.com/rasbt/mlxtend/issues/1090)—mlxtend
+- [_Integrate scikit-learn's set_output method into TransactionEncoder_](https://github.com/rasbt/mlxtend/issues/1085)—mlxtend
+- [_ENH -- Replaced for-loops in :function:rescale_layout with numpy vectorized methods._](https://github.com/networkx/networkx/pull/6879)—Networkx
+- [_Typo fix in Language.replace_listeners docs_](https://github.com/explosion/spaCy/pull/12823)—spaCy
+- [_DOC Update MLPRegressor docs_](https://github.com/scikit-learn/scikit-learn/pull/25556)—Scikit-learn
+- [*add feature_names_in_ attribute to FeatureUnion*](https://github.com/scikit-learn/scikit-learn/issues/24754)—Scikit-learn
 
 ### Presentations
 - _Detecting Kidney Stone CPT Communities using the [Louvain Method](https://en.wikipedia.org/wiki/Louvain_method)_—Health
