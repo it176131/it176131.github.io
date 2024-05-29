@@ -92,7 +92,7 @@ title: "Résumé"
 - Lead quarterly Python classes to teach and train associates.
 - Implemented quality-improvement benchmarks for health systems using a
   combination of the
-  [Achievable Benchmarks of Care](https://pubmed.ncbi.nlm.nih.gov/10461579/)
+  [Achievable Benchmarks of Care](https://pubmed.ncbi.nlm.nih.gov/10461579/){:target="_blank"}
   and mathematically derived metrics.
 - Developed a Python module to generate and execute SQL, allowing the
   validation of data sets and simulation of changes.
@@ -110,29 +110,29 @@ title: "Résumé"
 ### Achievements
 - _Mapping Tax Structures Via Natural Language Processing Generated Directed Acyclic Graphs_ (Patent Application #18/414,771)—HRB
  Innovations
-- [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519)—Stack
+- [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519){:target="_blank"}—Stack
 Overflow
-- [_Bronze Python Tag Badge_](https://stackoverflow.com/help/badges/267/python?userid=6509519)—Stack
+- [_Bronze Python Tag Badge_](https://stackoverflow.com/help/badges/267/python?userid=6509519){:target="_blank"}—Stack
 Overflow
-- [_66 Days of Data Shoutout_](https://www.linkedin.com/posts/navidmashinchi_66daysofdata-66daysofdata-datascience-activity-6775646328463745024-v2RS/)—66
+- [_66 Days of Data Shoutout_](https://www.linkedin.com/posts/navidmashinchi_66daysofdata-66daysofdata-datascience-activity-6775646328463745024-v2RS/){:target="_blank"}—66
 Days of Data
-- [_A Generalization of the Goresky-Klapper Conjecture, Part I_](https://doi.org/10.1137/18M1186381)—Society
+- [_A Generalization of the Goresky-Klapper Conjecture, Part I_](https://doi.org/10.1137/18M1186381){:target="_blank"}—Society
 for Industrial and Applied Mathematics (SIAM)
 - Consulting Project Eagle Award—Cerner Corporation
 - DataCon 2017 Data Competition Winner—Cerner Corporation
 
 ### Open Source Contributions
-- [_BUG -- Requiring name argument in StackAPI makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52)—StackAPI
-- [_Update index handling in PandasAdapter_](https://github.com/scikit-learn/scikit-learn/issues/28731)—Scikit-learn
-- [_Most recent scikit-learn results in several failed unit tests_](https://github.com/rasbt/mlxtend/issues/1090)—mlxtend
-- [_Integrate scikit-learn's set_output method into TransactionEncoder_](https://github.com/rasbt/mlxtend/issues/1085)—mlxtend
-- [_ENH -- Replaced for-loops in :function:rescale_layout with numpy vectorized methods._](https://github.com/networkx/networkx/pull/6879)—Networkx
-- [_Typo fix in Language.replace_listeners docs_](https://github.com/explosion/spaCy/pull/12823)—spaCy
-- [_DOC Update MLPRegressor docs_](https://github.com/scikit-learn/scikit-learn/pull/25556)—Scikit-learn
-- [*add feature_names_in_ attribute to FeatureUnion*](https://github.com/scikit-learn/scikit-learn/issues/24754)—Scikit-learn
+- [_BUG -- Requiring name argument in StackAPI makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52){:target="_blank"}—StackAPI
+- [_Update index handling in PandasAdapter_](https://github.com/scikit-learn/scikit-learn/issues/28731){:target="_blank"}—Scikit-learn
+- [_Most recent scikit-learn results in several failed unit tests_](https://github.com/rasbt/mlxtend/issues/1090){:target="_blank"}—mlxtend
+- [_Integrate scikit-learn's set_output method into TransactionEncoder_](https://github.com/rasbt/mlxtend/issues/1085){:target="_blank"}—mlxtend
+- [_ENH -- Replaced for-loops in :function:rescale_layout with numpy vectorized methods._](https://github.com/networkx/networkx/pull/6879){:target="_blank"}—Networkx
+- [_Typo fix in Language.replace_listeners docs_](https://github.com/explosion/spaCy/pull/12823){:target="_blank"}—spaCy
+- [_DOC Update MLPRegressor docs_](https://github.com/scikit-learn/scikit-learn/pull/25556){:target="_blank"}—Scikit-learn
+- [*add feature_names_in_ attribute to FeatureUnion*](https://github.com/scikit-learn/scikit-learn/issues/24754){:target="_blank"}—Scikit-learn
 
 ### Presentations
-- _Detecting Kidney Stone CPT Communities using the [Louvain Method](https://en.wikipedia.org/wiki/Louvain_method)_—Health
+- _Detecting Kidney Stone CPT Communities using the [Louvain Method](https://en.wikipedia.org/wiki/Louvain_method){:target="_blank"}_—Health
 Analytics Summit @ Health Catalyst (09/2021)
 - _Exploring Null Space_—DataCon
 @ Cerner Corporation (09/2018)
