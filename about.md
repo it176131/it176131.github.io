@@ -5,11 +5,14 @@ title: "Résumé"
 
 ## Ian Thompson
 
-### Languages
-`Python`, `SQL`
-
-### Tools
-`Git`, `Jira`, `Azure DevOps`, `PyCharm`, `CLI`
+### Languages & Tools
+[`Python`](https://www.python.org/){:target="_blank"},
+[`SQL`](https://en.wikipedia.org/wiki/SQL){:target="_blank"},
+[`Git`](https://git-scm.com/){:target="_blank"},
+[`Jira`](https://www.atlassian.com/software/jira){:target="_blank"},
+[`Azure DevOps`](https://azure.microsoft.com/en-us/products/devops){:target="_blank"},
+[`PyCharm`](https://www.jetbrains.com/pycharm/){:target="_blank"},
+[`CLI`](https://en.wikipedia.org/wiki/Command-line_interface){:target="_blank"}
 
 ### Skills
 `Natural Language Processing (NLP)`, `Network Analysis/Graph Theory`,
@@ -49,6 +52,8 @@ title: "Résumé"
   identify which lines in a tax form impacted other lines.
 - Published the subpackage, "ReturnAssistant," with the ability to 
   process 60,000 prior year returns in ~200ms.
+- Crawled the IRS website, extracted instructions for all forms and 
+  schedules, and preprocessed into training data.
 - Developed and trained a relation extraction pipeline to automate 
   the construction of a directed acyclic graph using a custom 
   tokenizer, a fine-tuned named entity recognition component, and a 
