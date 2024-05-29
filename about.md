@@ -19,24 +19,24 @@ title: "Résumé"
 `Object Oriented Programming`, `Automation`, `Unit Testing`,
 
 ### Third-Party Packages I Commonly Use (Clickable)
-[`pandas`](https://pandas.pydata.org/),
-[`scikit-learn`](https://scikit-learn.org/stable/index.html),
-[`networkx`](https://networkx.org/),
-[`pydantic`](https://docs.pydantic.dev/latest/),
-[`numpy`](https://numpy.org/),
-[`scrapy`](https://scrapy.org/),
-[`matplotlib`](https://matplotlib.org/),
-[`seaborn`](https://seaborn.pydata.org/index.html),
-[`pre-commit`](https://pre-commit.com/),
-[`black`](https://black.readthedocs.io/en/stable/),
-[`isort`](https://pycqa.github.io/isort/),
-[`flake8`](https://flake8.pycqa.org/en/latest/),
-[`mypy`](https://mypy.readthedocs.io/en/latest/),
-[`requests`](https://requests.readthedocs.io/en/latest/),
-[`spacy`](https://spacy.io/),
-[`typer`](https://typer.tiangolo.com/),
-[`pytest`](https://docs.pytest.org/en/latest/)
-[`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#)
+[`pandas`](https://pandas.pydata.org/){:target="_blank"},
+[`scikit-learn`](https://scikit-learn.org/stable/index.html){:target="_blank"},
+[`networkx`](https://networkx.org/){:target="_blank"},
+[`pydantic`](https://docs.pydantic.dev/latest/){:target="_blank"},
+[`numpy`](https://numpy.org/){:target="_blank"},
+[`scrapy`](https://scrapy.org/){:target="_blank"},
+[`matplotlib`](https://matplotlib.org/){:target="_blank"},
+[`seaborn`](https://seaborn.pydata.org/index.html){:target="_blank"},
+[`pre-commit`](https://pre-commit.com/){:target="_blank"},
+[`black`](https://black.readthedocs.io/en/stable/){:target="_blank"},
+[`isort`](https://pycqa.github.io/isort/){:target="_blank"},
+[`flake8`](https://flake8.pycqa.org/en/latest/){:target="_blank"},
+[`mypy`](https://mypy.readthedocs.io/en/latest/){:target="_blank"},
+[`requests`](https://requests.readthedocs.io/en/latest/){:target="_blank"},
+[`spacy`](https://spacy.io/){:target="_blank"},
+[`typer`](https://typer.tiangolo.com/){:target="_blank"},
+[`pytest`](https://docs.pytest.org/en/latest/){:target="_blank"},
+[`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#){:target="_blank"}
 
 ### Career
 #### Senior Data Scientist @ H&R Block
