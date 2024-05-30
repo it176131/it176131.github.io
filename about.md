@@ -39,7 +39,8 @@ title: "Résumé"
 [`spacy`](https://spacy.io/){:target="_blank"},
 [`typer`](https://typer.tiangolo.com/){:target="_blank"},
 [`pytest`](https://docs.pytest.org/en/latest/){:target="_blank"},
-[`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#){:target="_blank"}
+[`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#){:target="_blank"},
+[`streamlit`](https://streamlit.io/){:target="_blank"}
 
 ### Career
 #### Senior Data Scientist @ H&R Block
