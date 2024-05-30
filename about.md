@@ -40,7 +40,8 @@ title: "Résumé"
 [`typer`](https://typer.tiangolo.com/){:target="_blank"},
 [`pytest`](https://docs.pytest.org/en/latest/){:target="_blank"},
 [`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#){:target="_blank"},
-[`streamlit`](https://streamlit.io/){:target="_blank"}
+[`streamlit`](https://streamlit.io/){:target="_blank"},
+[`tqdm`](https://tqdm.github.io/){:target="_blank"}
 
 ### Career
 #### Senior Data Scientist @ H&R Block
@@ -141,6 +142,7 @@ for Industrial and Applied Mathematics (SIAM)
 - [_Typo fix in Language.replace_listeners docs_](https://github.com/explosion/spaCy/pull/12823){:target="_blank"}—spaCy
 - [_DOC Update MLPRegressor docs_](https://github.com/scikit-learn/scikit-learn/pull/25556){:target="_blank"}—Scikit-learn
 - [*add feature_names_in_ attribute to FeatureUnion*](https://github.com/scikit-learn/scikit-learn/issues/24754){:target="_blank"}—Scikit-learn
+- [_synset pos parameter_](https://github.com/argilla-io/spacy-wordnet/pull/15){:target="_blank"}—spacy-wordnet
 
 ### Presentations
 - _Detecting Kidney Stone CPT Communities using the [Louvain Method](https://en.wikipedia.org/wiki/Louvain_method){:target="_blank"}_—Health
