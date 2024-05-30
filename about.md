@@ -51,6 +51,9 @@ title: "Résumé"
   hundreds of tax lines in parallel within the same generation. 
 - Through the use of graph algorithms, developed methods to quickly 
   identify which lines in a tax form impacted other lines.
+  This was used to determine where to focus attention when reviewing
+  tax returns for issues that could have a large impact on individual
+  clients.
 - Published the subpackage, "ReturnAssistant," with the ability to 
   process 60,000 prior year returns in ~200ms.
 - Crawled the IRS website, extracted instructions for all forms and 
@@ -59,10 +62,12 @@ title: "Résumé"
   the construction of a directed acyclic graph using a custom 
   tokenizer, a fine-tuned named entity recognition component, and a 
   custom trained relation extraction component.
-- Participated in the generative artificial intelligence research and 
-  development team.
-- Developed a package to help navigate and validate the company tax
-  engine using graph algorithms.
+- Was hand-picked for the generative artificial intelligence research
+  and development team that was tasked with researching how emerging
+  technology in the natural language processing space could be leveraged
+  by the company.
+- Developed a Python package to help navigate and validate the company
+  tax engine using graph algorithms.
 
 #### Data Scientist Principal @ The University of Kansas Health System
 10/2021—04/2022
