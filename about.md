@@ -121,16 +121,17 @@ title: "Résumé"
 
 ### Achievements
 - _Mapping Tax Structures Via Natural Language Processing Generated Directed Acyclic Graphs_ (Patent Application #18/414,771)—HRB
- Innovations
+  Innovations
 - [_Bronze Pandas Tag Badge_](https://stackoverflow.com/help/badges/1914/pandas?userid=6509519){:target="_blank"}—Stack
-Overflow
+  Overflow
 - [_Bronze Python Tag Badge_](https://stackoverflow.com/help/badges/267/python?userid=6509519){:target="_blank"}—Stack
-Overflow
+  Overflow
 - [_66 Days of Data Shoutout_](https://www.linkedin.com/posts/navidmashinchi_66daysofdata-66daysofdata-datascience-activity-6775646328463745024-v2RS/){:target="_blank"}—66
-Days of Data
+  Days of Data
 - [_A Generalization of the Goresky-Klapper Conjecture, Part I_](https://doi.org/10.1137/18M1186381){:target="_blank"}—Society
-for Industrial and Applied Mathematics (SIAM)
-- Consulting Project Eagle Award—Cerner Corporation
+  for Industrial and Applied Mathematics (SIAM)
+- [Consulting Project Eagle Award](https://www.linkedin.com/in/ian-thompson-733167109/details/honors/){:target="_blank"}—Cerner
+  Corporation
 - DataCon 2017 Data Competition Winner—Cerner Corporation
 
 ### Open Source Contributions
