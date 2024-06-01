@@ -18,8 +18,8 @@ title: "Résumé"
 `Natural Language Processing (NLP)`, `Network Analysis/Graph Theory`,
 `Machine Learning`, `Statistics`, `API (Develop & Consume)`,
 `Classification`, `Regression`, `Data Visualization`,
-`Unsupervised Learning`, `Web Scraping/Crawling`, `Code Review`
-`Object Oriented Programming`, `Automation`, `Unit Testing`,
+`Unsupervised Learning`, `Web Scraping/Crawling`, `Code Review`,
+`Object Oriented Programming`, `Automation`, `Unit Testing`
 
 ### Third-Party Packages I Commonly Use (Clickable)
 [`pandas`](https://pandas.pydata.org/){:target="_blank"},
@@ -41,7 +41,8 @@ title: "Résumé"
 [`pytest`](https://docs.pytest.org/en/latest/){:target="_blank"},
 [`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#){:target="_blank"},
 [`streamlit`](https://streamlit.io/){:target="_blank"},
-[`tqdm`](https://tqdm.github.io/){:target="_blank"}
+[`tqdm`](https://tqdm.github.io/){:target="_blank"},
+[`flask`](https://flask.palletsprojects.com/en/latest/){:target="_blank"}
 
 ### Career
 #### Senior Data Scientist @ H&R Block
