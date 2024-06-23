@@ -136,14 +136,15 @@ title: "Résumé"
 - DataCon 2017 Data Competition Winner—Cerner Corporation
 
 ### Open Source Contributions
-- [_BUG -- Requiring name argument in StackAPI makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52){:target="_blank"}—StackAPI
-- [_Update index handling in PandasAdapter_](https://github.com/scikit-learn/scikit-learn/issues/28731){:target="_blank"}—Scikit-learn
-- [_Most recent scikit-learn results in several failed unit tests_](https://github.com/rasbt/mlxtend/issues/1090){:target="_blank"}—mlxtend
-- [_Integrate scikit-learn's set_output method into TransactionEncoder_](https://github.com/rasbt/mlxtend/issues/1085){:target="_blank"}—mlxtend
-- [_ENH -- Replaced for-loops in :function:rescale_layout with numpy vectorized methods._](https://github.com/networkx/networkx/pull/6879){:target="_blank"}—Networkx
-- [_Typo fix in Language.replace_listeners docs_](https://github.com/explosion/spaCy/pull/12823){:target="_blank"}—spaCy
+- [_[ENH] -- Option to exclude `model_extra` from `repr`_](https://github.com/pydantic/pydantic/issues/9732){:target="_blank"}—Pydantic
+- [_BUG -- Requiring `name` argument in `StackAPI` makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52){:target="_blank"}—StackAPI
+- [_Update index handling in `PandasAdapter`_](https://github.com/scikit-learn/scikit-learn/issues/28731){:target="_blank"}—Scikit-learn
+- [_Most recent `scikit-learn` results in several failed unit tests_](https://github.com/rasbt/mlxtend/issues/1090){:target="_blank"}—mlxtend
+- [_Integrate scikit-learn's `set_output` method into `TransactionEncoder`_](https://github.com/rasbt/mlxtend/issues/1085){:target="_blank"}—mlxtend
+- [_ENH -- Replaced for-loops in :function:`rescale_layout` with numpy vectorized methods._](https://github.com/networkx/networkx/pull/6879){:target="_blank"}—Networkx
+- [_Typo fix in `Language.replace_listeners` docs_](https://github.com/explosion/spaCy/pull/12823){:target="_blank"}—spaCy
 - [_DOC Update MLPRegressor docs_](https://github.com/scikit-learn/scikit-learn/pull/25556){:target="_blank"}—Scikit-learn
-- [*add feature_names_in_ attribute to FeatureUnion*](https://github.com/scikit-learn/scikit-learn/issues/24754){:target="_blank"}—Scikit-learn
+- [*add `feature_names_in_` attribute to `FeatureUnion`*](https://github.com/scikit-learn/scikit-learn/issues/24754){:target="_blank"}—Scikit-learn
 - [_synset pos parameter_](https://github.com/argilla-io/spacy-wordnet/pull/15){:target="_blank"}—spacy-wordnet
 
 ### Presentations
