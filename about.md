@@ -136,6 +136,7 @@ title: "Résumé"
 - DataCon 2017 Data Competition Winner—Cerner Corporation
 
 ### Open Source Contributions
+- [_[ENH] -- Option to exclude model_extra from repr_](https://github.com/pydantic/pydantic/issues/9732){:target="_blank"}—Pydantic
 - [_BUG -- Requiring name argument in StackAPI makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52){:target="_blank"}—StackAPI
 - [_Update index handling in PandasAdapter_](https://github.com/scikit-learn/scikit-learn/issues/28731){:target="_blank"}—Scikit-learn
 - [_Most recent scikit-learn results in several failed unit tests_](https://github.com/rasbt/mlxtend/issues/1090){:target="_blank"}—mlxtend
