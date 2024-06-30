@@ -12,3 +12,9 @@ My inspiration came from a book called [_What Would Google Do?_](https://www.goo
 Somewhere in the book Jeff compares paper and digital publications, and the main thing I remember is that digital is a lot easier to update post-release.
 So I decided to start a blog and share my coding and data science journey, and whatever else I wouldn't be embarrassed to post online.
 Of course, I still keep a paper journal because I love the feeling of a felt-tip pen on 120 g/m$^2$ paper and a bookshelf full of handwritten thoughts is kind of impressive to look at.
+
+But who am _I_?
+That's something I've been trying to answer for a long time.
+Professionally, I've been called a mathematician, statistician, data scientist, analyst, and consultant—in no particular order.
+I earned a Bachelor of Science in mathematics from Kansas State University in 2015.
+Attended graduate school for about eight weeks before dropping out to take a job in Kansas City, where I still live today.
