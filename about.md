@@ -18,3 +18,8 @@ That's something I've been trying to answer for a long time.
 Professionally, I've been called a mathematician, statistician, data scientist, analyst, and consultant—in no particular order.
 I earned a Bachelor of Science in mathematics from Kansas State University in 2015.
 Attended graduate school for about eight weeks before dropping out to take a job in Kansas City, where I still live today.
+I don't know if I'll stay in KC forever, but I haven't found a good reason to move quite yet.
+
+I try to read more books each year, tracking my count with [goodreads](https://www.goodreads.com/user_challenges/47793517).
+This year my goal is 18.
+I figure if I set a minimum goal of one more book than I read the prior year, and then beat that by at least one, I'll have read a lot more books than the average person.
