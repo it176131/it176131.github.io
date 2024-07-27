@@ -1,7 +1,8 @@
+"""Contents of tree/main.py"""
+
 from rich import print
 from rich.tree import Tree
 import typer
-
 
 app = typer.Typer()
 
