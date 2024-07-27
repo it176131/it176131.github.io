@@ -22,7 +22,7 @@ def main(
         ] = False
 ) -> None:
     """Represent a path as a tree."""
-    root = directory.cwd().as_posix()
+    root = directory.cwd().name
     tree = Tree(root)
     for path in directory.iterdir():
         if not all and path.name.startswith("."):
