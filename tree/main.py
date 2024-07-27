@@ -1,5 +1,9 @@
 from rich import print
 from rich.tree import Tree
+import typer
+
+
+app = typer.Typer()
 
 
 def main() -> None:
@@ -14,4 +18,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    typer.run(main)
