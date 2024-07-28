@@ -22,7 +22,7 @@ def grow_tree(path: Path, tree: Tree, show_private) -> None:
 
 
 def main(
-        directory: Path = typer.Argument(
+        directory: str = typer.Argument(
             help="Directory path to represent as a tree."
         ),
         show_private: Annotated[
@@ -33,9 +33,9 @@ def main(
         ] = False
 ) -> None:
     """Represent a path as a tree."""
-    root = directory.name
-    tree = Tree(root)
-    grow_tree(path=directory, tree=tree, show_private=show_private)
+    tree = Tree(directory)
+    root = Path(directory)
+    grow_tree(path=root, tree=tree, show_private=show_private)
     print(tree)
 
 
