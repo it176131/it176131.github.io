@@ -10,11 +10,22 @@ import typer
 app = typer.Typer()
 
 
+def grow_tree(path: Path, tree: Tree, show_private) -> None:
+    """Grow the ``tree`` recursively."""
+    for p in path.iterdir():
+        if not show_private and p.name.startswith("."):
+            continue
+
+        branch: Tree = tree.add(p.name)
+        if p.is_dir():
+            grow_tree(path=p, tree=branch, show_private=show_private)
+
+
 def main(
         directory: Path = typer.Argument(
             help="Directory path to represent as a tree."
         ),
-        all: Annotated[
+        show_private: Annotated[
             bool,
             typer.Option(
                 "--all/", "-a", help="Show all files."
@@ -22,15 +33,9 @@ def main(
         ] = False
 ) -> None:
     """Represent a path as a tree."""
-    root = directory.cwd().name
+    root = directory.name
     tree = Tree(root)
-    for path in directory.iterdir():
-        if not all and path.name.startswith("."):
-            continue
-
-        branch = path.as_posix()
-        tree.add(branch)
-
+    grow_tree(path=directory, tree=tree, show_private=show_private)
     print(tree)
 
 
