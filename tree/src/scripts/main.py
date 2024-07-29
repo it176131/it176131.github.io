@@ -1,4 +1,4 @@
-"""Contents of tree/main.py"""
+"""Contents of main.py"""
 
 from pathlib import Path
 from typing import Annotated
