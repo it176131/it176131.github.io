@@ -21,6 +21,7 @@ def grow_tree(path: Path, tree: Tree, show_private) -> None:
             grow_tree(path=p, tree=branch, show_private=show_private)
 
 
+@app.command()
 def main(
         directory: str = typer.Argument(
             help="Directory path to represent as a tree."
@@ -37,7 +38,3 @@ def main(
     root = Path(directory)
     grow_tree(path=root, tree=tree, show_private=show_private)
     print(tree)
-
-
-if __name__ == "__main__":
-    typer.run(main)
