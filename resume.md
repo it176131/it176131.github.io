@@ -42,7 +42,7 @@ title: "Résumé"
 [`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#){:target="_blank"},
 [`streamlit`](https://streamlit.io/){:target="_blank"},
 [`tqdm`](https://tqdm.github.io/){:target="_blank"},
-[`flask`](https://flask.palletsprojects.com/en/latest/){:target="_blank"}
+[`fastapi`](https://fastapi.tiangolo.com/){:target="_blank"}
 
 ### Career
 #### Senior Data Scientist @ H&R Block
