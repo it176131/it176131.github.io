@@ -136,6 +136,7 @@ title: "Résumé"
 - DataCon 2017 Data Competition Winner—Cerner Corporation
 
 ### Open Source Contributions
+- [_[BUG] -- Arguments `enable` and `disable` not working as expected in `spacy.load`_](https://github.com/explosion/spaCy/issues/13591){:target="_blank"}—spaCy
 - [_[ENH] -- Option to exclude `model_extra` from `repr`_](https://github.com/pydantic/pydantic/issues/9732){:target="_blank"}—Pydantic
 - [_BUG -- Requiring `name` argument in `StackAPI` makes "/users/{id}/network-activity" endpoint inaccessible_](https://github.com/AWegnerGitHub/stackapi/issues/52){:target="_blank"}—StackAPI
 - [_Update index handling in `PandasAdapter`_](https://github.com/scikit-learn/scikit-learn/issues/28731){:target="_blank"}—Scikit-learn
