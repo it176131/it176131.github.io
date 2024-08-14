@@ -42,7 +42,7 @@ title: "Résumé"
 [`beautifulsoup4`](https://beautiful-soup-4.readthedocs.io/en/latest/#){:target="_blank"},
 [`streamlit`](https://streamlit.io/){:target="_blank"},
 [`tqdm`](https://tqdm.github.io/){:target="_blank"},
-[`flask`](https://flask.palletsprojects.com/en/latest/){:target="_blank"}
+[`fastapi`](https://fastapi.tiangolo.com/){:target="_blank"}
 
 ### Career
 #### Senior Data Scientist @ H&R Block
@@ -64,7 +64,7 @@ title: "Résumé"
   the construction of a directed acyclic graph using a custom 
   tokenizer, a fine-tuned named entity recognition component, and a 
   custom trained relation extraction component.
-- Was hand-picked for the generative artificial intelligence research
+- Hand-picked for the generative artificial intelligence research
   and development team that was tasked with researching how emerging
   technology in the natural language processing space could be leveraged
   by the company.
