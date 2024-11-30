@@ -47,7 +47,7 @@ except ValidationError as e:
 
 >[!NOTE]
 >
->[`mypy`](https://mypyc.readthedocs.io/en/latest/index.html), another tool I've grown to love, would raise [`arg-type` errors](https://mypy.readthedocs.io/en/stable/error_code_list.html#check-argument-types-arg-type) on these lines:
+>[`mypy`](https://mypyc.readthedocs.io/en/latest/index.html), another tool I've grown to love, would raise [`[arg-type]` errors](https://mypy.readthedocs.io/en/stable/error_code_list.html#check-argument-types-arg-type) on these lines:
 >```python
 >...
 >print(CookingModel(tool=2, fruit="banana"))  # [arg-type] error
