@@ -97,7 +97,8 @@ if __name__ == "__main__":
 
 ```
 
-Once we have the values as a `Python` object, we need to [subclass `enum.Enum`](https://docs.python.org/3/howto/enum.html).
+Once we have the values as a `Python` object,
+we need to [subclass `enum.Enum`](https://docs.python.org/3/howto/enum.html) and assign them.
 But how?
 On first attempt, maybe we call the `_get_valid_values` function within our new `enum` class:
 ```python
