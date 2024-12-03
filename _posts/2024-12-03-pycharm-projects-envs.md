@@ -64,6 +64,7 @@ Ah...
 Modularity.
 🧘
 >[!NOTE]
+> 
 >If you have multiple _small_ repos this may not be an issue.
 >But I still advise considering this approach as it's helped me keep code separate.
 
@@ -71,7 +72,7 @@ Modularity.
 I wrote a [blog post](https://medium.com/@ianiat11/we-recommend-creating-an-environment-da38af0cecbb) a couple years ago
 that briefly covers two kinds of virtual environments:
 [`conda`](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) and [`venv`](https://docs.python.org/3/library/venv.html).
-If you read it you may notice that I'm not a big fan of `conda`, so we're not going to talk about here.
+If you read it you may notice that I'm not a big fan of `conda`, so we're not going to talk about it here.
 Instead we'll use old faithful—`venv`
 
 Managing repos as separate projects is great for modularity.
