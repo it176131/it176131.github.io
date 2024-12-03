@@ -21,8 +21,8 @@ MathJax = {
 
 I use [PyCharm](https://www.jetbrains.com/pycharm/) for most, if not all, of my development.
 Professional edition at work.
-Community edition for everywhere else.
-There are some subtle differences between the two, but [project](https://www.jetbrains.com/help/pycharm/setting-up-your-project.html) and [virtual environment](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html) management are not.
+Community edition everywhere else.
+There are some subtle differences between the two—[project](https://www.jetbrains.com/help/pycharm/setting-up-your-project.html) and [virtual environment](https://www.jetbrains.com/help/pycharm/creating-virtual-environment.html) management aren't one them.
 
 # Projects
 When I first started using PyCharm I worked in a single [repo](https://en.wikipedia.org/wiki/Repository_(version_control)).
@@ -184,6 +184,31 @@ Voila! Now you can activate your environment from the terminal and still use you
 
 If you'd like to persist this setting to every _new_ project your create, you can do so by editing the project settings.
 1. Go to File > New Projects Setup > Settings for New Projects...
+>![settings-button]({{ page.images | relative_url }}/project1.png)
 2. Repeat the steps we took to uncheck the "Activate virtualenv" configuration.
 
-# Running Multiple Projects
+# Accessing Your Other Projects
+I'd like to share one more thing before we part: how to access your other projects.
+
+We've made our PyCharm workflow a bit more modular
+by treating each repo as its own project and dedicating a virtual environment to it.
+PyCharm makes it easy for us to switch projects without leaving the curernt one.
+
+At the top left of the window there's the name of our current project:
+>![settings-button]({{ page.images | relative_url }}/multi1.png)
+
+This is a drop-down menu.
+Clicking it will show us all of our currently registered projects.
+>![settings-button]({{ page.images | relative_url }}/multi2.png)
+
+When we click any of them we're greeted with an option menu:
+>![settings-button]({{ page.images | relative_url }}/multi3.png)
+
+- "This Window" will replace your current project with the one you selected.
+>I use this when I'm done working in the current project.
+- "New Window" will open a new PyCharm instance with the project you selected.
+>I use this one if I want to work on two projects at the same time, e.g., one project depends on the other. 
+- "Attach" will all you to view both projects within the current PyCharm instance
+>This is similar to what we've been moving away from—one directory to rule them all.
+> I rarely use this option.
+- "Cancel"... you know what that does 😜
