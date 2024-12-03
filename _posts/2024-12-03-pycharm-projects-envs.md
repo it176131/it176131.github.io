@@ -2,6 +2,7 @@
 layout: "post"
 title: "PyCharm: Projects & Environments"
 date: 2024-12-03
+images: "/assets/images/2024-12-03-pycharm-project-envs"
 ---
 
 <script>
@@ -125,19 +126,31 @@ This does not, however, allow you to run scripts by default.
 To do that you'll need to configure the project's interpreter by pointing it to your local environment.
 
 I believe this is nearly automatic in newer versions of PyCharm, but if you want/need to do it manually, here's how:
-1. Open PyCharm's settings (find the cog symbol ⚙️ and select "settings" or hit the correspondign [hotkey](https://www.jetbrains.com/help/pycharm/mastering-keyboard-shortcuts.html)).
+1. Open PyCharm's settings (find the cog symbol ⚙️ and select "settings" or hit the corresponding [hotkey](https://www.jetbrains.com/help/pycharm/mastering-keyboard-shortcuts.html)).
+>![settings-button]({{ page.images | relative_url }}/settings1.png)
 2. Click "Project: <your project/repo name>" in the left pane
-3. Click Python Interpreter
+>![settings-button]({{ page.images | relative_url }}/settings2.png)
+3. Click "Python Interpreter"
+>![settings-button]({{ page.images | relative_url }}/settings3.png)
 4. Click "Add Interpreter" in the top right of the window (should be in <span style="color:blue">blue</span>)
+>![settings-button]({{ page.images | relative_url }}/settings4.png)
 5. Click "Add Local Interpreter..."
+>![settings-button]({{ page.images | relative_url }}/settings5.png)
 6. Click "Select existing"
+>![settings-button]({{ page.images | relative_url }}/settings6.png)
 7. Set the Path field to the "python.exe" in your project's environment (should be something like "./env/Scripts/python.exe")
-8. Click "OK" all the way back to the settings menu and close it.
+>![settings-button]({{ page.images | relative_url }}/settings7.png)
+8. Click "OK" all the way back to the "Python Interpreter" menu.
+>![settings-button]({{ page.images | relative_url }}/settings8.png)
+9. **BONUS** You can associate this virtual environment to the current project (hiding it when you view settings in other projects) by clicking the interpreter drop-down, selecting "Show All", then selecting the checkbox, "Associate this virtual environment with the current project".
+>![settings-button]({{ page.images | relative_url }}/settings9.png)
+> 
+>![settings-button]({{ page.images | relative_url }}/settings9.5.png)
 
 You should now be able to run python within PyCharm using the ["Run" option](https://www.jetbrains.com/help/pycharm/running-without-any-previous-configuring.html).
 
 # Gotcha
-Setting the project interpreter may lead to weird quirk in the terminal.
+Setting the project interpreter may lead to a weird quirk in the terminal.
 Here's how to check for it.
 1. Open your prefered CLI within PyCharm (I use `git-bash`).
 2. Activate your environment how you normally would (`source env/Scripts/activate` for `venv` users)
@@ -158,8 +171,11 @@ bash: ls: command not found
 Then you have a terminal setting configured that you'd probably like to unset.
 1. Open the settings window again
 2. Navigate to "Tools" in the left pane
+>![settings-button]({{ page.images | relative_url }}/terminal2.png)
 3. Click "Terminal"
+>![settings-button]({{ page.images | relative_url }}/terminal3.png)
 4. Scroll to the bottom and uncheck "Activate virtualenv"
+>![settings-button]({{ page.images | relative_url }}/terminal4.png)
 5. Click "Apply"
 6. Click "OK"
 7. Restart your terminal
