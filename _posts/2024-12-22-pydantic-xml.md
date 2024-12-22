@@ -12,7 +12,7 @@ To do that, I'd need to know which post was most recently published along with i
 After looking at the [GoodReads workflow](https://github.com/it176131/it176131/blob/dev/.github/workflows/goodreads-books-workflow.yml) on my profile,
 I figured I could get that information from my blog's RSS feed.
 
-> [RSS](https://en.wikipedia.org/wiki/RSS) is a web feed that allows users and applications to access udpates to websites in a standardized,
+> [RSS](https://en.wikipedia.org/wiki/RSS) is a web feed that allows users and applications to access updates to websites in a standardized,
 > computer-readable format.
 > 
 > —Wikipedia
@@ -20,7 +20,7 @@ I figured I could get that information from my blog's RSS feed.
 Accessing my blog's RSS feed is as simple as adding _/feed.xml_ to the end of its URL.
 Check it out here 👉 [https://it176131.github.io/feed.xml](https://it176131.github.io/feed.xml).
 > Why _.xml_ and not _.rss_?
-> Well, it turns out that RSS is an extension of XML so in theory we could use either extension.
+> It turns out that RSS is an extension of XML so in theory we could use either extension.
 > However, _.rss_ doesn't work on the URL, so _.xml_ it is.
 
 # `pydantic-xml`
@@ -31,6 +31,6 @@ If you explore the library's main page,
 you'll hopefully come across a link to the [`awesome-pydantic` repo](https://github.com/Kludex/awesome-pydantic)
 which contains a list of projects that use `pydantic`.
 Under the [_Utilities_ section](https://github.com/Kludex/awesome-pydantic?tab=readme-ov-file#utilities)
-you'll find a package called `pydantic-xml`, which extends `pydantic` to allow parsing and validation of XML.
+you'll find a package called [`pydantic-xml`](https://github.com/dapper91/pydantic-xml), which extends `pydantic` to allow parsing and validation of XML.
 
 While viewing my feed was straightforward, parsing it wasn't.
