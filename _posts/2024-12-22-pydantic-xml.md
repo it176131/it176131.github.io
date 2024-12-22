@@ -37,4 +37,10 @@ I don't have much experience parsing XML, but I do know how to use `pydantic`.
 How hard could it be to transfer my `pydantic` knowledge to `pydantic-xml`?
 
 # XML != JSON
-Viewing my blog's RSS feed is straightforward; parsing and validating it wasn't (at first).
+Viewing my blog's RSS feed was straightforward; parsing and validating it wasn't (at first).
+
+I learned there are some distinct differences between JSON and XML:
+- Field names, i.e. "keys", at the same level _must be unique_ in JSON
+- Elements, i.e. "tags", at the same level _don't have to be unique_ in XML
+- Fields are ordered in JSON, but can be parsed and validated by `pydantic` in _any_ order
+- Elements are ordered in XML, and have to be parsed and validated in their _given_ order by `pydantic-xml` (by default)
