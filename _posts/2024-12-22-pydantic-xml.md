@@ -33,4 +33,8 @@ which contains a list of projects that use `pydantic`.
 Under the [_Utilities_ section](https://github.com/Kludex/awesome-pydantic?tab=readme-ov-file#utilities)
 you'll find a package called [`pydantic-xml`](https://github.com/dapper91/pydantic-xml), which extends `pydantic` to allow parsing and validation of XML.
 
-While viewing my feed was straightforward, parsing it wasn't.
+I don't have much experience parsing XML, but I do know how to use `pydantic`.
+How hard could it be to transfer my `pydantic` knowledge to `pydantic-xml`?
+
+# XML != JSON
+Viewing my blog's RSS feed is straightforward; parsing and validating it wasn't (at first).
