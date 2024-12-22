@@ -19,3 +19,18 @@ I figured I could get that information from my blog's RSS feed.
 
 Accessing my blog's RSS feed is as simple as adding _/feed.xml_ to the end of its URL.
 Check it out here 👉 [https://it176131.github.io/feed.xml](https://it176131.github.io/feed.xml).
+> Why _.xml_ and not _.rss_?
+> Well, it turns out that RSS is an extension of XML so in theory we could use either extension.
+> However, _.rss_ doesn't work on the URL, so _.xml_ it is.
+
+# `pydantic-xml`
+I mentioned
+using [`pydantic`](https://docs.pydantic.dev/latest/) in [a previous post]({{ site.baseurl }}{% link _posts/2024-11-29-dynamic-enums.md %})
+for parsing and validating JSON files.
+If you explore the library's main page,
+you'll hopefully come across a link to the [`awesome-pydantic` repo](https://github.com/Kludex/awesome-pydantic)
+which contains a list of projects that use `pydantic`.
+Under the [_Utilities_ section](https://github.com/Kludex/awesome-pydantic?tab=readme-ov-file#utilities)
+you'll find a package called `pydantic-xml`, which extends `pydantic` to allow parsing and validation of XML.
+
+While viewing my feed was straightforward, parsing it wasn't.
