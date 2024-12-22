@@ -1,5 +1,5 @@
 ---
 layout: "post"
-title: "Actions & Workflows: Adding a Feed to My GitHub Profile"
-date: 2024-12-19
+title: "pydantic-xml: Parsing My XML Feed"
+date: 2024-12-22
 ---
