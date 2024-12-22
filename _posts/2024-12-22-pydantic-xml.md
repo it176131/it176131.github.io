@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "pydantic-xml: Parsing My XML Feed"
+title: "pydantic-xml: Parsing My RSS Feed"
 date: 2024-12-22
 ---
 
