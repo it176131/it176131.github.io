@@ -14,16 +14,18 @@ class Author(BaseXmlModel, tag="author", nsmap=NSMAP):
 
 
 class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
+    """A blog post XML entry from the RSS feed."""
 
-    title: str = element()
-    link: dict[str, str] = element(exclude=True)
-    published: datetime = element()
-    updated: datetime = element()
-    id: str = element(exclude=True)
-    content: dict[str, str] = element(exclude=True)
-    # author: Author
-    # author: str = wrapped(path="author", entity=element(tag="name"))
-    author: str = wrapped(path="author/name")
+    ...
+    # title: str = element()
+    # link: dict[str, str] = element(exclude=True)
+    # published: datetime = element()
+    # updated: datetime = element()
+    # id: str = element(exclude=True)
+    # content: dict[str, str] = element(exclude=True)
+    # # author: Author
+    # # author: str = wrapped(path="author", entity=element(tag="name"))
+    # author: str = wrapped(path="author/name")
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP):
@@ -42,6 +44,7 @@ class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP):
     # author: Author = element(exclude=True)
     # # author: str = wrapped(path="author", entity=element(tag="name"))
     # # author: str = wrapped(path="author/name")
+    entry: Entry
     # entries: list[Entry] = element()
 
 

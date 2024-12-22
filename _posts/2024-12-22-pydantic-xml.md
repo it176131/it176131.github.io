@@ -226,6 +226,46 @@ from the `<feed>` tag up through the first `<entry>` tag:
     ...
 </feed>
 ```
+If I were to define the `Feed.entry` attribute like I would in `pydantic`:
+```python
+import httpx
+from httpx import Response
+from pydantic_xml.model import BaseXmlModel
+from rich.console import Console
+
+NSMAP = {"": "http://www.w3.org/2005/Atom"}
+
+
+# NOTE -- we have to declare the _same_ `nsmap` for our `Entry` class as
+# we did in the `Feed` class, otherwise we'll run into the same errors
+# from before.
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
+    """A blog post XML entry from the RSS feed."""
+
+    ...
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP):
+    """Validate the RSS feed/XML from my blog."""
+    
+    entry: Entry
+
+
+if __name__ == "__main__":
+    BLOG_URL = "https://it176131.github.io/feed.xml"
+    resp: Response = httpx.get(url=BLOG_URL)
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model)
+
+```
+We will raise the following error:
+```python-traceback
+pydantic_core._pydantic_core.ValidationError: 1 validation error for Feed
+entry
+  [line -1]: Field required [type=missing, input_value={}, input_type=dict]
+```
 
 Viewing my blog's RSS feed was straightforward; parsing and validating it wasn't (at first).
 I'll highlight some of the difficulties I experienced with examples.
