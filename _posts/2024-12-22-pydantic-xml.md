@@ -132,12 +132,14 @@ which stands for _XML namespace_.
 Searching for ["namespace" in the `pydantic-xml` docs](https://pydantic-xml.readthedocs.io/en/stable/pages/misc.html#default-namespace), I found the missing link:
 I need to include the tag's namespace in my class signature.
 ```diff
++ from typing import Final
+
 import httpx
 from httpx import Response
 from pydantic_xml.model import BaseXmlModel
 from rich.console import Console
 
-+ NSMAP = {"": "http://www.w3.org/2005/Atom"}
++ NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
 
 
 - class Feed(BaseXmlModel, tag="feed"):
@@ -228,12 +230,14 @@ from the `<feed>` tag up through the first `<entry>` tag:
 ```
 If I were to define the `Feed.entry` attribute like I would in `pydantic`:
 ```python
+from typing import Final
+
 import httpx
 from httpx import Response
 from pydantic_xml.model import BaseXmlModel
 from rich.console import Console
 
-NSMAP = {"": "http://www.w3.org/2005/Atom"}
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
 
 
 # NOTE -- we have to declare the _same_ `nsmap` for our `Entry` class as
@@ -266,6 +270,105 @@ pydantic_core._pydantic_core.ValidationError: 1 validation error for Feed
 entry
   [line -1]: Field required [type=missing, input_value={}, input_type=dict]
 ```
+
+This is a [`pydantic` `ValidationError`](https://docs.pydantic.dev/latest/errors/validation_errors/)—which I'm quite familiar with—but it's not immediately known
+how to fix it,
+let alone understand why it was raised.
+Through some trial and error,
+I found that adding an attribute for the first element after `<feed>`, i.e.,
+`<generator>`, and removing the `entry` element results in a successful run:
+```diff
+from typing import Final
+
+import httpx
+from httpx import Response
+- from pydantic_xml.model import BaseXmlModel
++ from pydantic_xml.model import BaseXmlModel, element
+from rich.console import Console
+
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+
+
+# NOTE -- we have to declare the _same_ `nsmap` for our `Entry` class as
+# we did in the `Feed` class, otherwise we'll run into the same errors
+# from before.
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
+    """A blog post XML entry from the RSS feed."""
+
+    ...
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP):
+    """Validate the RSS feed/XML from my blog."""
+    
++     # We define `generator` to be a dictionary element to capture its 
++     # attribute keys and values.
++     generator: dict[str, str] = element()
+-     entry: Entry
+
+
+if __name__ == "__main__":
+    BLOG_URL = "https://it176131.github.io/feed.xml"
+    resp: Response = httpx.get(url=BLOG_URL)
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model)
+
+```
+But why?
+Because of how the `pydantic-xml` model searches for its subfields.
+According to the [`pydantic-xml` docs](https://pydantic-xml.readthedocs.io/en/stable/pages/data-binding/elements.html#elements-search-mode) there are three search methods:
+- [Strict (default)](https://pydantic-xml.readthedocs.io/en/stable/pages/data-binding/elements.html#strict-default)
+- [Ordered](https://pydantic-xml.readthedocs.io/en/stable/pages/data-binding/elements.html#ordered)
+- [Unordered](https://pydantic-xml.readthedocs.io/en/stable/pages/data-binding/elements.html#unordered)
+
+Both the _strict_ and _ordered_ search methods require the model's subfields to mirror the order in the XML document,
+but the latter offers a bit more flexibility by allowing "unknown" fields to be skipped.
+Or in our case, fields we don't care about.
+That means
+setting `search_mode="ordered"` in our `Feed` signature should allow us to skip all the way to our `Entry` subfield.
+```diff
+from typing import Final
+
+import httpx
+from httpx import Response
++ from pydantic_xml.model import BaseXmlModel
+- from pydantic_xml.model import BaseXmlModel, element
+from rich.console import Console
+
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+
+
+# NOTE -- we have to declare the _same_ `nsmap` for our `Entry` class as
+# we did in the `Feed` class, otherwise we'll run into the same errors
+# from before.
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
+    """A blog post XML entry from the RSS feed."""
+
+    ...
+
+
+- class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP):
++ class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+    """Validate the RSS feed/XML from my blog."""
+
+-     # We define `generator` to be a dictionary element to capture its 
+-     # attribute keys and values.
+-     generator: dict[str, str] = element()
++     entry: Entry
+
+
+if __name__ == "__main__":
+    BLOG_URL = "https://it176131.github.io/feed.xml"
+    resp: Response = httpx.get(url=BLOG_URL)
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model)
+
+```
+And it does.
 
 Viewing my blog's RSS feed was straightforward; parsing and validating it wasn't (at first).
 I'll highlight some of the difficulties I experienced with examples.
