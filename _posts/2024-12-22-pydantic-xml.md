@@ -378,12 +378,95 @@ to see everything else in the
 if we set the [`model_config`](https://docs.pydantic.dev/latest/concepts/config/) to allow for it.
 Unfortunately, this doesn't work in `pydantic-xml`.
 
+#### Duplicate Field Names
+This is the next entry in my XML, minus the content and summary.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator>
+    <link href="/feed.xml" rel="self" type="application/atom+xml"/>
+    <link href="/" rel="alternate" type="text/html"/>
+    <updated>2024-12-13T02:39:38+00:00</updated>
+    <id>/feed.xml</id>
+    <title type="html">My Blog</title>
+    <subtitle>Where I write things...</subtitle>
+    <author>
+        <name>Ian Thompson</name>
+    </author>
+    <entry>
+        <title type="html">isort + git: Cleaner Import Statements for Those Who Don’t Like pre-commit</title>
+        <link href="/2024/12/12/isort.html" rel="alternate" type="text/html"
+              title="isort + git: Cleaner Import Statements for Those Who Don’t Like pre-commit"/>
+        <published>2024-12-12T00:00:00+00:00</published>
+        <updated>2024-12-12T00:00:00+00:00</updated>
+        <id>/2024/12/12/isort</id>
+        <content type="html" xml:base="/2024/12/12/isort.html">...</content>
+        <author>
+            <name>Ian Thompson</name>
+        </author>
+        <summary type="html">...</summary>
+    </entry>
+    <entry>
+        <title type="html">PyCharm: Projects &amp;amp; Environments</title>
+        <link href="/2024/12/03/pycharm-projects-envs.html" rel="alternate" type="text/html"
+              title="PyCharm: Projects &amp;amp; Environments"/>
+        <published>2024-12-03T00:00:00+00:00</published>
+        <updated>2024-12-03T00:00:00+00:00</updated>
+        <id>/2024/12/03/pycharm-projects-envs</id>
+        <content type="html" xml:base="/2024/12/03/pycharm-projects-envs.html">...</content>
+        <author>
+            <name>Ian Thompson</name>
+        </author>
+        <summary type="html">...</summary>
+    </entry>
+</feed>
+```
 
-Viewing my blog's RSS feed was straightforward; parsing and validating it wasn't (at first).
-I'll highlight some of the difficulties I experienced with examples.
+You'll notice that each `<entry>` tag is at the same level.
+In JSON, this would be the equivalent of having multiple fields with the same name:
+```json
+{
+  "Field": "Value1",
+  "Field": "Value2"
+}
+```
 
-**JSON field names vs XML tags**
-- Field names, i.e. "keys", at the same level _must be unique_ in JSON
-- Elements, i.e. "tags", at the same level _don't have to be unique_ in XML
-- Fields are ordered in JSON, but can be parsed and validated by `pydantic` in _any_ order
-- Elements are ordered in XML, and have to be parsed and validated in their _given_ order by `pydantic-xml` (by default)
+And validating this with `pydantic` would yield some interesting results:
+```python
+from typing import Annotated
+
+from pydantic.fields import Field
+from pydantic.main import BaseModel
+from rich.console import Console
+
+
+class Model(BaseModel):
+    field: Annotated[str, Field(alias="Field")]
+    field: Annotated[str, Field(alias="Field")]
+
+
+if __name__ == "__main__":
+    json_as_python_dict = {
+        "Field": "Value1",
+        "Field": "Value2",
+    }
+    model = Model(**json_as_python_dict)
+    console = Console()
+    console.print(model)  # >>> Model(field="Value2")
+
+```
+
+While having multiple keys with the same name in JSON is technically allowed,
+it's not good practice.
+And using Python to read the JSON resolves it to a `dict` which _can't_ have duplicate keys.
+In fact,
+defining a dictionary with duplicate keys is roughly equivalent
+to merging two `dict` objects with the same key(s).
+This results in a "last seen wins" value-assignment to the duplicate key
+(see [PEP 584](https://peps.python.org/pep-0584/) for more details).
+
+What about XML?
+Duplicate tag names are allowed; how does `pydantic-xml` handle them?
+```python
+
+```
