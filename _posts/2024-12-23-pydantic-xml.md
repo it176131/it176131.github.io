@@ -664,7 +664,7 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
     published: datetime = element()
     updated: datetime = element()
 -     author: Author
-+   author: str = wrapped(path="author", entity=element(tag="name"))
++     author: str = wrapped(path="author", entity=element(tag="name"))
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
