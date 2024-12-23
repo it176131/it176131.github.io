@@ -370,6 +370,15 @@ if __name__ == "__main__":
 ```
 And it does.
 
+The downside to this is we lose everything between the `<feed>` and `<entry>` tags.
+In `pydantic`,
+we'd be able
+to see everything else in the
+[`model_extra`](https://docs.pydantic.dev/latest/api/base_model/#pydantic.BaseModel.model_extra)
+if we set the [`model_config`](https://docs.pydantic.dev/latest/concepts/config/) to allow for it.
+Unfortunately, this doesn't work in `pydantic-xml`.
+
+
 Viewing my blog's RSS feed was straightforward; parsing and validating it wasn't (at first).
 I'll highlight some of the difficulties I experienced with examples.
 
