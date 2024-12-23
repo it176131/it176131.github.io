@@ -155,7 +155,7 @@ if __name__ == "__main__":
     xml: bytes = resp.content
     console = Console()
     model = Feed.from_xml(source=xml)
-    console.print(model)
+    console.print(model)  # >>> Feed()
 
 ```
 > [!NOTE]
@@ -244,7 +244,7 @@ NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
 # we did in the `Feed` class, otherwise we'll run into the same errors
 # from before.
 class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
-    """A blog post XML entry from the RSS feed."""
+    """A blog post entry from the RSS feed."""
 
     ...
 
@@ -293,7 +293,7 @@ NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
 # we did in the `Feed` class, otherwise we'll run into the same errors
 # from before.
 class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
-    """A blog post XML entry from the RSS feed."""
+    """A blog post entry from the RSS feed."""
 
     ...
 
@@ -313,7 +313,7 @@ if __name__ == "__main__":
     xml: bytes = resp.content
     console = Console()
     model = Feed.from_xml(source=xml)
-    console.print(model)
+    console.print(model)  # >>> Feed(generator={'uri': 'https://jekyllrb.com/', 'version': '3.10.0'})
 
 ```
 But why?
@@ -344,7 +344,7 @@ NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
 # we did in the `Feed` class, otherwise we'll run into the same errors
 # from before.
 class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
-    """A blog post XML entry from the RSS feed."""
+    """A blog post entry from the RSS feed."""
 
     ...
 
@@ -365,7 +365,7 @@ if __name__ == "__main__":
     xml: bytes = resp.content
     console = Console()
     model = Feed.from_xml(source=xml)
-    console.print(model)
+    console.print(model)  # >>> Feed(entry=Entry())
 
 ```
 And it does.
@@ -483,7 +483,7 @@ NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
 
 
 class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
-    """A blog post XML entry from the RSS feed."""
+    """A blog post entry from the RSS feed."""
 
     # NOTE -- I'm validating some of the entry subfields to 
     # differentiate from other entries.
@@ -543,7 +543,7 @@ NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
 
 
 class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
-    """A blog post XML entry from the RSS feed."""
+    """A blog post entry from the RSS feed."""
 
     # NOTE -- I'm validating some of the entry subfields to 
     # differentiate from other entries.
@@ -591,3 +591,154 @@ tzinfo=TzInfo(UTC)),
 This is probably my favorite feature in `pydantic-xml`.
 
 # Bonus Features
+As I wrap up my blog's RSS feed class, I'd like to highlight a few features of `pydantic-xml`.
+First, you don't have to create a new model `class` for every XML subfield.
+For example, here is how I'd validate the `<author>` tag _with_ a model:
+```python
+from datetime import datetime
+from typing import Final
+
+import httpx
+from httpx import Response
+from pydantic_xml.model import BaseXmlModel, element
+from rich.console import Console
+
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+
+
+class Author(BaseXmlModel, tag="author", nsmap=NSMAP):
+    """A blog post author from the RSS feed."""
+
+    name: str = element(tag="name")
+
+
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
+    """A blog post entry from the RSS feed."""
+
+    title: str = element()
+    published: datetime = element()
+    updated: datetime = element()
+    author: Author
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+
+    """Validate the RSS feed/XML from my blog."""
+
+    entries: list[Entry] = element()
+
+
+if __name__ == "__main__":
+    BLOG_URL = "https://it176131.github.io/feed.xml"
+    resp: Response = httpx.get(url=BLOG_URL)
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model)
+
+```
+And here is how I'd do it _without_ an `Author` model:
+```diff
+from datetime import datetime
+from typing import Final
+
+import httpx
+from httpx import Response
+- from pydantic_xml.model import BaseXmlModel, element
++ from pydantic_xml.model import BaseXmlModel, element, wrapped
+from rich.console import Console
+
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+
+
+- class Author(BaseXmlModel, tag="author", nsmap=NSMAP):
+-     """A blog post author from the RSS feed."""
+- 
+-     name: str = element(tag="name")
+
+
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
+    """A blog post entry from the RSS feed."""
+
+    title: str = element()
+    published: datetime = element()
+    updated: datetime = element()
+-     author: Author
++   author: str = wrapped(path="author", entity=element(tag="name"))
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+
+    """Validate the RSS feed/XML from my blog."""
+
+    entries: list[Entry] = element()
+
+
+if __name__ == "__main__":
+    BLOG_URL = "https://it176131.github.io/feed.xml"
+    resp: Response = httpx.get(url=BLOG_URL)
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model)
+
+```
+This second approach uses the [`wrapped`](https://pydantic-xml.readthedocs.io/en/stable/pages/data-binding/wrapper.html#wrapper) function.
+When a field doesn't have a lot of important attributes that I'd like to validate, e.g. the `<author>` tag,
+I'd use `wrapped` instead of defining a new model class.
+> [!NOTE]
+> 
+> This changes the type of `Feed.entry.author`:
+> ```diff
+> Feed(
+>     entries=[
+>         Entry(
+>             ...,
+> -             author=Author(name='Ian Thompson')
+> +             author='Ian Thompson'
+>         )
+>     ]
+> )
+> ```
+
+A more direct/less verbose way of using `wrapped` would be to only supply an argument to the `path` parameter:
+```diff
+from datetime import datetime
+from typing import Final
+
+import httpx
+from httpx import Response
+from pydantic_xml.model import BaseXmlModel, element, wrapped
+from rich.console import Console
+
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+
+
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
+    """A blog post entry from the RSS feed."""
+
+    title: str = element()
+    published: datetime = element()
+    updated: datetime = element()
+-     author: str = wrapped(path="author", entity=element(tag="name"))
++     author: str = wrapped(path="author/name")
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+
+    """Validate the RSS feed/XML from my blog."""
+
+    entries: list[Entry] = element()
+
+
+if __name__ == "__main__":
+    BLOG_URL = "https://it176131.github.io/feed.xml"
+    resp: Response = httpx.get(url=BLOG_URL)
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model)
+
+```
+I see the `entity` parameter as more useful when accessing tag _attributes_,
+rather than tags themselves.
