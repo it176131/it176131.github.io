@@ -467,6 +467,127 @@ This results in a "last seen wins" value-assignment to the duplicate key
 
 What about XML?
 Duplicate tag names are allowed; how does `pydantic-xml` handle them?
+It turns out that by simply differentiating the attribute names,
+e.g. "entry1" and "entry2,"
+the `pydantic-xml` model will assign the tags in the order it discovers them.
 ```python
+from datetime import datetime
+from typing import Final
+
+import httpx
+from httpx import Response
+from pydantic_xml.model import BaseXmlModel, element
+from rich.console import Console
+
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+
+
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
+    """A blog post XML entry from the RSS feed."""
+
+    # NOTE -- I'm validating some of the entry subfields to 
+    # differentiate from other entries.
+    title: str = element()
+    published: datetime = element()
+    updated: datetime = element()
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+
+    """Validate the RSS feed/XML from my blog."""
+
+    entry1: Entry
+    entry2: Entry
+
+
+if __name__ == "__main__":
+    BLOG_URL = "https://it176131.github.io/feed.xml"
+    resp: Response = httpx.get(url=BLOG_URL)
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model)
 
 ```
+```text
+Feed(
+    entry1=Entry(
+        title='isort + git: Cleaner Import Statements for Those Who Don’t Like 
+pre-commit',
+        published=datetime.datetime(2024, 12, 12, 0, 0, tzinfo=TzInfo(UTC)),
+        updated=datetime.datetime(2024, 12, 12, 0, 0, tzinfo=TzInfo(UTC))
+    ),
+    entry2=Entry(
+        title='PyCharm: Projects &amp; Environments',
+        published=datetime.datetime(2024, 12, 3, 0, 0, tzinfo=TzInfo(UTC)),
+        updated=datetime.datetime(2024, 12, 3, 0, 0, tzinfo=TzInfo(UTC))
+    )
+)
+```
+
+That's kind of convenient,
+but what if I don't know how many `<entry>` tags are in the XML?
+The `pydantic-xml` model has
+that covered with a thing
+called [_homogenous collections_](https://pydantic-xml.readthedocs.io/en/stable/pages/data-binding/homogeneous.html#homogeneous-collections).
+```diff
+from datetime import datetime
+from typing import Final
+
+import httpx
+from httpx import Response
+from pydantic_xml.model import BaseXmlModel, element
+from rich.console import Console
+
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+
+
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
+    """A blog post XML entry from the RSS feed."""
+
+    # NOTE -- I'm validating some of the entry subfields to 
+    # differentiate from other entries.
+    title: str = element()
+    published: datetime = element()
+    updated: datetime = element()
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+
+    """Validate the RSS feed/XML from my blog."""
+
+-     entry1: Entry
+-     entry2: Entry
++     entries: list[Entry]
+
+
+if __name__ == "__main__":
+    BLOG_URL = "https://it176131.github.io/feed.xml"
+    resp: Response = httpx.get(url=BLOG_URL)
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model)
+
+```
+```text
+Feed(
+    entries=[
+        Entry(
+            title='isort + git: Cleaner Import Statements for Those Who Don’t 
+Like pre-commit',
+            published=datetime.datetime(2024, 12, 12, 0, 0, 
+tzinfo=TzInfo(UTC)),
+            updated=datetime.datetime(2024, 12, 12, 0, 0, tzinfo=TzInfo(UTC))
+        ),
+        Entry(
+            title='PyCharm: Projects &amp; Environments',
+            published=datetime.datetime(2024, 12, 3, 0, 0, tzinfo=TzInfo(UTC)),
+            updated=datetime.datetime(2024, 12, 3, 0, 0, tzinfo=TzInfo(UTC))
+        )
+    ]
+)
+```
+This is probably my favorite feature in `pydantic-xml`.
+
+# Bonus Features
