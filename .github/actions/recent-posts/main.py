@@ -29,7 +29,6 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
-
     """Validate the RSS feed/XML from my blog."""
 
     # We limit to the first <entry> from the RSS feed as it is the most

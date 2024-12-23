@@ -493,7 +493,6 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
-
     """Validate the RSS feed/XML from my blog."""
 
     entry1: Entry
@@ -553,7 +552,6 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP):
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
-
     """Validate the RSS feed/XML from my blog."""
 
 -     entry1: Entry
@@ -622,7 +620,6 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
-
     """Validate the RSS feed/XML from my blog."""
 
     entries: list[Entry] = element()
@@ -649,8 +646,8 @@ from httpx import Response
 from rich.console import Console
 
 NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
-
-
+- 
+- 
 - class Author(BaseXmlModel, tag="author", nsmap=NSMAP):
 -     """A blog post author from the RSS feed."""
 - 
@@ -664,11 +661,10 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
     published: datetime = element()
     updated: datetime = element()
 -     author: Author
-+   author: str = wrapped(path="author", entity=element(tag="name"))
++     author: str = wrapped(path="author", entity=element(tag="name"))
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
-
     """Validate the RSS feed/XML from my blog."""
 
     entries: list[Entry] = element()
@@ -725,7 +721,6 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
-
     """Validate the RSS feed/XML from my blog."""
 
     entries: list[Entry] = element()
@@ -779,7 +774,6 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
 
 
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
-
     """Validate the RSS feed/XML from my blog."""
 
     # We limit to the first <entry> from the RSS feed as it is the most
