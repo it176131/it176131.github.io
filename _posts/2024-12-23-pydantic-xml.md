@@ -646,8 +646,8 @@ from httpx import Response
 from rich.console import Console
 
 NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
-
-
+- 
+- 
 - class Author(BaseXmlModel, tag="author", nsmap=NSMAP):
 -     """A blog post author from the RSS feed."""
 - 
