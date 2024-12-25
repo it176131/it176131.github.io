@@ -1,4 +1,5 @@
 from datetime import datetime
+from os import environ
 from typing import Final
 
 import httpx
@@ -41,4 +42,5 @@ if __name__ == "__main__":
     xml: bytes = resp.content
     console = Console()
     model = Feed.from_xml(source=xml)
-    console.print(model.model_dump_json(indent=2))
+    json_string = model.model_dump_json()
+    environ["GITHUB_OUTPUT"] = json_string
