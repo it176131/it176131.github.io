@@ -1,0 +1,10 @@
+on: [push]
+
+jobs:
+  recent_post_job:
+    runs-on: ubuntu-latest
+    name: Recent Post
+    steps:
+      - name: Recent post action
+        id: recent-post
+        users: it176131/it176131.github.io/.github/actions/recent-posts@v1
