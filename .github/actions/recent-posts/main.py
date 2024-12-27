@@ -1,17 +1,20 @@
 from datetime import datetime
 from os import environ
-from typing import Final
+from typing import Annotated, Final
 
 import httpx
 from httpx import Response
 from pydantic.networks import HttpUrl
+from pydantic.types import FilePath
 from pydantic_xml.model import (
     attr, BaseXmlModel, computed_element, element, wrapped
 )
-from rich.console import Console
+from typer import Typer
+from typer.params import Argument
 
 BLOG_URL = "https://it176131.github.io"
 NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+app = Typer()
 
 
 class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
@@ -37,11 +40,24 @@ class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
     entry: Entry
 
 
-if __name__ == "__main__":
+@app.command()
+def main(
+        readme: Annotated[
+            FilePath,
+            Argument(help="Path to file where metadata will be written.")
+        ] = "README.md"
+) -> None:
+    """Write most recent blog post metadata to ``readme``."""
     resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
     xml: bytes = resp.content
-    console = Console()
     model = Feed.from_xml(source=xml)
     json_string = model.model_dump_json()
     with open(environ["GITHUB_OUTPUT"], mode="a") as f:
         f.write(f"result={json_string}")
+
+    with readme.open(mode="a") as f:
+        f.write(f"result={json_string}\n")
+
+
+if __name__ == "__main__":
+    app()
