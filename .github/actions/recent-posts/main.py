@@ -45,5 +45,3 @@ if __name__ == "__main__":
     json_string = model.model_dump_json()
     with open(environ["GITHUB_OUTPUT"], mode="a") as f:
         f.write(f"result={json_string}")
-
-    print(environ["GITHUB_OUTPUT"])
