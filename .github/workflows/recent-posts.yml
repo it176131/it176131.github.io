@@ -8,5 +8,3 @@ jobs:
       - name: Recent post action
         id: recent-post
         uses: "it176131/it176131.github.io/.github/actions/recent-posts@v1"
-      - name: Show metadata
-        run: echo ${{ GITHUB_OUTPUT }}
