@@ -8,3 +8,5 @@ jobs:
       - name: Recent post action
         id: recent-post
         uses: "it176131/it176131.github.io/.github/actions/recent-posts@v1"
+      - name: Get the result
+        run: echo ${{ steps.recent-post.outputs.result }}
