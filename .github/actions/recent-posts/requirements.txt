@@ -1,4 +1,3 @@
 httpx
 pydantic-xml
-rich
 typer
