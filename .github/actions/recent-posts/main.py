@@ -62,6 +62,7 @@ def main(
     subprocess.run(args=["git", "add", readme.as_posix()])
     subprocess.run(args=["git", "commit", "-m", "Synced and updated with most recent it176131.github.io blog post"])
     subprocess.run(args=["git", "push"])
+    print("Success?")
 
 
 if __name__ == "__main__":
