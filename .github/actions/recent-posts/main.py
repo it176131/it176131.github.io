@@ -44,3 +44,4 @@ if __name__ == "__main__":
     model = Feed.from_xml(source=xml)
     json_string = model.model_dump_json()
     environ["GITHUB_OUTPUT"] = json_string
+    print(environ["GITHUB_OUTPUT"])
