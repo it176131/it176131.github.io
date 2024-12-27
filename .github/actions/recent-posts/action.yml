@@ -1,4 +1,5 @@
 name: "Recent Posts"
+author: "Ian Thompson"
 description: "Get the most recent blog post metadata."
 runs:
   using: "docker"
