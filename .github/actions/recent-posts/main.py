@@ -1,5 +1,6 @@
 from datetime import datetime
 from os import environ
+import subprocess
 from typing import Annotated, Final
 
 import httpx
@@ -57,6 +58,10 @@ def main(
 
     with readme.open(mode="a") as f:
         f.write(f"result={json_string}\n")
+
+    subprocess.run(args=["git", "add", readme.as_posix()])
+    subprocess.run(args=["git", "commit", "-m", "Synced and updated with most recent it176131.github.io blog post"])
+    subprocess.run(args=["git", "push"])
 
 
 if __name__ == "__main__":
