@@ -1,7 +1,5 @@
 from datetime import datetime
-from os import environ
 import re
-import subprocess
 from typing import Annotated, Final
 
 import httpx
@@ -11,6 +9,7 @@ from pydantic.types import FilePath
 from pydantic_xml.model import (
     attr, BaseXmlModel, computed_element, element, wrapped
 )
+from rich import print
 from rich.table import Table
 from typer import Typer
 from typer.params import Argument
@@ -67,9 +66,10 @@ def main(
             model.entry.published.strftime("%Y-%m-%d %I:%M%p"),
         )
     )
-    text = re.sub(pattern=pattern, repl=str(table), string=text)
+    new_text = re.sub(pattern=pattern, repl=str(table), string=text)
+    print(new_text)
     with readme.open(mode="w") as f:
-        f.write(text)
+        f.write(new_text)
 
 
 if __name__ == "__main__":
