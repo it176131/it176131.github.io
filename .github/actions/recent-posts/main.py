@@ -1,5 +1,6 @@
 from datetime import datetime
 from os import environ
+import re
 import subprocess
 from typing import Annotated, Final
 
@@ -10,6 +11,7 @@ from pydantic.types import FilePath
 from pydantic_xml.model import (
     attr, BaseXmlModel, computed_element, element, wrapped
 )
+from rich.table import Table
 from typer import Typer
 from typer.params import Argument
 
@@ -52,10 +54,16 @@ def main(
     resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
     xml: bytes = resp.content
     model = Feed.from_xml(source=xml)
-    json_string = model.model_dump_json()
 
-    with readme.open(mode="a") as f:
-        f.write(f"result={json_string}\n")
+    with readme.open(mode="r") as f:
+        text = f.read()
+
+    pattern = "(?<=\<\!\-\- BLOG START \-\-\>).*(?=\<\!\-\- BLOG END \-\-\>)"
+    table = Table(*("Title", "Author", "Published"))
+    table.add_row(*(f"[{model.entry.title}]({model.entry.link})", model.entry.author, model.entry.published))
+    text = re.sub(pattern=pattern, repl=str(table), string=text)
+    with readme.open(mode="w") as f:
+        f.write(text)
 
 
 if __name__ == "__main__":

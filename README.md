@@ -55,4 +55,6 @@ Get help: [Post in our discussion board](https://github.com/orgs/skills/discussi
 &copy; 2023 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
 </footer>
-result={"entry":{"title":"pydantic-xml: Parsing My RSS Feed","relative_url":"/2024/12/23/pydantic-xml.html","published":"2024-12-23T00:00:00Z","updated":"2024-12-23T00:00:00Z","author":"Ian Thompson","link":"https://it176131.github.io/2024/12/23/pydantic-xml.html"}}
+
+<!-- BLOG START -->
+<!-- BLOG END -->
