@@ -9,7 +9,7 @@ from pydantic.types import FilePath
 from pydantic_xml.model import (
     attr, BaseXmlModel, computed_element, element, wrapped
 )
-from rich import print
+from rich.console import Console
 from rich.table import Table
 from typer import Typer
 from typer.params import Argument
@@ -66,8 +66,12 @@ def main(
             model.entry.published.strftime("%Y-%m-%d %I:%M%p"),
         )
     )
-    new_text = re.sub(pattern=pattern, repl=str(table), string=text)
-    print(new_text)
+    console = Console()
+    with console.capture() as capture:
+        console.print(table)
+
+    repl = capture.get()
+    new_text = re.sub(pattern=pattern, repl=repl, string=text)
     with readme.open(mode="w") as f:
         f.write(new_text)
 
