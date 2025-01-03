@@ -57,4 +57,5 @@ Get help: [Post in our discussion board](https://github.com/orgs/skills/discussi
 </footer>
 
 <!-- BLOG START -->
-- [pydantic-xml: Parsing My RSS Feed](https://it176131.github.io/2024/12/23/pydantic-xml.html) by Ian Thompson<!-- BLOG END -->
+- [pydantic-xml: Parsing My RSS Feed](https://it176131.github.io/2024/12/23/pydantic-xml.html) by Ian Thompson
+<!-- BLOG END -->
