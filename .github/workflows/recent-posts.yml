@@ -1,5 +1,7 @@
 name: "Update README with most recent blog post"
 on: push
+permissions:
+  contents: write
 
 jobs:
   recent_post_job:
