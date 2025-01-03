@@ -56,5 +56,4 @@ Get help: [Post in our discussion board](https://github.com/orgs/skills/discussi
 
 </footer>
 
-<!-- BLOG START -->
-<!-- BLOG END -->
+<!-- BLOG START --><rich.table.Table object at 0x7f119e3ebcb0><!-- BLOG END -->
