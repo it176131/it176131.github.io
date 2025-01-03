@@ -13,5 +13,10 @@ jobs:
         id: recent-post
         uses: "it176131/it176131.github.io/.github/actions/recent-posts@v1"
 
-      - name: Get the result
-        run: echo ${{ steps.recent-post.outputs.result }}
+      - name: Commit README
+        run: |
+          git config user.email github-actions@github.com
+          git config user.name github-actions
+          git add .
+          git commit -m "Synced and updated with most recent it176131.github.io blog post"
+          git push
