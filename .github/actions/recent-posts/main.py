@@ -9,8 +9,6 @@ from pydantic.types import FilePath
 from pydantic_xml.model import (
     attr, BaseXmlModel, computed_element, element, wrapped
 )
-from rich.console import Console
-from rich.table import Table
 from typer import Typer
 from typer.params import Argument
 
@@ -58,19 +56,9 @@ def main(
         text = f.read()
 
     pattern = r"(?<=<!-- BLOG START -->)[\S\s]*(?=<!-- BLOG END -->)"
-    table = Table(*("Title", "Author", "Published"))
-    table.add_row(
-        *(
-            f"[{model.entry.title}]({model.entry.link})",
-            model.entry.author,
-            model.entry.published.strftime("%Y-%m-%d %I:%M%p"),
-        )
+    repl = (
+        f"- [{model.entry.title}]({model.entry.link}) by {model.entry.author}"
     )
-    console = Console()
-    with console.capture() as capture:
-        console.print(table)
-
-    repl = capture.get()
     new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
     with readme.open(mode="w") as f:
         f.write(new_text)
