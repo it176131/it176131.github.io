@@ -59,7 +59,7 @@ def main(
     repl = (
         f"- [{model.entry.title}]({model.entry.link}) by {model.entry.author}"
     )
-    new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
+    new_text = re.sub(pattern=pattern, repl=f"\n{repl}", string=text)
     with readme.open(mode="w") as f:
         f.write(new_text)
 
