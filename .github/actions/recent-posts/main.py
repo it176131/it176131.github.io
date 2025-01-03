@@ -60,7 +60,13 @@ def main(
 
     pattern = "(?<=\<\!\-\- BLOG START \-\-\>).*(?=\<\!\-\- BLOG END \-\-\>)"
     table = Table(*("Title", "Author", "Published"))
-    table.add_row(*(f"[{model.entry.title}]({model.entry.link})", model.entry.author, model.entry.published))
+    table.add_row(
+        *(
+            f"[{model.entry.title}]({model.entry.link})",
+            model.entry.author,
+            model.entry.published.strftime("%Y-%m-%d %I:%M%p"),
+        )
+    )
     text = re.sub(pattern=pattern, repl=str(table), string=text)
     with readme.open(mode="w") as f:
         f.write(text)
