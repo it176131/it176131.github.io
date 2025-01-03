@@ -59,6 +59,8 @@ def main(
     with readme.open(mode="a") as f:
         f.write(f"result={json_string}\n")
 
+    subprocess.run(args=["git", "config", "--global", "user.email", "it176131-github-io-bot@example.com"])
+    subprocess.run(args=["git", "config", "--global", "user.name", "it176131-github-io-bot"])
     subprocess.run(args=["git", "add", readme.as_posix()])
     subprocess.run(args=["git", "commit", "-m", "Synced and updated with most recent it176131.github.io blog post"])
     subprocess.run(args=["git", "push"])
