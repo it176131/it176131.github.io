@@ -57,7 +57,7 @@ def main(
     with readme.open(mode="r") as f:
         text = f.read()
 
-    pattern = "(?<=\<\!\-\- BLOG START \-\-\>).*(?=\<\!\-\- BLOG END \-\-\>)"
+    pattern = r"(?<=<!-- BLOG START -->)[\S\s]*(?=<!-- BLOG END -->)"
     table = Table(*("Title", "Author", "Published"))
     table.add_row(
         *(
