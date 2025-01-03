@@ -71,7 +71,7 @@ def main(
         console.print(table)
 
     repl = capture.get()
-    new_text = re.sub(pattern=pattern, repl=repl, string=text)
+    new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
     with readme.open(mode="w") as f:
         f.write(new_text)
 
