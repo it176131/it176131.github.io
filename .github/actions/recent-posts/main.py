@@ -64,7 +64,6 @@ def main(
             ) for entry in model.entries
         ]
     )
-    print(repl)
     new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
     with readme.open(mode="w") as f:
         f.write(new_text)
