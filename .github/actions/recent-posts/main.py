@@ -35,9 +35,9 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
     """Validate the RSS feed/XML from my blog."""
 
-    # We limit to the first <entry> from the RSS feed as it is the most
-    # recently published.
-    entry: Entry
+    # We limit to the first five <entry> from the RSS feed as they are
+    # the most recently published.
+    entries: tuple[Entry, Entry, Entry, Entry, Entry]
 
 
 @app.command()
@@ -56,8 +56,13 @@ def main(
         text = f.read()
 
     pattern = r"(?<=<!-- BLOG START -->)[\S\s]*(?=<!-- BLOG END -->)"
-    repl = (
-        f"- [{model.entry.title}]({model.entry.link}) by {model.entry.author}"
+    template = "- [{title}]({link}) by {author}"
+    repl = "\n".join(
+        [
+            template.format(
+                title=entry.title, link=entry.link, author=entry.author
+            ) for entry in model.entries
+        ]
     )
     new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
     with readme.open(mode="w") as f:
