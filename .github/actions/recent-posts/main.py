@@ -37,7 +37,7 @@ class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
 
     # We limit to the first five <entry> from the RSS feed as they are
     # the most recently published.
-    entries: tuple[Entry, Entry, Entry, Entry, Entry]
+    entries: tuple[Entry, Entry, Entry]
 
 
 @app.command()
