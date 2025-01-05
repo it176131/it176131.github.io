@@ -2,6 +2,10 @@ name: "Recent Posts"
 author: "Ian Thompson"
 description: "Get the most recent blog post metadata."
 inputs:
+  readme:
+    description: "Path to the README.md"
+    required: false
+    default: ./README.md
   num-entries:
     description: "Number of blog entries to show"
     required: false
@@ -11,4 +15,5 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
+    - ${{ inputs.readme }}
     - ${{ inputs.num-entries }}
