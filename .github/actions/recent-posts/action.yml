@@ -1,12 +1,14 @@
 name: "Recent Posts"
 author: "Ian Thompson"
 description: "Get the most recent blog post metadata."
-runs:
-  using: "docker"
-  image: "Dockerfile"
-
 inputs:
   num-entries:
     description: "Number of blog entries to show"
     required: false
     default: 5
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.num-entries }}
