@@ -16,6 +16,7 @@ jobs:
 #        uses: "it176131/it176131.github.io/.github/actions/recent-posts@recent-posts"
         uses: "./.github/actions/recent-posts"
         with:
+          readme: ./README.md
           num-entries: 5
 
       - name: Commit README
