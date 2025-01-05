@@ -5,7 +5,8 @@ inputs:
   readme:
     description: "Path to the README.md"
     required: false
-    default: ./README.md
+    default: "./README.md"
+
   num-entries:
     description: "Number of blog entries to show"
     required: false

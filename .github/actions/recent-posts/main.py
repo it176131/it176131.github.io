@@ -45,11 +45,11 @@ def main(
         readme: Annotated[
             FilePath,
             Argument(help="Path to file where metadata will be written.")
-        ] = "README.md",
+        ],
         num_entries: Annotated[
             int,
             Argument(help="Number of blog entries to write to the `readme`.")
-        ] = 5
+        ],
 ) -> None:
     """Write most recent blog post metadata to ``readme``."""
     resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
