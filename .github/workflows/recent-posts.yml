@@ -23,7 +23,6 @@ jobs:
         run: |
           git config user.email github-actions@github.com
           git config user.name github-actions
-          git pull origin recent-posts
           git add README.md
           git commit -m "Synced and updated with most recent it176131.github.io blog post"
           git push
