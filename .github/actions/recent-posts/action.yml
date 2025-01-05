@@ -4,7 +4,3 @@ description: "Get the most recent blog post metadata."
 runs:
   using: "docker"
   image: "Dockerfile"
-
-outputs:
-  result:
-    description: "The most recent blog post's metadata."
