@@ -45,12 +45,17 @@ def main(
         readme: Annotated[
             FilePath,
             Argument(help="Path to file where metadata will be written.")
-        ] = "README.md"
+        ] = "README.md",
+        num_entries: Annotated[
+            int,
+            Argument(help="Number of blog entries to write to the `readme`.")
+        ] = 5
 ) -> None:
     """Write most recent blog post metadata to ``readme``."""
     resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
     xml: bytes = resp.content
     model = Feed.from_xml(source=xml)
+    entries = model.entries[:num_entries]
 
     with readme.open(mode="r") as f:
         text = f.read()
@@ -59,9 +64,8 @@ def main(
     template = "- [{title}]({link}) by {author}"
     repl = "\n".join(
         [
-            template.format(
-                title=entry.title, link=entry.link, author=entry.author
-            ) for entry in model.entries
+            template.format(title=e.title, link=e.link, author=e.author)
+            for e in entries
         ]
     )
     new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
