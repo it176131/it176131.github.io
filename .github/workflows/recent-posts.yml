@@ -1,8 +1,5 @@
 name: "Update README with most recent blog post"
-on:
-  push:
-    branches:
-      - recent-posts
+on: push
 
 permissions:
   contents: write
@@ -16,7 +13,6 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Recent post action
-        id: recent-post
         uses: "it176131/it176131.github.io/.github/actions/recent-posts@recent-posts"
 
       - name: Commit README
