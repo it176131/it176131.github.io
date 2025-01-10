@@ -33,10 +33,171 @@ This file provides instructions to the GitHub action on how to build a container
 install my script's dependencies via the requirements.txt file, then declare `python /main.py` as an _entrypoint_.
 > [!NOTE]
 > 
-> When I first wrote my Dockerfile I used `CMD` instead of `ENTRYPOINT`
+> When I first wrote my Dockerfile I used [`CMD`](https://docs.docker.com/reference/dockerfile/#cmd) instead of [`ENTRYPOINT`](https://docs.docker.com/reference/dockerfile/#entrypoint)
 > because that's what the example looked like on the 
 > [Docker website](https://docs.docker.com/get-started/docker-concepts/building-images/writing-a-dockerfile/).
 > This led to an issue when trying to submit arguments to my Python script via the workflow.
+> 
+> It's also worth noting that the Dockerfile used in the GitHub tutorial does use `ENTRYPOINT`, but not a Python script which confused me.
+
+After I wrote the Dockerfile I worked on my action.yml file:
+```yaml
+name: "Recent Posts"
+author: "Ian Thompson"
+description: "Get the most recent blog post metadata."
+runs:
+  using: "docker"
+  image: "Dockerfile"
+```
+
+If you'll recall, my original Python script didn't take any arguments or return an output.
+It only printed the most recent blog entry as a JSON string.
+```python
+# My original main.py contents.
+
+from datetime import datetime
+from typing import Final
+
+import httpx
+from httpx import Response
+from pydantic.networks import HttpUrl
+from pydantic_xml.model import (
+    attr, BaseXmlModel, computed_element, element, wrapped
+)
+from rich.console import Console
+
+BLOG_URL = "https://it176131.github.io"
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+
+
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
+    """A blog post entry from the RSS feed."""
+
+    title: str = element()
+    relative_url: str = wrapped(path="link", entity=attr(name="href"))
+    published: datetime = element()
+    updated: datetime = element()
+    author: str = wrapped(path="author/name")
+
+    @computed_element
+    def link(self: "Entry") -> HttpUrl:
+        """Resolve <entry.link[href]> to full URL."""
+        return HttpUrl(url=f"{BLOG_URL}{self.relative_url}")
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+    """Validate the RSS feed/XML from my blog."""
+
+    # We limit to the first <entry> from the RSS feed as it is the most
+    # recently published.
+    entry: Entry
+
+
+if __name__ == "__main__":
+    resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
+    xml: bytes = resp.content
+    console = Console()
+    model = Feed.from_xml(source=xml)
+    console.print(model.model_dump_json(indent=2))
+
+```
+```json
+{
+  "entry": {
+    "title": "pydantic-xml: Parsing My RSS Feed",
+    "relative_url": "/2024/12/23/pydantic-xml.html",
+    "published": "2024-12-23T00:00:00Z",
+    "updated": "2024-12-23T00:00:00Z",
+    "author": "Ian Thompson",
+    "link": "https://it176131.github.io/2024/12/23/pydantic-xml.html"
+  }
+}
+```
+
+To update my README.md, I'd need to open it from within the script,
+add my blog post, save it, then git add, commit and push the changes.
+This required some changes to my script.
+```python
+# My current main.py contents.
+
+from datetime import datetime
+import re
+from typing import Annotated, Final
+
+import httpx
+from httpx import Response
+from pydantic.networks import HttpUrl
+from pydantic.types import FilePath
+from pydantic_xml.model import (
+    attr, BaseXmlModel, computed_element, element, wrapped
+)
+from typer import Typer
+from typer.params import Argument
+
+BLOG_URL = "https://it176131.github.io"
+NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+app = Typer()
+
+
+class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
+    """A blog post entry from the RSS feed."""
+
+    title: str = element()
+    relative_url: str = wrapped(path="link", entity=attr(name="href"))
+    published: datetime = element()
+    updated: datetime = element()
+    author: str = wrapped(path="author/name")
+
+    @computed_element
+    def link(self: "Entry") -> HttpUrl:
+        """Resolve <entry.link[href]> to full URL."""
+        return HttpUrl(url=f"{BLOG_URL}{self.relative_url}")
+
+
+class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+    """Validate the RSS feed/XML from my blog."""
+
+    # We collect all <entry> tags from the RSS feed.
+    entries: list[Entry]
+
+
+@app.command()
+def main(
+        readme: Annotated[
+            FilePath,
+            Argument(help="Path to file where metadata will be written.")
+        ],
+        num_entries: Annotated[
+            int,
+            Argument(help="Number of blog entries to write to the `readme`.")
+        ],
+) -> None:
+    """Write most recent blog post metadata to ``readme``."""
+    resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
+    xml: bytes = resp.content
+    model = Feed.from_xml(source=xml)
+    entries = model.entries[:num_entries]
+
+    with readme.open(mode="r") as f:
+        text = f.read()
+
+    pattern = r"(?<=<!-- BLOG START -->)[\S\s]*(?=<!-- BLOG END -->)"
+    template = "- [{title}]({link}) by {author}"
+    repl = "\n".join(
+        [
+            template.format(title=e.title, link=e.link, author=e.author)
+            for e in entries
+        ]
+    )
+    new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
+    with readme.open(mode="w") as f:
+        f.write(new_text)
+
+
+if __name__ == "__main__":
+    app()
+
+```
 
 ___
 # Footnotes
