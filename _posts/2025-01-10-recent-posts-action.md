@@ -128,9 +128,12 @@ if __name__ == "__main__":
 }
 ```
 
-To update my README.md, I'd need to open it from within the script,
+I decided that I'd like to show more than one blog post (similar to my Goodreads shelves) on my README.md, but wasn't sure how many.
+I updated my script to accept an argument allowing me to try several options.
+
+To actually update my README.md, I'd need to open it from within the script,
 add my blog post, save it, then git add, commit and push the changes.
-This required some changes to my script.
+Here are my changes.
 ```diff
 -# My original main.py contents.
 +# My current main.py contents.
@@ -209,6 +212,7 @@ This required some changes to my script.
 +    app()
 
 ```
+
 
 ___
 # Footnotes
