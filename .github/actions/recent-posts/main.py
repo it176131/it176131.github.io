@@ -35,8 +35,7 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
     """Validate the RSS feed/XML from my blog."""
 
-    # We limit to the first five <entry> from the RSS feed as they are
-    # the most recently published.
+    # We collect all <entry> tags from the RSS feed.
     entries: list[Entry]
 
 
