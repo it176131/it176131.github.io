@@ -43,3 +43,22 @@ to be comfortable writing an action from scratch, and
 
 Using a Docker container also allows me
 to use my preexisting Python script from the last [post]({{ site.baseurl }}{% link _posts/2024-12-23-pydantic-xml.md %}).
+
+
+# I'll be using this later
+```
+📂 it176131.github.io
+└── 📂 .github
+    └── 📂 actions
+        └── 📂 recent-posts
+            ├── 🔧 action.yml
+            ├── 🐋 Dockerfile
+            ├── 🐍 main.py
+            └── 📄 requirements.txt
+
+📂 it176131
+├── 📂 .github
+│   └── 📂 workflows
+│       └── 🔧 recent-posts.yml
+└── 📓 README.md  # My "profile"
+```
