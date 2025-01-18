@@ -14,6 +14,10 @@ Rather than walk through all the struggles I experienced,
 I'll give a high level overview of what I have now, and how everything interacts with each other.
 
 # The files
+To keep things organized,
+I decided
+to put the [_action_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#actions) in the [blog repo](https://github.com/it176131/it176131.github.io),
+and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#workflows) in the [profile repo](https://github.com/it176131/it176131).
 ```
 📂 it176131.github.io
 └── 📂 .github
@@ -29,6 +33,3 @@ I'll give a high level overview of what I have now, and how everything interacts
     └── 📂 workflows
         └── 🔧 recent-posts.yml
 ```
-
-As I mentioned, I wanted to add blog posts from my [blog](https://it176131.github.io/) to my [GitHub profile](https://github.com/it176131).
-To keep things organized, I decided to keep the [_action_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#actions) in the [blog repo](https://github.com/it176131/it176131.github.io), and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#workflows) in the [profile repo](https://github.com/it176131/it176131).
