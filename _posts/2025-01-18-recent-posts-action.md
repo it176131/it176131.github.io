@@ -22,7 +22,7 @@ and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/und
 📂 it176131.github.io
 └── 📂 .github
     └── 📂 actions
-        └── 📂 recent-posts
+        └── 📂 recent-posts  # The action and all its requirements
             ├── 🔧 action.yml
             ├── 🐋 Dockerfile
             ├── 🐍 main.py
@@ -31,7 +31,7 @@ and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/und
 📂 it176131
 └── 📂 .github
     └── 📂 workflows
-        └── 🔧 recent-posts.yml
+        └── 🔧 recent-posts.yml  # The workflow file
 ```
 
 There are three [types of actions](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#types-of-actions):
