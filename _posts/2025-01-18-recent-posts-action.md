@@ -10,8 +10,10 @@ I ended 2024 with my post, [_pydantic-xml: Parsing My RSS Feed_]({{ site.baseurl
 and mentioned that I was trying to add my most recent blog post to my GitHub profile using a custom GitHub action and workflow.
 I'm happy to share that after a couple of weeks, I figured it out. 😎
 
-Rather than walk through all the struggles I experienced,
-I'll give a high level overview of what I have now, and how everything interacts with each other.
+I won't bore you with every struggle I experienced.
+Instead, I'll share what files I had to create,
+how they interact with each other from a high level,
+and then give a (mostly) line-by-line breakdown of the important stuff.
 
 # The files
 To keep things organized,
