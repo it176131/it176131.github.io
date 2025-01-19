@@ -85,24 +85,24 @@ jobs:
           fi
 ```
 
-Workflow Keywords:
-- `name`
-- `on`
-- `on.push`
-- `on.push.branches`
-- `on.schedule`
-- `on.schedule.cron`
-- `permissions`
-- `permissions.contents`
-- `jobs`
-- `jobs.recent_post_job`
-- `jobs.recent_post_job.runs-on`
-- `jobs.recent_post_job.name`
-- `jobs.recent_post_job.steps`
-- `jobs.recent_post_job.steps.name`
-- `jobs.recent_post_job.steps.uses`
-- `jobs.recent_post_job.steps.with`
-- `jobs.recent_post_job.steps.run`
+YAML Keywords in `recent-posts.yml` Workflow:
+- [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name)
+- [`on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#on)
+- [`on.push`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#push)
+- [`on.push.branches`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs)
+- [`on.schedule`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onschedule)
+- [`on.schedule.cron`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule)
+- [`permissions`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#permissions)
+- `permissions.contents` ???
+- [`jobs`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobs)
+- [`jobs.recent_post_job`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_id)
+- [`jobs.recent_post_job.runs-on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)
+- [`jobs.recent_post_job.name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idname)
+- [`jobs.recent_post_job.steps`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)
+- [`jobs.recent_post_job.steps.name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsname)
+- [`jobs.recent_post_job.steps.uses`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses)
+- [`jobs.recent_post_job.steps.with`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)
+- [`jobs.recent_post_job.steps.run`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)
 
 # The README.md
 ```markdown
