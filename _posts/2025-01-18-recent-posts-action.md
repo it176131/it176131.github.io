@@ -22,11 +22,11 @@ and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/und
 📂 it176131.github.io
 └── 📂 .github
     └── 📂 actions
-        └── 📂 recent-posts  # The action and all its requirements
-            ├── 🔧 action.yml
-            ├── 🐋 Dockerfile
-            ├── 🐍 main.py
-            └── 📄 requirements.txt
+        └── 📂 recent-posts
+            ├── 🔧 action.yml  # The action metadata file
+            ├── 🐋 Dockerfile  # Instructions to build the Docker container
+            ├── 🐍 main.py  # Python script to pull/parse the XML and update the input (README.md)
+            └── 📄 requirements.txt  # Python package dependencies for main.py
 
 📂 it176131
 ├── 📂 .github
