@@ -286,21 +286,3 @@ If it hasn't, end the step.
 +- [SpaCy: Extensions](https://it176131.github.io/2024/11/27/spacy-extensions.html) by Ian Thompson
 <!-- BLOG END -->
 ```
-
-# I'll be using this later
-```
-📂 it176131.github.io
-└── 📂 .github
-    └── 📂 actions
-        └── 📂 recent-posts
-            ├── 🔧 action.yml
-            ├── 🐋 Dockerfile
-            ├── 🐍 main.py
-            └── 📄 requirements.txt
-
-📂 it176131
-├── 📂 .github
-│   └── 📂 workflows
-│       └── 🔧 recent-posts.yml
-└── 📓 README.md  # My "profile"
-```
