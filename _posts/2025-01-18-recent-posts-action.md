@@ -48,6 +48,11 @@ Here is the layout of my two repos.
 ```
 
 # The interactions
+There are five interactions among the six files that result in the README.md being updated.
+Because the files have unique names, I will reference them as if they were local to each other.
+For example, I will reference `it176131/.github/workflows/recent-posts.yml` as `recent-posts.yml`.
+But for your convenience, I'll add a [tooltip ℹ️](## "Hover over the filenames") to each with their full path so you can keep them straight 😉.
+
 There are three [types of actions](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#types-of-actions):
 [Docker container](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#docker-container-actions), [JavaScript](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#javascript-actions), and [composite actions](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#composite-actions).
 I opted to use a [Docker container](https://www.docker.com/resources/what-container/) because:
