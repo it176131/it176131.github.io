@@ -37,7 +37,7 @@ Here is the layout of my two repos.
         └── 📂 recent-posts
             ├── 🔧 action.yml  # The action metadata file
             ├── 🐋 Dockerfile  # Instructions to build the Docker container
-            ├── 🐍 main.py  # Python script to pull/parse the XML and update the input (README.md)
+            ├── 🐍 main.py  # Python script to update the input (README.md)
             └── 📄 requirements.txt  # Python package dependencies for main.py
 
 📂 it176131  # profile repo
@@ -47,6 +47,7 @@ Here is the layout of my two repos.
 └── 📓 README.md  # My "profile"
 ```
 
+# The interactions
 There are three [types of actions](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#types-of-actions):
 [Docker container](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#docker-container-actions), [JavaScript](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#javascript-actions), and [composite actions](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#composite-actions).
 I opted to use a [Docker container](https://www.docker.com/resources/what-container/) because:
