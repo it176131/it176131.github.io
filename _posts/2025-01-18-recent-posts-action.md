@@ -29,9 +29,10 @@ and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/und
             └── 📄 requirements.txt
 
 📂 it176131
-└── 📂 .github
-    └── 📂 workflows
-        └── 🔧 recent-posts.yml  # The workflow file
+├── 📂 .github
+│   └── 📂 workflows
+│       └── 🔧 recent-posts.yml  # The workflow file
+└── 📓 README.md  # My "profile"
 ```
 
 There are three [types of actions](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#types-of-actions):
