@@ -53,16 +53,6 @@ Because the files have unique names, I will reference them as if they were local
 For example, I will reference `it176131/.github/workflows/recent-posts.yml` as `recent-posts.yml`.
 But for your convenience, I'll add a [tooltip ℹ️](## "Hover over the filenames") to each with their full path so you can keep them straight 😉.
 
-There are three [types of actions](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#types-of-actions):
-[Docker container](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#docker-container-actions), [JavaScript](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#javascript-actions), and [composite actions](https://docs.github.com/en/actions/sharing-automations/creating-actions/about-custom-actions#composite-actions).
-I opted to use a [Docker container](https://www.docker.com/resources/what-container/) because:
-1. I don't know enough [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-to be comfortable writing an action from scratch, and
-2. This is my first custom action and workflow, so I don't think I need to create a _composite action_ just yet.
-
-Using a Docker container also allows me
-to use my preexisting Python script from the last [post]({{ site.baseurl }}{% link _posts/2024-12-23-pydantic-xml.md %}).
-
 # Step 1:
 `it176131/.github/workflows/recent-posts.yml` calls `it176131.github.io/.github/actions/recent-posts/action.yml` and sends argument inputs.
 
