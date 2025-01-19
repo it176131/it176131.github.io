@@ -23,12 +23,15 @@ All together, I created four new files and modified two others:
 | New      | action.yml<br>Dockerfile<br>recent-posts.yml<br>requirements.txt |
 | Modified | main.py<br>README.md                                             |
 
-To keep things organized,
-I decided
-to put the [_action_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#actions) in the [blog repo](https://github.com/it176131/it176131.github.io),
-and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#workflows) in the [profile repo](https://github.com/it176131/it176131).
+The files are across two repos,
+my [blog repo](https://github.com/it176131/it176131.github.io) and my [profile repo](https://github.com/it176131/it176131).
+This organizes things and allows me
+to keep the [_action_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#actions) in the blog repo,
+and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#workflows) in the profile repo.
+
+Here is the layout of my two repos.
 ```
-📂 it176131.github.io
+📂 it176131.github.io  # blog repo
 └── 📂 .github
     └── 📂 actions
         └── 📂 recent-posts
@@ -37,7 +40,7 @@ and the [_workflow_](https://docs.github.com/en/actions/about-github-actions/und
             ├── 🐍 main.py  # Python script to pull/parse the XML and update the input (README.md)
             └── 📄 requirements.txt  # Python package dependencies for main.py
 
-📂 it176131
+📂 it176131  # profile repo
 ├── 📂 .github
 │   └── 📂 workflows
 │       └── 🔧 recent-posts.yml  # The workflow file
