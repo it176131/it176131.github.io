@@ -85,6 +85,25 @@ jobs:
           fi
 ```
 
+Workflow Keywords:
+- `name`
+- `on`
+- `on.push`
+- `on.push.branches`
+- `on.schedule`
+- `on.schedule.cron`
+- `permissions`
+- `permissions.contents`
+- `jobs`
+- `jobs.recent_post_job`
+- `jobs.recent_post_job.runs-on`
+- `jobs.recent_post_job.name`
+- `jobs.recent_post_job.steps`
+- `jobs.recent_post_job.steps.name`
+- `jobs.recent_post_job.steps.uses`
+- `jobs.recent_post_job.steps.with`
+- `jobs.recent_post_job.steps.run`
+
 # The README.md
 ```markdown
 # Recent Articles From My [Blog](https://it176131.github.io/) ✍
