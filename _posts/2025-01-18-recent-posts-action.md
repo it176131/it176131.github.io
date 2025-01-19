@@ -16,6 +16,13 @@ how they interact with each other from a high level,
 and then give a (mostly) line-by-line breakdown of the important stuff.
 
 # The files
+All together, I created four new files and modified two others:
+
+|          | File                                                             |
+|----------|------------------------------------------------------------------|
+| New      | action.yml<br>Dockerfile<br>recent-posts.yml<br>requirements.txt |
+| Modified | main.py<br>README.md                                             |
+
 To keep things organized,
 I decided
 to put the [_action_](https://docs.github.com/en/actions/about-github-actions/understanding-github-actions#actions) in the [blog repo](https://github.com/it176131/it176131.github.io),
