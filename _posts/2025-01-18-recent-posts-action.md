@@ -173,6 +173,12 @@ COPY . ./
 ENTRYPOINT ["python", "/main.py"]
 ```
 
+Docker Instructions in `Dockerfile`:
+- [`FROM`](https://docs.docker.com/reference/dockerfile/#from)
+- [`COPY`](https://docs.docker.com/reference/dockerfile/#copy)
+- [`RUN`](https://docs.docker.com/reference/dockerfile/#run)
+- [`ENTRYPOINT`](https://docs.docker.com/reference/dockerfile/#entrypoint)
+
 ```text
 httpx
 pydantic-xml
