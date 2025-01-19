@@ -97,6 +97,7 @@ jobs:
 container using `it176131.github.io/.github/actions/recent-posts/Dockerfile` 
 and supplies the argument inputs from `it176131/.github/workflows/recent-posts.yml`.
 
+{% raw %}
 ```yaml
 name: "Recent Posts"
 author: "Ian Thompson"
@@ -119,6 +120,7 @@ runs:
     - ${{ inputs.readme }}
     - ${{ inputs.num-entries }}
 ```
+{% endraw %}
 
 # Step 3:
 The Docker container produced by `it176131.github.io/.github/actions/recent-posts/Dockerfile`:
