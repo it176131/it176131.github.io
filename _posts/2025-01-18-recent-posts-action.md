@@ -53,8 +53,8 @@ Because the files have unique names, I will reference them as if they were local
 For example, I will reference `it176131/.github/workflows/recent-posts.yml` as `recent-posts.yml`.
 But for your convenience, I'll add a [tooltip ℹ️](## "Hover over the filenames") to each with their full path so you can keep them straight 😉.
 
-# Step 1:
-`it176131/.github/workflows/recent-posts.yml` calls `it176131.github.io/.github/actions/recent-posts/action.yml` and sends argument inputs.
+#### Step 1
+[`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") calls [`action.yml` ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") and sends argument inputs.
 
 ```yaml
 name: "Update README with most recent blog post"
