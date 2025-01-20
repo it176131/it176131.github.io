@@ -71,23 +71,23 @@ Because the files have unique names, I will reference them as if they were local
 For example, I will reference `it176131/.github/workflows/recent-posts.yml` as `recent-posts.yml`.
 > For your convenience, each file name will have a [tooltip ℹ️](## "Hover over the filenames") with the full path so you can keep them straight 😉.
 
-1. [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
-2. [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") calls [`action.yml` ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") with inputs `readme` (default [`README.md` ℹ️](## "it176131/README.md")) and `num-entries` (default `5`).
-3. [`action.yml` ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") informs GitHub
-   to build a Docker container using the [`Dockerfile` ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile").
-4. The Docker container produced by [`Dockerfile` ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile") installs the packages in [`requirements.txt` ℹ️](## "it176131.github.io/.github/actions/recent-posts/requirements.txt") and runs [`main.py` ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") with the inputs from *step 1*.
-5. [`main.py` ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") takes the inputs and updates the [`README.md` ℹ️](## "it176131/README.md") with the latest posts.
-6. [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks if [`README.md` ℹ️](## "it176131/README.md") has been modified, commiting and pushing any changes.
+1. [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [_README.md_ ℹ️](## "it176131/README.md").
+2. [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") calls [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") with inputs `readme` (default [_README.md_ ℹ️](## "it176131/README.md")) and `num-entries` (default `5`).
+3. [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") informs GitHub
+   to build a Docker container using the [_Dockerfile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile").
+4. The Docker container produced by [_Dockerfile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile") installs the packages in [_requirements.txt_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/requirements.txt") and runs [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") with the inputs from *step 1*.
+5. [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") takes the inputs and updates the [_README.md_ ℹ️](## "it176131/README.md") with the latest posts.
+6. [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks if [_README.md_ ℹ️](## "it176131/README.md") has been modified, commiting and pushing any changes.
 
 That's quite a bit of interaction.
 Let's open up the files and see what's going on under the hood.
 
 # The breakdown
-I'll start with [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml")
+I'll start with [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml")
 as it's the first file referenced in _step 1_.
 
 ## _recent-posts.yml_
-The [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") is a _workflow_ file.
+The [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") is a _workflow_ file.
 It has an optional
 [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) to help
 identify it in the GitHub UI.
@@ -149,7 +149,7 @@ jobs:
 ```
 
 #### Step 1
-> [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
+> [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
 
 ```yaml
 name: "Update README with most recent blog post"
