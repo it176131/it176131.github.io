@@ -172,6 +172,32 @@ jobs:
 ```
 
 ### Step 2
+> [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") calls [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") with inputs `readme` (default [_README.md_ ℹ️](## "it176131/README.md")) and `num-entries` (default `5`).
+
+This is where we leave my _profile_ repo for my _blog_ repo.
+
+The "Recent post action"
+step `uses` the action `it176131/it176131.github.io/.github/actions/recent-posts@recent-posts` from my blog repo [`with`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) the inputs:
+- `readme: "./README.md"`
+- `num-entries: 5`
+
+> [!NOTE]
+> 
+> Order is important here for a reason you'll see in _step 5_.
+
+```yaml
+jobs:
+  recent_post_job:
+#     ...
+    steps:
+#      ...
+
+      - name: Recent post action
+        uses: "it176131/it176131.github.io/.github/actions/recent-posts@recent-posts"
+        with:
+          readme: "./README.md"
+          num-entries: 5
+```
 
 ```yaml
 name: "Update README with most recent blog post"
