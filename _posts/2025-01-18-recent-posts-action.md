@@ -2,6 +2,7 @@
 layout: "post"
 title: "Actions & Workflows: Automatically Updating My GitHub Profile with Recent Blog Posts"
 date: 2025-01-18
+images: "/assets/images/2025-01-20-recent-posts-action"
 ---
 
 First post of 2025!
@@ -65,6 +66,19 @@ That's quite a bit of interaction.
 Let's open up the files and see what's going on under the hood.
 
 # The breakdown
+#### Step 1
+> [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
+
+The [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") is a _workflow_ file.
+It has an optional
+[`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) to help
+identify it in the GitHub UI.
+
+```yaml
+name: "Update README with most recent blog post"
+```
+
+![Workflow Name in GitHub UI 1]({{ page.images | relative_url }}/gh_action_workflow_ui1.png) ![Workflow Name in GitHub UI 2]({{ page.images | relative_url }}/gh_action_workflow_ui2.png)
 
 ```yaml
 name: "Update README with most recent blog post"
