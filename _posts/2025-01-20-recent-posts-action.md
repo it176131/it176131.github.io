@@ -122,7 +122,7 @@ It has the more human-readable [`name`](https://docs.github.com/en/actions/writi
 |-------------------------------------------|---------------------------------|
 | ![Job Name in GitHub UI 1]({{ page.images | relative_url }}/gh_job_ui1.png) | ![Job Name in GitHub UI 2]({{ page.images | relative_url }}/gh_job_ui2.png)|
 
-and it [`runs-on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) the latest version of Ubuntu.
+and it [`runs-on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) the [latest version of Ubuntu](https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#standard-github-hosted-runners-for-public-repositories).
 ```yaml
 jobs:
   recent_post_job:
