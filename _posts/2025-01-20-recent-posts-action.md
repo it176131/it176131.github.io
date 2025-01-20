@@ -69,6 +69,10 @@ Let's open up the files and see what's going on under the hood.
 #### Step 1
 > [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
 
+<details>
+<summary>Meta-information about <code>recent-posts.yml</code>
+</summary><br>
+
 The [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") is a _workflow_ file.
 It has an optional
 [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) to help
@@ -111,6 +115,8 @@ on:
   schedule:
      - cron: "* * * * *"
 ```
+
+</details><br>
 
 ```yaml
 name: "Update README with most recent blog post"
