@@ -150,7 +150,7 @@ jobs:
 ```
 
 Now for the moment we've all been waiting for...
-### _step 1_
+### Step 1
 > [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [_README.md_ ℹ️](## "it176131/README.md").
 
 Each [`step`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps) under our `recent_post_job` has a [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsname),
@@ -170,6 +170,8 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 ```
+
+### Step 2
 
 ```yaml
 name: "Update README with most recent blog post"
