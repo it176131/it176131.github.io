@@ -87,6 +87,7 @@ I'll start with [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recen
 as it's the first file referenced in _step 1_.
 
 ## _recent-posts.yml_
+### Some meta-information
 The [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") is a _workflow_ file.
 It has an optional
 [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) to help
@@ -148,13 +149,14 @@ jobs:
     name: Recent Post
 ```
 
-Now for the moment we've all been waiting for... _step 1_.
+Now for the moment we've all been waiting for...
+### _step 1_
 > [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [_README.md_ ℹ️](## "it176131/README.md").
 
 Each [`step`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps) under our `recent_post_job` has a [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsname),
 and _step 1_'s name is "Checkout repo."
 
-To add, delete, modify, and even read any files in the repository requires it to be checked out.
+To add, delete, modify, and even read a file in the repository requires it to be checked out.
 _Step 1_ [`uses`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses) the GitHub action
 [`actions/checkout@v4`](https://github.com/actions/checkout?tab=readme-ov-file#checkout-v4) to do this.
 I won't get to in the weeds here,
