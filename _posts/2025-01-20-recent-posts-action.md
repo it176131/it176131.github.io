@@ -4,6 +4,23 @@ title: "Actions & Workflows: Automatically Updating My GitHub Profile with Recen
 date: 2025-01-20
 images: "/assets/images/2025-01-20-recent-posts-action"
 ---
+<head>
+   <style>
+
+      h1 {
+          font-size: 2.5em; /* Adjust to desired size */
+      }
+      
+      h2 {
+          font-size: 1.5em; /* Adjust to desired size */
+      }
+      
+      h3 {
+          font-size: 1.2em; /* Adjust to desired size */
+      }
+
+   </style>
+</head>
 
 First post of 2025!
 
@@ -66,9 +83,10 @@ That's quite a bit of interaction.
 Let's open up the files and see what's going on under the hood.
 
 # The breakdown
-#### Step 1
-> [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
+I'll start with [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml")
+as it's the first file referenced in _step 1_.
 
+## _recent-posts.yml_
 The [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") is a _workflow_ file.
 It has an optional
 [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) to help
@@ -129,6 +147,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Recent Post
 ```
+
+#### Step 1
+> [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
 
 ```yaml
 name: "Update README with most recent blog post"
