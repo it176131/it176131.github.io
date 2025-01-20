@@ -48,14 +48,23 @@ Here is the layout of my two repos.
 ```
 
 # The interactions
-There are five interactions among the six files that result in the README.md being updated.
+There are six interactions among the files that result in the `README.md` being updated.
 Because the files have unique names, I will reference them as if they were local to each other.
 For example, I will reference `it176131/.github/workflows/recent-posts.yml` as `recent-posts.yml`.
-But for your convenience, I'll add a [tooltip ℹ️](## "Hover over the filenames") to each with their full path so you can keep them straight 😉.
+> For your convenience, each file name will have a [tooltip ℹ️](## "Hover over the filenames") with the full path so you can keep them straight 😉.
 
-#### Step 1
-[`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") calls [`action.yml` ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") and sends argument inputs.
+1. [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
+2. [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") calls [`action.yml` ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") with inputs `readme` (default [`README.md` ℹ️](## "it176131/README.md")) and `num-entries` (default `5`).
+3. [`action.yml` ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") informs GitHub
+   to build a Docker container using the [`Dockerfile` ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile").
+4. The Docker container produced by [`Dockerfile` ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile") installs the packages in [`requirements.txt` ℹ️](## "it176131.github.io/.github/actions/recent-posts/requirements.txt") and runs [`main.py` ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") with the inputs from *step 1*.
+5. [`main.py` ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") takes the inputs and updates the [`README.md` ℹ️](## "it176131/README.md") with the latest posts.
+6. [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks if [`README.md` ℹ️](## "it176131/README.md") has been modified, commiting and pushing any changes.
 
+That's quite a bit of interaction.
+
+
+# The breakdown
 ```yaml
 name: "Update README with most recent blog post"
 on:
