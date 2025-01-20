@@ -177,7 +177,8 @@ jobs:
 This is where we leave my _profile_ repo for my _blog_ repo.
 
 The "Recent post action"
-step `uses` the action `it176131/it176131.github.io/.github/actions/recent-posts@recent-posts` from my blog repo [`with`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) the inputs:
+step `uses` the action, `it176131/it176131.github.io/.github/actions/recent-posts@recent-posts`,
+from my blog repo [`with`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) the inputs:
 - `readme: "./README.md"`
 - `num-entries: 5`
 
@@ -198,6 +199,34 @@ jobs:
           readme: "./README.md"
           num-entries: 5
 ```
+
+## _action.yml_
+### Some (more) meta-information
+
+{% raw %}
+```yaml
+name: "Recent Posts"
+author: "Ian Thompson"
+description: "Get the most recent blog post metadata."
+inputs:
+  readme:
+    description: "Path to the README.md"
+    required: false
+    default: "./README.md"
+
+  num-entries:
+    description: "Number of blog entries to show"
+    required: false
+    default: 5
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.readme }}
+    - ${{ inputs.num-entries }}
+```
+{% endraw %}
 
 ### Step 3
 > [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") informs GitHub to build a Docker container using the [_Dockerfile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile").
