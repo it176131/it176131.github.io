@@ -80,6 +80,38 @@ name: "Update README with most recent blog post"
 
 ![Workflow Name in GitHub UI 1]({{ page.images | relative_url }}/gh_action_workflow_ui1.png) ![Workflow Name in GitHub UI 2]({{ page.images | relative_url }}/gh_action_workflow_ui2.png)
 
+Workflow files run when triggered by an event.
+Those "events"
+are defined via the required [`on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#on) keyword.
+```yaml
+on:
+```
+
+This particular workflow has two types of triggering events:
+- a [`schedule`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onschedule) that runs every five minutes (though I'll probably change that),
+
+```yaml
+   schedule:
+    - cron: "* * * * *"
+```
+
+- and a [`push`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#push) to either the "main" or "master" [`branches`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs)
+
+```yaml
+  push:
+    branches: ["main", "master"]
+```
+
+They are combined under the same `on`:
+```yaml
+on:
+  push:
+    branches: ["main", "master"]
+
+  schedule:
+     - cron: "* * * * *"
+```
+
 ```yaml
 name: "Update README with most recent blog post"
 on:
