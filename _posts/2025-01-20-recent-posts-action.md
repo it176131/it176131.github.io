@@ -69,9 +69,6 @@ Let's open up the files and see what's going on under the hood.
 #### Step 1
 > [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
 
-<details>
-<summary>Meta-information about <code>recent-posts.yml</code></summary><br>
-
 The [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") is a _workflow_ file.
 It has an optional
 [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name) to help
@@ -81,7 +78,8 @@ identify it in the GitHub UI.
 name: "Update README with most recent blog post"
 ```
 
-![Workflow Name in GitHub UI 1]({{ page.images | relative_url }}/gh_action_workflow_ui1.png) ![Workflow Name in GitHub UI 2]({{ page.images | relative_url }}/gh_action_workflow_ui2.png)
+|------------------------------------------------|---------------------------------------------|
+| ![Workflow Name in GitHub UI 1]({{ page.images | relative_url }}/gh_action_workflow_ui1.png) |![Workflow Name in GitHub UI 2]({{ page.images | relative_url }}/gh_action_workflow_ui2.png)|
 
 Workflow files run when triggered by an event.
 Those "events"
@@ -121,7 +119,8 @@ This workflow has one job with the [`<job_id>`](https://docs.github.com/en/actio
 `recent_post_job`.
 It has the more human-readable [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idname), "Recent Post," which is what we see in the GitHub UI,
 
-![Job Name in GitHub UI 1]({{ page.images | relative_url }}/gh_job_ui1.png) ![Job Name in GitHub UI 2]({{ page.images | relative_url }}/gh_job_ui2.png)
+|-------------------------------------------|---------------------------------|
+| ![Job Name in GitHub UI 1]({{ page.images | relative_url }}/gh_job_ui1.png) | ![Job Name in GitHub UI 2]({{ page.images | relative_url }}/gh_job_ui2.png)|
 
 and it [`runs-on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on) the latest version of Ubuntu.
 ```yaml
@@ -130,8 +129,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Recent Post
 ```
-
-</details><br>
 
 ```yaml
 name: "Update README with most recent blog post"
