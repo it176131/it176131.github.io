@@ -62,9 +62,10 @@ For example, I will reference `it176131/.github/workflows/recent-posts.yml` as `
 6. [`recent-posts.yml` ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks if [`README.md` ℹ️](## "it176131/README.md") has been modified, commiting and pushing any changes.
 
 That's quite a bit of interaction.
-
+Let's open up the files and see what's going on under the hood.
 
 # The breakdown
+
 ```yaml
 name: "Update README with most recent blog post"
 on:
