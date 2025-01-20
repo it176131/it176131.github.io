@@ -121,9 +121,6 @@ on:
   schedule:
     - cron: "* * * * *"
 
-permissions:
-  contents: write
-
 jobs:
   recent_post_job:
     runs-on: ubuntu-latest
@@ -157,8 +154,6 @@ YAML Keywords in `recent-posts.yml` Workflow:
 - [`on.push.branches`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs)
 - [`on.schedule`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onschedule)
 - [`on.schedule.cron`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule)
-- [`permissions`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#permissions)
-- `permissions.contents` ???
 - [`jobs`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobs)
 - [`jobs.recent_post_job`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_id)
 - [`jobs.recent_post_job.runs-on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)
