@@ -148,8 +148,26 @@ jobs:
     name: Recent Post
 ```
 
-#### Step 1
-> [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [`README.md` ℹ️](## "it176131/README.md").
+Now for the moment we've all been waiting for... _step 1_.
+> [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks out the repository, giving it access to [_README.md_ ℹ️](## "it176131/README.md").
+
+Each [`step`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps) under our `recent_post_job` has a [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsname),
+and _step 1_'s name is "Checkout repo."
+
+To add, delete, modify, and even read any files in the repository requires it to be checked out.
+_Step 1_ [`uses`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses) the GitHub action
+[`actions/checkout@v4`](https://github.com/actions/checkout?tab=readme-ov-file#checkout-v4) to do this.
+I won't get to in the weeds here,
+but if you don't do this step, you won't be able to do anything with the _README.md_.
+```yaml
+jobs:
+  recent_post_job:
+    runs-on: ubuntu-latest
+    name: Recent Post
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+```
 
 ```yaml
 name: "Update README with most recent blog post"
