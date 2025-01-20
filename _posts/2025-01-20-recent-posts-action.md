@@ -199,6 +199,9 @@ jobs:
           num-entries: 5
 ```
 
+### Step 3
+> [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") informs GitHub to build a Docker container using the [_Dockerfile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile").
+
 ```yaml
 name: "Update README with most recent blog post"
 on:
