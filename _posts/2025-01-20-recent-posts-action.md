@@ -207,7 +207,7 @@ It contains both general information about the action and instructions for GitHu
 
 This particular action's [`name`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#name) is "Recent Posts".
 It has the [`description`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#description), "Get the most recent blog post metadata,"
-and [`author`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#author), yours truly.
+and an optional [`author`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#author), yours truly.
 
 ```yaml
 name: "Recent Posts"
@@ -261,8 +261,30 @@ runs:
 ```
 {% endraw %}
 
-### Step 3
-> [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") informs GitHub to build a Docker container using the [_Dockerfile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile").
+## _Dockerfile_
+
+```dockerfile
+FROM python:3.13
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . ./
+
+ENTRYPOINT ["python", "/main.py"]
+```
+
+Docker Instructions in `Dockerfile`:
+- [`FROM`](https://docs.docker.com/reference/dockerfile/#from)
+- [`COPY`](https://docs.docker.com/reference/dockerfile/#copy)
+- [`RUN`](https://docs.docker.com/reference/dockerfile/#run)
+- [`ENTRYPOINT`](https://docs.docker.com/reference/dockerfile/#entrypoint)
+
+
+
+
+
+
 
 ```yaml
 name: "Update README with most recent blog post"
