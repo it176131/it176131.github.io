@@ -306,10 +306,90 @@ ENTRYPOINT ["python", "/main.py"]
 > and [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml").
 
 ## _main.py_
+### Step 5
+> [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py")
+> takes the inputs and updates the [_README.md_ ℹ️](## "it176131/README.md")
+> with the latest posts.
+
+I'm not going
+to walk through the [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") file line-by-line
+as I covered most of it in my [previous post]({{ site.baseurl }}{% link _posts/2024-12-23-pydantic-xml.md %}).
+However, I will note that I made some changes so that it can directly modify the _README.md_ file.
+
+```diff
+ from datetime import datetime
+-from typing import Final
++import re
++from typing import Annotated, Final
+
+ import httpx
+ from httpx import Response
+ from pydantic.networks import HttpUrl
++from pydantic.types import FilePath
+ from pydantic_xml.model import (
+     attr, BaseXmlModel, computed_element, element, wrapped
+ )
+-from rich.console import Console
++from typer import Typer
++from typer.params import Argument
+
+ BLOG_URL = "https://it176131.github.io"
+ NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
++app = Typer()
 
 
+ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
+     ...
+
+ class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
+     """Validate the RSS feed/XML from my blog."""
+
+-    # We limit to the first <entry> from the RSS feed as it is the most
+-    # recently published.
+-    entry: Entry
++    # We collect all <entry> tags from the RSS feed.
++    entries: list[Entry]
 
 
+-if __name__ == "__main__":
++@app.command()
++def main(
++        readme: Annotated[
++            FilePath,
++            Argument(help="Path to file where metadata will be written.")
++        ],
++        num_entries: Annotated[
++            int,
++            Argument(help="Number of blog entries to write to the `readme`.")
++        ],
++) -> None:
++    """Write most recent blog post metadata to ``readme``."""
+     resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
+     xml: bytes = resp.content
+-    console = Console()
+     model = Feed.from_xml(source=xml)
+-    console.print(model.model_dump_json(indent=2))
++    entries = model.entries[:num_entries]
++
++    with readme.open(mode="r") as f:
++        text = f.read()
++
++    pattern = r"(?<=<!-- BLOG START -->)[\S\s]*(?=<!-- BLOG END -->)"
++    template = "- [{title}]({link}) by {author}"
++    repl = "\n".join(
++        [
++            template.format(title=e.title, link=e.link, author=e.author)
++            for e in entries
++        ]
++    )
++    new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
++    with readme.open(mode="w") as f:
++        f.write(new_text)
++
++
++if __name__ == "__main__":
++    app()
+```
 
 ```yaml
 name: "Update README with most recent blog post"
@@ -347,20 +427,6 @@ jobs:
 ```
 
 YAML Keywords in `recent-posts.yml` Workflow:
-- [`name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#name)
-- [`on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#on)
-- [`on.push`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#push)
-- [`on.push.branches`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#running-your-workflow-only-when-a-push-to-specific-branches-occurs)
-- [`on.schedule`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#onschedule)
-- [`on.schedule.cron`](https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#schedule)
-- [`jobs`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobs)
-- [`jobs.recent_post_job`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_id)
-- [`jobs.recent_post_job.runs-on`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)
-- [`jobs.recent_post_job.name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idname)
-- [`jobs.recent_post_job.steps`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)
-- [`jobs.recent_post_job.steps.name`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsname)
-- [`jobs.recent_post_job.steps.uses`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsuses)
-- [`jobs.recent_post_job.steps.with`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)
 - [`jobs.recent_post_job.steps.run`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)
 
 # The README.md
@@ -368,89 +434,6 @@ YAML Keywords in `recent-posts.yml` Workflow:
 # Recent Articles From My [Blog](https://it176131.github.io/) ✍
 <!-- BLOG START -->
 <!-- BLOG END -->
-```
-
-# Step 4
-`it176131.github.io/.github/actions/recent-posts/main.py` takes the argument inputs and executes.
-
-```python
-from datetime import datetime
-import re
-from typing import Annotated, Final
-
-import httpx
-from httpx import Response
-from pydantic.networks import HttpUrl
-from pydantic.types import FilePath
-from pydantic_xml.model import (
-    attr, BaseXmlModel, computed_element, element, wrapped
-)
-from typer import Typer
-from typer.params import Argument
-
-BLOG_URL = "https://it176131.github.io"
-NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
-app = Typer()
-
-
-class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
-    """A blog post entry from the RSS feed."""
-
-    title: str = element()
-    relative_url: str = wrapped(path="link", entity=attr(name="href"))
-    published: datetime = element()
-    updated: datetime = element()
-    author: str = wrapped(path="author/name")
-
-    @computed_element
-    def link(self: "Entry") -> HttpUrl:
-        """Resolve <entry.link[href]> to full URL."""
-        return HttpUrl(url=f"{BLOG_URL}{self.relative_url}")
-
-
-class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
-    """Validate the RSS feed/XML from my blog."""
-
-    # We collect all <entry> tags from the RSS feed.
-    entries: list[Entry]
-
-
-@app.command()
-def main(
-        readme: Annotated[
-            FilePath,
-            Argument(help="Path to file where metadata will be written.")
-        ],
-        num_entries: Annotated[
-            int,
-            Argument(help="Number of blog entries to write to the `readme`.")
-        ],
-) -> None:
-    """Write most recent blog post metadata to ``readme``."""
-    resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
-    xml: bytes = resp.content
-    model = Feed.from_xml(source=xml)
-    entries = model.entries[:num_entries]
-
-    with readme.open(mode="r") as f:
-        text = f.read()
-
-    pattern = r"(?<=<!-- BLOG START -->)[\S\s]*(?=<!-- BLOG END -->)"
-    template = "- [{title}]({link}) by {author}"
-    repl = "\n".join(
-        [
-            template.format(title=e.title, link=e.link, author=e.author)
-            for e in entries
-        ]
-    )
-    new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
-    with readme.open(mode="w") as f:
-        f.write(new_text)
-
-
-if __name__ == "__main__":
-    app()
-
 ```
 
 # Step 5
