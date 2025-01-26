@@ -202,6 +202,64 @@ jobs:
 
 ## _action.yml_
 ### Some (more) meta-information
+Calling an action requires an _action.yml_ file.
+It contains both general information about the action and instructions for GitHub to run it.
+
+This particular action's [`name`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#name) is "Recent Posts".
+It has the [`description`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#description), "Get the most recent blog post metadata,"
+and [`author`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#author), yours truly.
+
+```yaml
+name: "Recent Posts"
+author: "Ian Thompson"
+description: "Get the most recent blog post metadata."
+```
+
+It defines the expected [`inputs`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputs) with an [`<input_id>`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputsinput_id),
+and provides a [`description`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputsinput_iddescription),
+[`default`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputsinput_iddefault) value,
+and whether it's [`required`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputsinput_idrequired).
+
+```yaml
+inputs:
+  readme:
+    description: "Path to the README.md"
+    required: false
+    default: "./README.md"
+
+  num-entries:
+    description: "Number of blog entries to show"
+    required: false
+    default: 5
+```
+
+> [!NOTE]
+> 
+> I declared both of my `inputs` as optional, i.e. `required: false`.
+> If I removed the `default` values I'd have to change them to `required: true`.
+ 
+### Step 3
+> [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") informs GitHub to build a Docker container using the [_Dockerfile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile").
+
+This last part of the _action.yml_ tells GitHub
+what kind of action it [`runs`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#runs).
+We're [`using`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#runsusing-for-docker-container-actions) Docker
+and the instructions
+to build the container are in our [_DockerFile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile") [`image`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#runsimage).
+As the container is starting,
+GitHub passes the [`args`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#runsargs) from our [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml"),
+or the defaults if we hadn't passed any.
+
+{% raw %}
+```yaml
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.readme }}
+    - ${{ inputs.num-entries }}
+```
+{% endraw %}
 
 {% raw %}
 ```yaml
