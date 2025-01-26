@@ -177,7 +177,7 @@ jobs:
 This is where we leave my _profile_ repo for my _blog_ repo.
 
 The "Recent post action"
-step `uses` the action, `it176131/it176131.github.io/.github/actions/recent-posts@recent-posts`,
+step `uses` the action, `it176131/it176131.github.io/.github/actions/recent-posts@main`,
 from my blog repo [`with`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith) the inputs:
 - `readme: "./README.md"`
 - `num-entries: 5`
@@ -194,7 +194,7 @@ jobs:
 #      ...
 
       - name: Recent post action
-        uses: "it176131/it176131.github.io/.github/actions/recent-posts@recent-posts"
+        uses: "it176131/it176131.github.io/.github/actions/recent-posts@main"
         with:
           readme: "./README.md"
           num-entries: 5
