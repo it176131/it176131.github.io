@@ -263,6 +263,10 @@ runs:
 
 ## _Dockerfile_
 ### Step 4
+> The Docker container produced by [_Dockerfile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile")
+> installs the packages in [_requirements.txt_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/requirements.txt")
+> and runs [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py")
+> with the inputs from *step 1*.
 
 The Docker container
 produced via the [_DockerFile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile") comes [`FROM`](https://docs.docker.com/reference/dockerfile/#from) a Python 3.13 base image.
@@ -364,37 +368,6 @@ YAML Keywords in `recent-posts.yml` Workflow:
 # Recent Articles From My [Blog](https://it176131.github.io/) ✍
 <!-- BLOG START -->
 <!-- BLOG END -->
-```
-
-
-# Step 3:
-The Docker container produced by `it176131.github.io/.github/actions/recent-posts/Dockerfile`:
-- Installs Python 3.13
-- Copies `it176131.github.io/.github/actions/recent-posts/requirements.txt` to its container directory and installs its contents
-- Copies the remaining files in `it176131.github.io/.github/actions/recent-posts/` to its container directory
-- Declares the `ENTRYPOINT` `python /main.py` and submits the argument inputs to the `main.py` script
-
-```dockerfile
-FROM python:3.13
-
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
-COPY . ./
-
-ENTRYPOINT ["python", "/main.py"]
-```
-
-Docker Instructions in `Dockerfile`:
-- [`FROM`](https://docs.docker.com/reference/dockerfile/#from)
-- [`COPY`](https://docs.docker.com/reference/dockerfile/#copy)
-- [`RUN`](https://docs.docker.com/reference/dockerfile/#run)
-- [`ENTRYPOINT`](https://docs.docker.com/reference/dockerfile/#entrypoint)
-
-```text
-httpx
-pydantic-xml
-typer
 ```
 
 # Step 4
