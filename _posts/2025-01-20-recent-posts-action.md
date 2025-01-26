@@ -435,7 +435,20 @@ Now my script has a place between two comments to write my blog entries 😎.
 
 ## _recent-posts.yml_ (revisited)
 ### Step 6
+> [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") checks if [_README.md_ ℹ️](## "it176131/README.md") has been modified, commiting and pushing any changes.
 
+After [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") has finished,
+the action is complete,
+and we return to [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml") with the
+(possibly) modified [_README.md_ ℹ️](## "it176131/README.md").
+
+The final step in the workflow is called "Commit README,"
+and that's pretty much what it will [`run`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
+First, `git`
+configures the `user.email` and `user.name` so I can tell when the action is performing a commit versus myself.
+Next, it determines if the [_README.md_ ℹ️](## "it176131/README.md") has actually been modified.
+If it has, it will add, commit, and push the changes.
+Otherwise, the step ends along with the workflow.
 
 ```yaml
 jobs:
@@ -457,18 +470,12 @@ jobs:
           fi
 ```
 
-YAML Keywords in `recent-posts.yml` Workflow:
-- [`jobs.recent_post_job.steps.run`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)
-
-# Step 5
-If `it176131.github.io/.github/actions/recent-posts/main.py` completes successfully,
-`it176131/.github/workflows/recent-posts.yml` runs the "Commit README" step.
-This involves `git` configuring the user to be "github-actions",
-checking if the README.md has been modified, and if it has then add, commit, and push.
-If it hasn't, end the step.
+# Conclusion
+And that's it!
+On the first run of this workflow there were obviously some changes to my [_README.md_ ℹ️](## "it176131/README.md"):
 
 ```diff
-# Recent Articles From My [Blog](https://it176131.github.io/) ✍
+# Articles ✍
 <!-- BLOG START -->
 +- [pydantic-xml: Parsing My RSS Feed](https://it176131.github.io/2024/12/23/pydantic-xml.html) by Ian Thompson
 +- [isort + git: Cleaner Import Statements for Those Who Don’t Like pre-commit](https://it176131.github.io/2024/12/12/isort.html) by Ian Thompson
@@ -477,3 +484,26 @@ If it hasn't, end the step.
 +- [SpaCy: Extensions](https://it176131.github.io/2024/11/27/spacy-extensions.html) by Ian Thompson
 <!-- BLOG END -->
 ```
+
+I went a bit further and also updated the section title
+and moved my blog link from the top of my profile to the new section title.
+
+```diff
+ ### Hi there 👋 I'm Ian 🙂
+-Checkout my blog! 👉 https://it176131.github.io/
+
+ # Reputation ✔
+ <a href="https://stackoverflow.com/users/6509519/ian-thompson"><img src="https://stackoverflow.com/users/flair/6509519.png?theme=dark" width="208" height="58" alt="profile for Ian
+ Thompson at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for Ian Thompson at Stack Overflow, Q&amp;A for professional and enthusiast programmers"></a>
+
+-# Articles ✍
++# Recent Articles From My [Blog](https://it176131.github.io/) ✍
+ <!-- BLOG START -->
+ - [pydantic-xml: Parsing My RSS Feed](https://it176131.github.io/2024/12/23/pydantic-xml.html) by Ian Thompson
+ - [isort + git: Cleaner Import Statements for Those Who Don’t Like pre-commit](https://it176131.github.io/2024/12/12/isort.html) by Ian Thompson
+```
+
+And after this entry is published, there will be an additional change.
+
+I hope this has been informative and provides enough details on GitHub actions and workflows for you to create your own.
+Happy coding 🤓.
