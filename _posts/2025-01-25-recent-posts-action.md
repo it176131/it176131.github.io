@@ -1,8 +1,8 @@
 ---
 layout: "post"
 title: "Actions & Workflows: Automatically Updating My GitHub Profile with Recent Blog Posts"
-date: 2025-01-20
-images: "/assets/images/2025-01-20-recent-posts-action"
+date: 2025-01-25
+images: "/assets/images/2025-01-25-recent-posts-action"
 ---
 <head>
    <style>
