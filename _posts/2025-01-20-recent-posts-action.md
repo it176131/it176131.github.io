@@ -261,31 +261,6 @@ runs:
 ```
 {% endraw %}
 
-{% raw %}
-```yaml
-name: "Recent Posts"
-author: "Ian Thompson"
-description: "Get the most recent blog post metadata."
-inputs:
-  readme:
-    description: "Path to the README.md"
-    required: false
-    default: "./README.md"
-
-  num-entries:
-    description: "Number of blog entries to show"
-    required: false
-    default: 5
-
-runs:
-  using: "docker"
-  image: "Dockerfile"
-  args:
-    - ${{ inputs.readme }}
-    - ${{ inputs.num-entries }}
-```
-{% endraw %}
-
 ### Step 3
 > [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml") informs GitHub to build a Docker container using the [_Dockerfile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile").
 
@@ -348,49 +323,6 @@ YAML Keywords in `recent-posts.yml` Workflow:
 <!-- BLOG END -->
 ```
 
-# Step 2:
-`it176131.github.io/.github/actions/recent-posts/action.yml` spins up a Docker 
-container using `it176131.github.io/.github/actions/recent-posts/Dockerfile` 
-and supplies the argument inputs from `it176131/.github/workflows/recent-posts.yml`.
-
-{% raw %}
-```yaml
-name: "Recent Posts"
-author: "Ian Thompson"
-description: "Get the most recent blog post metadata."
-inputs:
-  readme:
-    description: "Path to the README.md"
-    required: false
-    default: "./README.md"
-
-  num-entries:
-    description: "Number of blog entries to show"
-    required: false
-    default: 5
-
-runs:
-  using: "docker"
-  image: "Dockerfile"
-  args:
-    - ${{ inputs.readme }}
-    - ${{ inputs.num-entries }}
-```
-{% endraw %}
-
-YAML Keywords in `action.yml` Action:
-- [`name`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#name)
-- [`author`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#author)
-- [`description`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#description)
-- [`inputs`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputs)
-- [`inputs.readme`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputsinput_id)
-- [`inputs.readme.description`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputsinput_iddescription)
-- [`inputs.readme.required`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputsinput_idrequired)
-- [`inputs.readme.default`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#inputsinput_iddefault)
-- [`runs`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#runs)
-- [`runs.using`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#runsusing-for-docker-container-actions)
-- [`runs.image`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#runsimage)
-- [`runs.args`](https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions#runsargs)
 
 # Step 3:
 The Docker container produced by `it176131.github.io/.github/actions/recent-posts/Dockerfile`:
