@@ -262,25 +262,46 @@ runs:
 {% endraw %}
 
 ## _Dockerfile_
+### Step 4
+
+The Docker container
+produced via the [_DockerFile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile") comes [`FROM`](https://docs.docker.com/reference/dockerfile/#from) a Python 3.13 base image.
 
 ```dockerfile
 FROM python:3.13
+```
 
+It then makes a [`COPY`](https://docs.docker.com/reference/dockerfile/#copy) of the [_requirements.txt_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/requirements.txt") file to its primary directory.
+
+```dockerfile
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+```
 
+From here it will [`RUN`](https://docs.docker.com/reference/dockerfile/#run) the `pip install` command on the newly copied _requirements.txt_,
+satisfying the dependencies of [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py").
+
+```dockerfile
+RUN pip install --no-cache-dir -r requirements.txt \
+```
+
+After that,
+it will copy the rest of the files in the same directory as [_DockerFile_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/Dockerfile") to the container directory,
+before running [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") as an [`ENTRYPOINT`](https://docs.docker.com/reference/dockerfile/#entrypoint).
+
+```dockerfile
 COPY . ./
 
 ENTRYPOINT ["python", "/main.py"]
 ```
 
-Docker Instructions in `Dockerfile`:
-- [`FROM`](https://docs.docker.com/reference/dockerfile/#from)
-- [`COPY`](https://docs.docker.com/reference/dockerfile/#copy)
-- [`RUN`](https://docs.docker.com/reference/dockerfile/#run)
-- [`ENTRYPOINT`](https://docs.docker.com/reference/dockerfile/#entrypoint)
+> [!NOTE]
+> 
+> Running the Python script as an entrypoint is required if you want
+> [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py")
+> to receive the `args` from [_action.yml_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/action.yml")
+> and [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml").
 
-
+## _main.py_
 
 
 
