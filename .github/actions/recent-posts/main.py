@@ -1,16 +1,20 @@
 from datetime import datetime
-from typing import Final
+import re
+from typing import Annotated, Final
 
 import httpx
 from httpx import Response
 from pydantic.networks import HttpUrl
+from pydantic.types import FilePath
 from pydantic_xml.model import (
     attr, BaseXmlModel, computed_element, element, wrapped
 )
-from rich.console import Console
+from typer import Typer
+from typer.params import Argument
 
 BLOG_URL = "https://it176131.github.io"
 NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
+app = Typer()
 
 
 class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
@@ -31,14 +35,42 @@ class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
 class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
     """Validate the RSS feed/XML from my blog."""
 
-    # We limit to the first <entry> from the RSS feed as it is the most
-    # recently published.
-    entry: Entry
+    # We collect all <entry> tags from the RSS feed.
+    entries: list[Entry]
+
+
+@app.command()
+def main(
+        readme: Annotated[
+            FilePath,
+            Argument(help="Path to file where metadata will be written.")
+        ],
+        num_entries: Annotated[
+            int,
+            Argument(help="Number of blog entries to write to the `readme`.")
+        ],
+) -> None:
+    """Write most recent blog post metadata to ``readme``."""
+    resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
+    xml: bytes = resp.content
+    model = Feed.from_xml(source=xml)
+    entries = model.entries[:num_entries]
+
+    with readme.open(mode="r") as f:
+        text = f.read()
+
+    pattern = r"(?<=<!-- BLOG START -->)[\S\s]*(?=<!-- BLOG END -->)"
+    template = "- [{title}]({link}) by {author}"
+    repl = "\n".join(
+        [
+            template.format(title=e.title, link=e.link, author=e.author)
+            for e in entries
+        ]
+    )
+    new_text = re.sub(pattern=pattern, repl=f"\n{repl}\n", string=text)
+    with readme.open(mode="w") as f:
+        f.write(new_text)
 
 
 if __name__ == "__main__":
-    resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
-    xml: bytes = resp.content
-    console = Console()
-    model = Feed.from_xml(source=xml)
-    console.print(model.model_dump_json(indent=2))
+    app()
