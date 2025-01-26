@@ -306,16 +306,16 @@ ENTRYPOINT ["python", "/main.py"]
 > and [_recent-posts.yml_ ℹ️](## "it176131/.github/workflows/recent-posts.yml").
 
 ## _main.py_
-### Step 5
-> [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py")
-> takes the inputs and updates the [_README.md_ ℹ️](## "it176131/README.md")
-> with the latest posts.
 
 I'm not going
 to walk through the [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") file line-by-line
 as I covered most of it in my [previous post]({{ site.baseurl }}{% link _posts/2024-12-23-pydantic-xml.md %}).
-However, I will note that I made some changes so that it can directly modify the _README.md_ file.
+However,
+I will note that I made some changes so that it can directly modify the [_README.md_ ℹ️](## "it176131/README.md")
+file.
+I will walk through what I consider the most important parts.
 
+Some changes required me to update my import statements.
 ```diff
  from datetime import datetime
 -from typing import Final
@@ -337,10 +337,11 @@ However, I will note that I made some changes so that it can directly modify the
  NSMAP: Final[dict[str, str]] = {"": "http://www.w3.org/2005/Atom"}
 +app = Typer()
 
+```
 
- class Entry(BaseXmlModel, tag="entry", nsmap=NSMAP, search_mode="ordered"):
-     ...
-
+I also decided that I wanted more than the single most recent blog post,
+so I changed `Feed.entry` to `Feed.entries`.
+```diff
  class Feed(BaseXmlModel, tag="feed", nsmap=NSMAP, search_mode="ordered"):
      """Validate the RSS feed/XML from my blog."""
 
@@ -350,7 +351,16 @@ However, I will note that I made some changes so that it can directly modify the
 +    # We collect all <entry> tags from the RSS feed.
 +    entries: list[Entry]
 
+```
 
+### Step 5
+> [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py")
+> takes the inputs and updates the [_README.md_ ℹ️](## "it176131/README.md")
+> with the latest posts.
+
+To accept the inputs,
+I needed to modify my script's signature with both a `readme` and `num_entries` parameter.
+```diff
 -if __name__ == "__main__":
 +@app.command()
 +def main(
@@ -364,6 +374,11 @@ However, I will note that I made some changes so that it can directly modify the
 +        ],
 +) -> None:
 +    """Write most recent blog post metadata to ``readme``."""
+```
+
+The `num_entries` argument allowed me to dynamically control how many
+blog posts to get from my `Feed.entries` list.
+```diff
      resp: Response = httpx.get(url=f"{BLOG_URL}/feed.xml")
      xml: bytes = resp.content
 -    console = Console()
@@ -371,6 +386,14 @@ However, I will note that I made some changes so that it can directly modify the
 -    console.print(model.model_dump_json(indent=2))
 +    entries = model.entries[:num_entries]
 +
+```
+
+Modifying the [_README.md_ ℹ️](## "it176131/README.md") was a bit more involved.
+First I had to read the file in.
+Then, with the help of a regular expression,
+I could find the text between two HTML comments and replace it with my entries.
+After that I could overwrite the [_README.md_ ℹ️](## "it176131/README.md") and my work would be done.
+```diff
 +    with readme.open(mode="r") as f:
 +        text = f.read()
 +
@@ -391,28 +414,36 @@ However, I will note that I made some changes so that it can directly modify the
 +    app()
 ```
 
+### _README.md_
+Using a regular expression only works if the HTML comments already exist, which they didn't at first.
+This meant that I had to modify the [_README.md_ ℹ️](## "it176131/README.md")
+_before_ my workflow could do anything.
+
+In a previous version of my [_README.md_ ℹ️](## "it176131/README.md") I had a section called "Articles"
+that originally held links to my [Medium content](https://medium.com/@ianiat11).
+I don't really write on [Medium](https://medium.com/) anymore,
+and figured this would be a good place to put the output of my workflow.
+
+```diff
+ # Articles ✍
+-![Medium](https://github-read-medium-git-main.pahlevikun.vercel.app/latest?username=ianiat11&limit=6&theme=dracula)
++<!-- BLOG START -->
++<!-- BLOG END -->
+```
+
+Now my script has a place between two comments to write my blog entries 😎.
+
+## _recent-posts.yml_ (revisited)
+### Step 6
+
+
 ```yaml
-name: "Update README with most recent blog post"
-on:
-  push:
-    branches: ["main", "master"]
-
-  schedule:
-    - cron: "* * * * *"
-
 jobs:
   recent_post_job:
     runs-on: ubuntu-latest
     name: Recent Post
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Recent post action
-        uses: "it176131/it176131.github.io/.github/actions/recent-posts@recent-posts"
-        with:
-          readme: "./README.md"
-          num-entries: 5
+#      ...
 
       - name: Commit README
         run: |
@@ -428,13 +459,6 @@ jobs:
 
 YAML Keywords in `recent-posts.yml` Workflow:
 - [`jobs.recent_post_job.steps.run`](https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)
-
-# The README.md
-```markdown
-# Recent Articles From My [Blog](https://it176131.github.io/) ✍
-<!-- BLOG START -->
-<!-- BLOG END -->
-```
 
 # Step 5
 If `it176131.github.io/.github/actions/recent-posts/main.py` completes successfully,
