@@ -30,6 +30,7 @@ I think I need to sit down and _**<u>really</u>**_ think about what I want and c
 
 Moving away from the monthly bullet points, I've decided to write about my "wins" and "losses" of 2024.
 
+# Wins
 What are my wins?
 - My patent application made it through H&R Block's internal review process and was submitted to the United States Patent and Trademark Office.
 - I published 19 blog posts. Most were technical writeups documenting a solution I came up with to a problem I was trying to solve.
@@ -37,17 +38,20 @@ What are my wins?
 - I purchased my first official investment/rental property with my mom and supervised my first minor renovation project.
 - I fully recovered from my accident and got back to the boulder gym. Towards the end of the year I finally got back to where I left off and completed a V7, my first since before my accident.
 
+# Losses (?)
 What about my losses?
 Can I, or should I, call them losses?
 If I don't call them losses, what are they?
 Challenges?
 Things I'm not proud of?
-Experiences with a less to be learned?
+Experiences with a lesson to be learned?
 
 Regardless of what I call them, I feel I should still talk about them because they show what not to do in the future.
 Or rather if I should do something differently.
 
-I'll call them "areas for improvement":
+I'll call them "areas for improvement."
+
+# ~~Losses~~ Areas for improvement
 - My blog post, [_Basket Analysis, Part I: Navigating the API_"]({{ site.baseurl }}{% link _posts/2024-05-07-basket-analysis-pt1.html %}). I'm not proud of this post, and I keep it on my blog as a reminder to not write something similar. I think it's because it doesn't talk about basket analysis at all, and that I called it "Part I" without ever writing a "Part II." Not that I didn't try, but "Part II" just didn't flow. After I published "Part I" and gave up on "Part II" I looked at what was working for me. That included writing about problems I was actively or had recvently solved, or follow-ups to questions or comments from an eralier post, like [_scikit-learn's Pipeline and Friends, Part II: Efficient Fitting_]({{ site.baseurl }}{% link _posts/2024-02-17-sklearn-pipeline-pt2.html%}) or [_Contributing, Part II: Test-Driven Development_]({{ site.baseurl }}{% link _posts/2024-03-24-contributing-pt2.md %}).
 - Overspending on my investment property. This isn't exactly a "loss" as I did get the property for less than the asking price AND was able to get most of my closing costs covered by the seller, but I feel I could have done better. There's a saying that goes something like, "time in the market beats timing the market," which I agree with. But it's not as straightforward or easy as it sounds. Buying a property for too high a price and renting it out still puts you in the market, but not in as good of a position as someone who got it for less. I'm challenging myself to get a better deal on the next property as measured by some metrics I haven't yet decided on.
 - I have time to read more books. Reading 21 books in a yuear is probably above average, but I feel I could read more. My official goal for 2025 is 22 (always one more than the previous year), but my unofficial goal is 24. That's two books a month, or one book approximately every 15 days. Now I don't read just any books. No. I typically read nonfiction with the intention of learning something about the world, or myself. This doesn't mean I don't read an occasional fiction book; my sister is a big Stephen King fan and I discovered that I really liked [_The Shining_](https://www.goodreads.com/book/show/11588.The_Shining) last year.
