@@ -10,18 +10,18 @@ I considered doing something similar to my first post of January 2024,
 
 I considered adding a "Goals" section at the end.
 Figured if I made them public, then maybe people would cheer me on and ask about my progress.
-Something akin to OKRs.
+Something akin to [OKR](https://www.whatmatters.com/faqs/okr-meaning-definition-example)s.
 
 On December 30, 2024, I wrote this list of goals that I wanted to complete in 2025:
-- Purchase two properties
-- Hire an accountant to manage my business expenses
-- Consult an attorney to navigate real estate business laws
-- Add my mom to my business as a part owner
-- Transfer my most recent property title to my business
-- Read 22 books
-- Publish 20 blog posts
-- Answer six Stack Overflow questions
-- Increase my total asset worth to $2.25 million
+> - Purchase two properties
+> - Hire an accountant to manage my business expenses
+> - Consult an attorney to navigate real estate business laws
+> - Add my mom to my business as co-owner
+> - Transfer my most recent property title to my real estate business
+> - Read 22 books
+> - Publish 20 blog posts
+> - Answer six Stack Overflow questions
+> - Increase my total assets to $2.25 million
 
 After reading [_10x is Easier than 2x_](https://10xeasierbook.com/), I'm not sure I still believe in some of these goals.
 I think I need to sit down and _**<u>really</u>**_ think about what I want and come up with options for how to get "it."
