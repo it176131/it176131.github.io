@@ -38,7 +38,7 @@ What are my wins?
 - I purchased my first official investment/rental property with my mom and supervised my first minor renovation project.
 - I fully recovered from my accident and got back to the boulder gym. Towards the end of the year I finally got back to where I left off and completed a V7, my first since before my accident.
 
-# Losses (?)
+# Losses... ?
 What about my losses?
 Can I, or should I, call them losses?
 If I don't call them losses, what are they?
