@@ -28,8 +28,7 @@ I'm not sure if I still believe in some of these goals.
 Most, if not all, of them feel more like to-do items on a checklist.
 I think I need to sit down and _**<u>really</u>**_ think about what I want and come up with options for how to get "it."
 
-I'm trying to find things to add to my blog post and I'm struggling for the month of January.
-Maybe I should move away from the bullet points for each month and instead write about my "wins" and "losses"?
+Moving away from the monthly bullet points, I've decided to write about my "wins" and "losses" of 2024.
 
 What are my wins?
 - My patent application made it through H&R Block's internal review process and was submitted to the United States Patent and Trademark Office.
