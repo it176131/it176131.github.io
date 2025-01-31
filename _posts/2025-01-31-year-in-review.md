@@ -53,3 +53,9 @@ I'll call them "areas for improvement":
 - More blog posts. this ties to my first area for improvement in that "more" should also imply "better." I wrote 19 posts last year which is actually quite a few more than I thought I'd write. This year I'd officially like to write 20 (again, always one more than the previous year), but unofficially I want to write 24. I intend to keep the majority of my posts technical with the hope that they help people solve a problem, or act as a resource to my future self. However, to improve them I may branch out and write about some other topics like my thoughts on a book I just finished or my journey in real estate. Whatever they are, I want them to be better. And I plan on measuring that by looking at analytics.
 - Climb a V8+ boulder route at my gym. Before my accident I had just broken into the V7 routes at my gym. I completed three, and on my to complete my fourth I broke my arm. Nine months after recovery I finally sent another V7. Then ten days later I sent another. A couple weeks after that I sent my third (the first of 2025) and another couple weeks after that my fourth. I feel so much more confident working on V7 routes that I actively look for them on the walls and am willing to spend four days projecting. I'd like to push myself and go to the next level, which would put me in the top climbing difficulty at my gym. Along the way I hope to do my first muscle-up (I think it comes down to form), hit 30 consecutive pull-ups, and do a handstand push-up.
 
+I've got a lot of goals/areas for improvement this year.
+To keep me honest, I'd appreciate any feedback and support from my readers,
+and I'll post regular updates on all of my goals.
+Heck, I'll even make a dashboard and put it on my blog site and GitHub profile.
+Year.
+I like that idea 🙂.
