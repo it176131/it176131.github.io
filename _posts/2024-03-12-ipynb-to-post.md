@@ -121,20 +121,3 @@ I'll refrain from anymore promises until I keep the one I've delayed 😉.
 
 > P.S. here's a link to the
 > [_ipynb_to_post.py_](https://github.com/it176131/it176131.github.io/blob/main/ipynb_to_post.py) script.
-
-<script src="https://giscus.app/client.js"
-        data-repo="it176131/it176131.github.io"
-        data-repo-id="R_kgDOK1ukqg"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOK1ukqs4CcOnS"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="light"
-        data-lang="en"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async>
-</script>
