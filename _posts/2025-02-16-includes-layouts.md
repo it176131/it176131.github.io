@@ -56,3 +56,10 @@ After finding a file called _post.html_ in the `_layouts/` directory
 and seeing a very similar HTML structure to my already-published posts,
 I gathered that this was the template Jekyll was using to format my posts
 (or at least any page that the layout set to "post" in the front matter).
+
+> [!NOTE]
+> 
+> I'll want to show the contents of _post.html_ at some point.
+> I'd probably also want
+> to compare it with my [_Hello World_]({{ site.baseurl }}{% link _posts/2023-12-04-hello-world.md %)
+> post (as HTML) so I can draw parallels.
