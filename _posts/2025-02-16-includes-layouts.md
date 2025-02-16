@@ -46,3 +46,13 @@ All of my posts have the following front matter keys at a minimum:
 > [!NOTE]
 > 
 > add Jekyll(?) definitions for each!
+
+I've (almost) always set the layout to "post"
+because that's what the [GitHub Pages tutorial](https://github.com/skills/github-pages)
+(course?) said to do.
+I think the only time I didn't was for my [résumé](https://raw.githubusercontent.com/it176131/it176131.github.io/refs/heads/main/resume.md) when I set the layout to "page".
+
+After finding a file called _post.html_ in the `_layouts/` directory
+and seeing a very similar HTML structure to my already-published posts,
+I gathered that this was the template Jekyll was using to format my posts
+(or at least any page that the layout set to "post" in the front matter).
