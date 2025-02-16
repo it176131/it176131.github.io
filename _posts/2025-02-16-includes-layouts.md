@@ -13,3 +13,7 @@ From there I'll introduce that I'm using [Google Analytics](https://developers.g
 To use Google Analytics I need to add an HTML `<script>` element to all of my posts just below the `<head>` tag.
 This raised a problem—a large number of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
 which means I don't have a direct ability to add/modify the HTML with the Google Analytics `<script>`.
+
+I knew
+that [Jekyll](https://jekyllrb.com/) performed a conversion of my Markdown to HTML before being deployed/published.
+This lead me to search for the "template" used by Jekyll for my posts, and later, for all pages on my site.
