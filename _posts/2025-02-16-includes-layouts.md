@@ -37,3 +37,12 @@ For example:
 front matter goes here!
 ---
 ```
+
+All of my posts have the following front matter keys at a minimum:
+- `layout`
+- `title`
+- `date`
+
+> [!NOTE]
+> 
+> add Jekyll(?) definitions for each!
