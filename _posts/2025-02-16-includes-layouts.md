@@ -17,3 +17,8 @@ which means I don't have a direct ability to add/modify the HTML with the Google
 I knew
 that [Jekyll](https://jekyllrb.com/) performed a conversion of my Markdown to HTML before being deployed/published.
 This lead me to search for the "template" used by Jekyll for my posts, and later, for all pages on my site.
+
+With some digging I discovered the `_includes/` and `_layouts/` directories.
+The `_layouts/` directory houses the "templates" used by Jekyll to convert my pages to HTML.
+The `_includes/` directory holds snippets of HTML that don't do anything by themselves,
+but can augment the HTML in a layout template if "included."
