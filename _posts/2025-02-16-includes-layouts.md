@@ -63,3 +63,10 @@ I gathered that this was the template Jekyll was using to format my posts
 > I'd probably also want
 > to compare it with my [_Hello World_]({{ site.baseurl }}{% link _posts/2023-12-04-hello-world.md %)
 > post (as HTML) so I can draw parallels.
+
+The _page.html_ has references to files in the `_includes/` directory with includes tags.
+This would be how I could automatically add the Google Analytics `<script>` element to every page on my site.
+But of course, to include it on every page meant using the top-most HTML file rather than the _post.html_ because...
+> [!NOTE]
+> 
+> I don't like how this is written/how it sounds.
