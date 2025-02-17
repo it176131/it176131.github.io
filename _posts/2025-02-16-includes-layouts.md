@@ -41,8 +41,14 @@ Here are the instructions:
 > ```
 
 Two things stood out to me:
-Copy and paste it in the code of _**<u>every page of your website</u>**_,
-immediately _**<u>after the <code><head></code> element</u>**_.
+1. Copy and paste it in the code of _**<u>every page of your website</u>**_
+2. immediately _**<u>after the <code><head></code> element</u>**_
+
+The first I can do—I already copy/paste a [giscuss](https://giscus.app/) `<script>` element to the bottom of all of my posts
+so visitors can comment and react.
+But I'd rather find some automated way.
+I often forget to add the comment section when I publish and have to add it after the fact.
+It's quite repetitive and I should probably automate that too.
 
 To use Google Analytics I need to add an HTML `<script>` element to all of my posts just below the `<head>` tag.
 This raised a problem—a large number of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
