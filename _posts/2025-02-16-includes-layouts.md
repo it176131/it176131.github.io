@@ -109,3 +109,6 @@ Much better.
 After testing that I wouldn't lose my existing comments and reactions,
 I removed the old `<script>` elements from the bottoms of my existing posts.
 Now I can write and publish without having to worry that readers won't be able to leave feedback.
+
+Last year, when I first added the ability to comment, my goal was to get feedback on my posts.
+To have conversations with my readers.
