@@ -4,19 +4,19 @@ title: "Includes & Layouts: Making My Site a Bit More Automated"
 date: 2025-02-16
 ---
 
-In my last post, [_2024:
-Year in Review_]({{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %}),
+In [_2024:
+Year in Review_]({{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %})
 I mentioned wanting to write better posts and that I would be looking at analytics.
 The day after I published,
 I figured out how to track web traffic with [Google Analytics](https://developers.google.com/analytics).
 I'd like to share the path I took as it taught me more about how my site works under the hood,
 as well as give insight to my motivations.
 
-I think this post will be short.
-It will start with a recap of my [_2024:
-Year in Review_]({{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %})
-post where I mentioned wanting to write better posts and track web traffic.
-From there I'll introduce that I'm using [Google Analytics](https://developers.google.com/analytics).
+[//]: # (I think this post will be short.)
+[//]: # (It will start with a recap of my [_2024:)
+[//]: # (Year in Review_]&#40;{{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %}&#41;)
+[//]: # (post where I mentioned wanting to write better posts and track web traffic.)
+[//]: # (From there I'll introduce that I'm using [Google Analytics]&#40;https://developers.google.com/analytics&#41;.)
 
 To use Google Analytics I need to add an HTML `<script>` element to all of my posts just below the `<head>` tag.
 This raised a problem—a large number of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
