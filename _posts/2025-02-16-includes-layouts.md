@@ -99,3 +99,8 @@ It's been tedious, and I've accidentally published multiple times without the sc
 having to go back and add it after the fact.
 It's not that I didn't want to automate it
 —I considered writing a pre-commit hook to check for it—I just didn't know how.
+
+Until now.
+> [!NOTE]
+> 
+> Walk through adding the giscuss `<script>` to `_includes/` and referencing it in `_layouts/post.html`.
