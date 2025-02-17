@@ -87,3 +87,7 @@ For the last couple of weeks I've been looking at my site's web traffic.
 It's been enjoyable to see.
 I don't have a lot of visitors; maybe one or two a day with most of them going to my more recent posts.
 But it feels good to be seen.
+
+In January 2024, when my site was a few posts old, I added the ability to comment and react to my posts via [giscuss](https://giscus.app/).
+After adding Google Analytics to my `_includes/` and letting Jekyll handle the automation,
+I figured it was hightime to do the same with my comments.
