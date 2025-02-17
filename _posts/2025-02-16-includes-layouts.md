@@ -104,3 +104,8 @@ Until now.
 > [!NOTE]
 > 
 > Walk through adding the giscuss `<script>` to `_includes/` and referencing it in `_layouts/post.html`.
+
+Much better.
+After testing that I wouldn't lose my existing comments and reactions,
+I removed the old `<script>` elements from the bottoms of my existing posts.
+Now I can write and publish without having to worry that readers won't be able to leave feedback.
