@@ -61,7 +61,7 @@ I gathered that this was the template Jekyll was using to format my posts
 > 
 > I'll want to show the contents of _post.html_ at some point.
 > I'd probably also want
-> to compare it with my [_Hello World_]({{ site.baseurl }}{% link _posts/2023-12-04-hello-world.md %)
+> to compare it with my [_Hello World_]({{ site.baseurl }}{% link _posts/2023-12-04-hello-world.md %})
 > post (as HTML) so I can draw parallels.
 
 The _page.html_ has references to files in the `_includes/` directory with includes tags.
@@ -91,3 +91,11 @@ But it feels good to be seen.
 In January 2024, when my site was a few posts old, I added the ability to comment and react to my posts via [giscuss](https://giscus.app/).
 After adding Google Analytics to my `_includes/` and letting Jekyll handle the automation,
 I figured it was hightime to do the same with my comments.
+
+Yes,
+I've literally been copy/pasting an HTML script to the bottom of every post
+since I published [_Comments_]({{ site.baseurl }}{% link _posts/2024-01-10-comments.md %}).
+It's been tedious, and I've accidentally published multiple times without the script,
+having to go back and add it after the fact.
+It's not that I didn't want to automate it
+—I considered writing a pre-commit hook to check for it—I just didn't know how.
