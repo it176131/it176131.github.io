@@ -27,6 +27,23 @@ but to gain some insight into my site I had to do one of the following:
 
 I don't use a website builder (e.g., Wix, WordPress), so I opted for the manual process—how bad could it be?
 
+Here are the instructions:
+> Below is the Google tag for this account.
+> Copy and paste it in the code of every page of your website, immediately after the `<head>` element.
+> Don't add more than one Google tag to each page.
+> 
+> ```html
+> <!-- Google tag (gtag.js) -->
+> <script async src="..."></script>
+> <script>
+>     ...some JavaScript code...
+> </script>
+> ```
+
+Two things stood out to me:
+Copy and paste it in the code of _**<u>every page of your website</u>**_,
+immediately _**<u>after the <code><head></code> element</u>**_.
+
 To use Google Analytics I need to add an HTML `<script>` element to all of my posts just below the `<head>` tag.
 This raised a problem—a large number of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
 which means I don't have a direct ability to add/modify the HTML with the Google Analytics `<script>`.
