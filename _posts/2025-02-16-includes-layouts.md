@@ -115,3 +115,12 @@ To have conversations with my readers.
 
 After sharing my posts on LinkedIn to spread the word that I have a blog, a weird even occurred:
 readers started reacting and writing comments on my LinkedIn post rather than my actual blog posts.
+
+It's kind of funny.
+I got through an effort to allow interaction on my site and it turns out all I had to do was share on LinkedIn.
+I can think of reasons why this happened:
+- readers don't have GitHub accounts so can't comment directly
+- the path of least resistance to interact is on LinkedIn where the post was discovered
+- etc.
+
+Whatever it is, I welcome it.
