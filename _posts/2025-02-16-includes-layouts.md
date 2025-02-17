@@ -70,3 +70,9 @@ But of course, to include it on every page meant using the top-most HTML file ra
 > [!NOTE]
 > 
 > I don't like how this is written/how it sounds.
+
+After creating an `analytics.html` file in my own repo's `_includes/` directory,
+I referenced it in my `_includes/head.html` file.
+With a quick refresh of my local Jekyll server and an inspection of a couple of my site's pages,
+I could see the Google Analytics `<script>`.
+It had worked!
