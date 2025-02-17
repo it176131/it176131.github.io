@@ -80,3 +80,10 @@ It had worked!
 I pushed all of my changes to GitHub and merged with my main branch.
 After deployment I checked my live-site and again saw the script.
 I felt like I had unlocked a level in my understanding of Jekyll, GitHub Pages, and HTML.
+
+I completed all of this on February 1, 2025—the day after I published [_2024:
+Year in Review_]({{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %}).
+For the last couple of weeks I've been looking at my site's web traffic.
+It's been enjoyable to see.
+I don't have a lot of visitors; maybe one or two a day with most of them going to my more recent posts.
+But it feels good to be seen.
