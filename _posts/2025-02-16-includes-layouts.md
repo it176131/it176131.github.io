@@ -124,3 +124,11 @@ I can think of reasons why this happened:
 - etc.
 
 Whatever it is, I welcome it.
+
+I write the posts and share them in an effort to educate, learn, and converse.
+It shouldn't matter how my students, teachers, readers,
+friends choose to interact as long as I can provide a way to do so.
+Comment on LinkedIn.
+React on my site.
+Whatever you do and where you do it, I see and read them all.
+And I appreciate it 🤗.
