@@ -76,3 +76,7 @@ I referenced it in my `_includes/head.html` file.
 With a quick refresh of my local Jekyll server and an inspection of a couple of my site's pages,
 I could see the Google Analytics `<script>`.
 It had worked!
+
+I pushed all of my changes to GitHub and merged with my main branch.
+After deployment I checked my live-site and again saw the script.
+I felt like I had unlocked a level in my understanding of Jekyll, GitHub Pages, and HTML.
