@@ -2,6 +2,7 @@
 layout: "post"
 title: "Includes & Layouts: Making My Site a Bit More Automated"
 date: 2025-02-16
+images: "/assets/images/2025-02-16-includes-layouts"
 ---
 
 In [_2024:
@@ -50,9 +51,23 @@ But I'd rather find some automated way.
 I often forget to add the comment section when I publish and have to add it after the fact.
 It's quite repetitive and I should probably automate that too.
 
-To use Google Analytics I need to add an HTML `<script>` element to all of my posts just below the `<head>` tag.
-This raised a problem—a large number of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
-which means I don't have a direct ability to add/modify the HTML with the Google Analytics `<script>`.
+The second is a bit harder.
+Most of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
+so they don't exactly have a visible `<head>` element.
+Now if I go to my actual site and inspect any of the pages I can see 👀 that there is such an element.
+
+<center>
+    <figure>
+        <img src="{{ page.images | relative_url }}/head-element.png">
+        <figcaption>There it is!</figcaption>
+    </figure>
+</center>
+
+But how do I add this Google tag immediately after it?
+
+[//]: # (To use Google Analytics I need to add an HTML `<script>` element to all of my posts just below the `<head>` tag.)
+[//]: # (This raised a problem—a large number of my posts are written in [Markdown]&#40;https://en.wikipedia.org/wiki/Markdown&#41;,)
+[//]: # (which means I don't have a direct ability to add/modify the HTML with the Google Analytics `<script>`.)
 
 I knew
 that [Jekyll](https://jekyllrb.com/) performed a conversion of my Markdown to HTML before being deployed/published.
