@@ -112,3 +112,6 @@ Now I can write and publish without having to worry that readers won't be able t
 
 Last year, when I first added the ability to comment, my goal was to get feedback on my posts.
 To have conversations with my readers.
+
+After sharing my posts on LinkedIn to spread the word that I have a blog, a weird even occurred:
+readers started reacting and writing comments on my LinkedIn post rather than my actual blog posts.
