@@ -18,6 +18,15 @@ as well as give insight to my motivations.
 [//]: # (post where I mentioned wanting to write better posts and track web traffic.)
 [//]: # (From there I'll introduce that I'm using [Google Analytics]&#40;https://developers.google.com/analytics&#41;.)
 
+# Web traffic
+Google Analytics collects data on sites via a [Google tag](https://support.google.com/tagmanager/answer/11994839?hl=en#:~:text=The%20Google%20tag%20lets%20you,4%2C%20and%20Campaign%20Manager%20360.).
+I won't get into the details of how this happens,
+but to gain some insight into my site I had to do one of the following:
+- Install with a website builder or CMS
+- Install manually
+
+I don't use a website builder (e.g., Wix, WordPress), so I opted for the manual process—how bad could it be?
+
 To use Google Analytics I need to add an HTML `<script>` element to all of my posts just below the `<head>` tag.
 This raised a problem—a large number of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
 which means I don't have a direct ability to add/modify the HTML with the Google Analytics `<script>`.
