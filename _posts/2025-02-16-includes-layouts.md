@@ -13,12 +13,6 @@ I figured out how to track web traffic with [Google Analytics](https://developer
 I'd like to share the path I took as it taught me more about how my site works under the hood,
 as well as give insight to my motivations.
 
-[//]: # (I think this post will be short.)
-[//]: # (It will start with a recap of my [_2024:)
-[//]: # (Year in Review_]&#40;{{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %}&#41;)
-[//]: # (post where I mentioned wanting to write better posts and track web traffic.)
-[//]: # (From there I'll introduce that I'm using [Google Analytics]&#40;https://developers.google.com/analytics&#41;.)
-
 # Web traffic
 Google Analytics collects data on sites via a [Google tag](https://support.google.com/tagmanager/answer/11994839?hl=en#:~:text=The%20Google%20tag%20lets%20you,4%2C%20and%20Campaign%20Manager%20360.).
 I won't get into the details of how this happens,
