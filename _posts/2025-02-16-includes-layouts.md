@@ -41,9 +41,11 @@ Two things stood out to me:
 
 The first I can do—I already copy/paste a [giscuss](https://giscus.app/) `<script>` element to the bottom of all of my posts
 so visitors can comment and react.
-But I'd rather find some automated way.
-I often forget to add the comment section when I publish and have to add it after the fact.
-It's quite repetitive and I should probably automate that too.
+> [!NOTE]
+> 
+> I'd rather find some automated way.
+> I often forget to add the comment section when I publish and have to add it after the fact.
+> It's quite repetitive and I should probably automate that too.
 
 The second is a bit harder.
 Most of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
@@ -68,6 +70,46 @@ From the [Jekyll GitHub repo](https://github.com/jekyll/jekyll):
 > and spits out a complete, static website ready to be served by Apache, Nginx or another web server.
 > Jekyll is the engine behind [GitHub Pages](https://pages.github.com/),
 > which you can use to host sites right from your GitHub repositories.
+
+Hold on; what was that?
+> ... renders Markdown and Liquid **<u>templates</u>** ...
+
+Templates!
+
+My first (actually the first five...) result after googling "jekyll template"
+was the [Jekyll Themes](https://jekyllrb.com/docs/themes/) page.
+Under the section
+[Understanding gem-based themes](https://jekyllrb.com/docs/themes/#understanding-gem-based-themes)
+I read a word that sounded very familiar: "Minima"
+
+That's the [theme
+my blog uses](https://github.com/it176131/it176131.github.io/blob/b3f56f489390a3da791fb70c3d1bb71d008501d9/_config.yml#L19)!
+
+According to the _Themes_ docs:
+> With gem-based themes,
+> some of the site’s directories
+> (such as the `assets`, `_data`, `_layouts`, `_includes`, and `_sass` directories) are stored in the theme’s gem,
+> hidden from your immediate view.
+
+Okay, good to know.
+That would explain
+why I don't see any of the directories in my repo except [`assets/`](https://github.com/it176131/it176131.github.io/tree/b3f56f489390a3da791fb70c3d1bb71d008501d9/assets).
+
+Reading on:
+> #### [Overriding theme defaults](https://jekyllrb.com/docs/themes/#overriding-theme-defaults)
+> 
+> Jekyll themes set default data, layouts, includes, and stylesheets.
+> However, you can override any of the theme defaults with your own site content.
+
+Interesting!
+
+> For example, if your selected theme has a `page` layout,
+> you can override the theme’s layout by creating your own `page` layout in the `_layouts` directory
+> (that is, `_layouts/page.html`).
+
+Ah!
+✨**_<u>HTML</u>_**✨!
+Cue the [heavenly angel choir sound effect](https://youtu.be/6QBEt0F13RE?si=LiAUMQUhMBEM0dpf).
 
 [//]: # (I knew)
 [//]: # (that [Jekyll]&#40;https://jekyllrb.com/&#41; performed a conversion of my Markdown to HTML before being deployed/published.)
