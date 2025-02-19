@@ -3,6 +3,7 @@ layout: "post"
 title: "Includes & Layouts: Making My Site a Bit More Automated"
 date: 2025-02-16
 images: "/assets/images/2025-02-16-includes-layouts"
+audio: "/assets/audio"
 ---
 
 In [_2024:
@@ -109,7 +110,11 @@ Interesting!
 
 Ah!
 ✨**_<u>HTML</u>_**✨!
-Cue the [heavenly angel choir sound effect](https://youtu.be/6QBEt0F13RE?si=LiAUMQUhMBEM0dpf).
+Cue the angelic choir.
+<audio controls>
+    <source src="{{ page.audio }}/Angelic-choir-ahh.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
 Now all I have to do is find my local `_layouts/page.html` file.
 I wonder how... oh right.
@@ -207,10 +212,14 @@ Bundle complete!
 It worked!
 I run `bundle info --path minima` and out pops the following (less some redactions 😉):
 ```text
-~//Ruby32-x64//lib//ruby//gems//3.2.0//gems//minima-2.5.2
+~/Ruby32-x64/lib/ruby/gems/3.2.0/gems/minima-2.5.2
 ```
 
-[Hallelujah](https://youtu.be/nsBByTiKfyY?si=4XLtYzRGacJB8vMU)!
+Hallelujah!
+<audio controls>
+    <source src="{{ page.audio }}/Hallelujah-sound-effect.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 I found the door to the HTML files.
 
 [//]: # (With some digging I discovered the `_includes/` and `_layouts/` directories.)
