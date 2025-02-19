@@ -111,14 +111,112 @@ Ah!
 ✨**_<u>HTML</u>_**✨!
 Cue the [heavenly angel choir sound effect](https://youtu.be/6QBEt0F13RE?si=LiAUMQUhMBEM0dpf).
 
-[//]: # (I knew)
-[//]: # (that [Jekyll]&#40;https://jekyllrb.com/&#41; performed a conversion of my Markdown to HTML before being deployed/published.)
-[//]: # (This lead me to search for the "template" used by Jekyll for my posts, and later, for all pages on my site.)
+Now all I have to do is find my local `_layouts/page.html` file.
+I wonder how... oh right.
+It's in the _Themes_ docs:
+> 1. Run `bundle info --path` followed by the name of the theme’s gem,
+> e.g., `bundle info --path minima` for Jekyll’s default theme.
 
-With some digging I discovered the `_includes/` and `_layouts/` directories.
-The `_layouts/` directory houses the "templates" used by Jekyll to convert my pages to HTML.
-The `_includes/` directory holds snippets of HTML that don't do anything by themselves,
-but can augment the HTML in a layout template if "included."
+So I run it.
+```shell
+$ bundle info --path minima
+```
+
+And of course I get an error:
+```text
+Could not locate Gemfile or .bundle/ directory
+```
+
+😑
+
+A few searches and Stack Overflow posts later, I ran the following:
+```shell
+$ bundle init
+```
+
+This added a `Gemfile` to my repo directory.
+I guess the previous command should work now?
+```shell
+$ bundle info --path minima
+```
+
+Eh!
+No.
+Now I get the error:
+```text
+Could not find gem 'minima'.
+```
+
+New error equals... progress? 🤷
+
+More searching yielded a new command (and a prayer 🙏):
+```shell
+$ bundle install
+```
+
+Another (!) new file was added to my directory, `Gemfile.lock`, and the following message was written:
+```text
+The Gemfile specifies no dependencies
+Bundle complete! 0 Gemfile dependencies, 1 gem now installed.
+Use `bundle info [gemname]` to see where a bundle gem is installed.
+```
+
+Okay, the command _has_ to work now—the output just told me to use it!
+```shell
+$ bundle info --path minima
+```
+
+```text
+Could not find gem 'minima'.
+```
+
+Grrrr... 😠
+
+More searching.
+
+At the top of the Jekyll home page I find the following command:
+```shell
+$ gem install bundler jekyll
+```
+
+I say "what the heck" and run it.
+Out comes some new text:
+```text
+A new release of Ruby Gems is available: 3.4.10 -> 3.6.3!
+Run `gem update --system 3.6.3` to update your installation.
+```
+
+Okay... why is this starting to feel like a wild goose chase?
+I run the command anyway, followed by `bundle update minima`.
+I figure a new command might give a new error.
+
+But of course I was wrong 😂😭:
+```text
+Could not find the gem 'minima'.
+```
+
+Back to Google.
+
+I discover that I need to add `gem "minima"` to my `Gemfile`.
+I open it up and sure enough there's a commented out line that says `# gem "rails"`.
+I drop the new line right under it and rerun the previous command.
+```text
+Bundle complete!
+```
+
+It worked!
+I run `bundle info --path minima` and out pops the following (less some redactions 😉):
+```text
+~//Ruby32-x64//lib//ruby//gems//3.2.0//gems//minima-2.5.2
+```
+
+[Hallelujah](https://youtu.be/nsBByTiKfyY?si=4XLtYzRGacJB8vMU)!
+I found the door to the HTML files.
+
+[//]: # (With some digging I discovered the `_includes/` and `_layouts/` directories.)
+[//]: # (The `_layouts/` directory houses the "templates" used by Jekyll to convert my pages to HTML.)
+[//]: # (The `_includes/` directory holds snippets of HTML that don't do anything by themselves,)
+[//]: # (but can augment the HTML in a layout template if "included.")
 
 This is where [front matter](https://jekyllrb.com/docs/front-matter/) at the top of each post started to make sense.
 On any given post on my blog you'll find a section at the top called _front matter_.
