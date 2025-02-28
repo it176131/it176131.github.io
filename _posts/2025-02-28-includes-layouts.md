@@ -222,6 +222,22 @@ Hallelujah!
 </audio>
 I found the door to the HTML files.
 
+# A custom `<head>`
+Immediately inside the `minima-2.5.2/` directory I find the following:
+```text
+📂 ~/Ruby32-x64/lib/ruby/gems/3.2.0/gems/minima-2.5.2
+├── 📄 LICENSE.txt
+├── 📄 README.txt
+├── 📂 _includes
+├── 📂 _layouts
+├── 📂 _sass
+└── 📂 assets
+```
+
+`_layouts/` sounds like a good place to start (considering the docs said that's where `_layouts/page.html` is).
+
+
+
 [//]: # (With some digging I discovered the `_includes/` and `_layouts/` directories.)
 [//]: # (The `_layouts/` directory houses the "templates" used by Jekyll to convert my pages to HTML.)
 [//]: # (The `_includes/` directory holds snippets of HTML that don't do anything by themselves,)
