@@ -1,8 +1,8 @@
 ---
 layout: "post"
 title: "Includes & Layouts: Making My Site a Bit More Automated"
-date: 2025-02-16
-images: "/assets/images/2025-02-16-includes-layouts"
+date: 2025-02-28
+images: "/assets/images/2025-02-28-includes-layouts"
 audio: "/assets/audio"
 ---
 
