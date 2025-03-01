@@ -235,8 +235,64 @@ Immediately inside the `minima-2.5.2/` directory I find the following:
 ```
 
 `_layouts/` sounds like a good place to start (considering the docs said that's where `_layouts/page.html` is).
+```text
+📂 ~/Ruby32-x64/lib/ruby/gems/3.2.0/gems/minima-2.5.2
+├── 📄 LICENSE.txt
+├── 📄 README.txt
+├── 📂 _includes
+├── 📂 _layouts
+│   ├── <> default.html
+│   ├── <> home.html
+│   ├── <> page.html
+│   └── <> post.html
+├── 📂 _sass
+└── 📂 assets
+```
 
+Thinking back to all the blog posts I've written (including this one),
+I've always set my [front matter](https://jekyllrb.com/docs/front-matter/) `layout` to `"post"`.
+And now there's a file in the `_layouts/` directory called `"post.html"`.
+Could this be the template for all of my posts?
+🤔
 
+Here's the contents of `"post.html"`:
+{% raw %}
+```html
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ page.date | date: date_format }}
+      </time>
+      {%- if page.author -%}
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}</p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
+
+```
+{% endraw %}
+
+And here's a snippet of my very first blog post's HTML rendering (via the inspector):
+![post-html-snippet]({{ page.images | relative_url }}/post-html-snippet.png)
+
+These look highly similar (looking only at the tags).
 
 [//]: # (With some digging I discovered the `_includes/` and `_layouts/` directories.)
 [//]: # (The `_layouts/` directory houses the "templates" used by Jekyll to convert my pages to HTML.)
