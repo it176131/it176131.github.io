@@ -2,7 +2,7 @@
 layout: "post"
 title: "Includes & Layouts: Making My Site a Bit More Automated"
 date: 2025-03-01
-images: "/assets/images/2025-02-28-includes-layouts"
+images: "/assets/images/2025-03-01-includes-layouts"
 audio: "/assets/audio"
 ---
 
@@ -44,14 +44,18 @@ The first I can do—I already copy/paste a [giscuss](https://giscus.app/) `<scr
 so visitors can comment and react.
 > [!NOTE]
 > 
-> I'd rather find some automated way.
+> ~~I'd rather find some automated way.
 > I often forget to add the comment section when I publish and have to add it after the fact.
-> It's quite repetitive and I should probably automate that too.
+> It's quite repetitive and I should probably automate that too.~~
+> 
+> I've since automated this.
+> Find out how below. 👇
 
 The second is a bit harder.
 Most of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
 so they don't exactly have a visible `<head>` element.
-Now if I go to my actual site and inspect any of the pages, I can see 👀 that there is such an element.
+
+If I go to my actual site and inspect any of the pages, I can see 👀 that there is such an element.
 
 <center>
     <figure>
@@ -77,10 +81,10 @@ Hold on; what was that?
 
 Templates!
 
-My first (actually the first five...) result after googling "jekyll template"
-was the [Jekyll Themes](https://jekyllrb.com/docs/themes/) page.
+My first result (actually the first five...) after googling "jekyll template"
+was the [_Jekyll Themes_](https://jekyllrb.com/docs/themes/) page.
 Under the section
-[Understanding gem-based themes](https://jekyllrb.com/docs/themes/#understanding-gem-based-themes)
+[_Understanding gem-based themes_](https://jekyllrb.com/docs/themes/#understanding-gem-based-themes)
 I read a word that sounded very familiar: "Minima"
 
 That's the [theme
@@ -134,7 +138,7 @@ Could not locate Gemfile or .bundle/ directory
 
 😑
 
-A few searches and Stack Overflow posts later, I ran the following:
+A few searches and Stack Overflow posts later, I run the following:
 ```shell
 $ bundle init
 ```
@@ -374,7 +378,7 @@ Sure enough, there's a `_includes/head.html` file.
 And there resides the elusive `<head>` element.
 
 According to the Jekyll docs,
-all I have to do to customize this is copy this file to my repo's directory and then have my way with it.
+all I have to do to customize this is copy the file to my repo's directory and then have my way with it.
 And that's what I did.
 ```shell
 # From my repo's directory...
@@ -496,19 +500,19 @@ There were some subtle differences though, which I (briefly) describe below.
        {{ content }}
      </div>
    
-   {% include comments.html %}
+   {% include comments.html %}  <!-- RIGHT HERE!!! -->
    
    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
    </article>
    
    ```
    {% endraw %}
-5. Checked that a giscuss comment `<script>` existed on my blog posts _prior_ to publishing [_Comments_]({{ site.baseurl}}{% link _posts/2024-01-10-comments.md %}) (I was too lazy to go back and add them 😅).
+5. Checked that a giscuss comment `<script>` existed on my blog posts _prior_ to publishing [_Comments_]({{ site.baseurl}}{% link _posts/2024-01-10-comments.md %}) (I was too lazy to go back and add comments to my older posts 😅).
    <center>
       <img src="{{ page.images | relative_url }}/comments.png">
       <figcaption>It exists ✅</figcaption>
    </center>
-6. Deleted all the giscuss comment `<script>` elements from all the posts I had added it to and made sure that my existing comments remained.
+6. Deleted the giscuss comment `<script>` elements from all the posts I had added it to and made sure that my existing comments remained.
 7. Committed, pushed, and merged.
 
 # But why?
