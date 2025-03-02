@@ -420,60 +420,6 @@ No errors!
 I must be getting the hang of this.
 😏
 
-This is where [front matter](https://jekyllrb.com/docs/front-matter/) at the top of each post started to make sense.
-On any given post on my blog you'll find a section at the top called _front matter_.
-Its job is to tell Jekyll _how to format this Markdown when converting to HTML_.
-> [!NOTE]
-> 
-> Verify this!!
-
-It's represented as a block of yaml-like text enclosed by three dashes on top and bottom.
-For example:
-```yaml
----
-front matter goes here!
----
-```
-
-All of my posts have the following front matter keys at a minimum:
-- `layout`
-- `title`
-- `date`
-
-> [!NOTE]
-> 
-> add Jekyll(?) definitions for each!
-
-I've (almost) always set the layout to "post"
-because that's what the [GitHub Pages tutorial](https://github.com/skills/github-pages)
-(course?) said to do.
-I think the only time I didn't was for my [résumé](https://raw.githubusercontent.com/it176131/it176131.github.io/refs/heads/main/resume.md) when I set the layout to "page".
-
-After finding a file called _post.html_ in the `_layouts/` directory
-and seeing a very similar HTML structure to my already-published posts,
-I gathered that this was the template Jekyll was using to format my posts
-(or at least any page that the layout set to "post" in the front matter).
-
-> [!NOTE]
-> 
-> I'll want to show the contents of _post.html_ at some point.
-> I'd probably also want
-> to compare it with my [_Hello World_]({{ site.baseurl }}{% link _posts/2023-12-04-hello-world.md %})
-> post (as HTML) so I can draw parallels.
-
-The _page.html_ has references to files in the `_includes/` directory with includes tags.
-This would be how I could automatically add the Google Analytics `<script>` element to every page on my site.
-But of course, to include it on every page meant using the top-most HTML file rather than the _post.html_ because...
-> [!NOTE]
-> 
-> I don't like how this is written/how it sounds.
-
-After creating an `analytics.html` file in my own repo's `_includes/` directory,
-I referenced it in my `_includes/head.html` file.
-With a quick refresh of my local Jekyll server and an inspection of a couple of my site's pages,
-I could see the Google Analytics `<script>`.
-It had worked!
-
 I pushed all of my changes to GitHub and merged with my main branch.
 After deployment I checked my live-site and again saw the script.
 I felt like I had unlocked a level in my understanding of Jekyll, GitHub Pages, and HTML.
