@@ -51,7 +51,7 @@ so visitors can comment and react.
 The second is a bit harder.
 Most of my posts are written in [Markdown](https://en.wikipedia.org/wiki/Markdown),
 so they don't exactly have a visible `<head>` element.
-Now if I go to my actual site and inspect any of the pages I can see 👀 that there is such an element.
+Now if I go to my actual site and inspect any of the pages, I can see 👀 that there is such an element.
 
 <center>
     <figure>
@@ -255,7 +255,7 @@ And now there's a file in the `_layouts/` directory called `"post.html"`.
 Could this be the template for all of my posts?
 🤔
 
-Here's the contents of `"post.html"`:
+Here are the contents of `"post.html"`:
 {% raw %}
 ```html
 ---
@@ -290,9 +290,135 @@ layout: default
 {% endraw %}
 
 And here's a snippet of my very first blog post's HTML rendering (via the inspector):
-![post-html-snippet]({{ page.images | relative_url }}/post-html-snippet.png)
+<center>
+    <img src="{{ page.images | relative_url }}/post-html-snippet.png">
+</center>
 
-These look highly similar (looking only at the tags).
+Looking only at the HTML elements, I think it's fair to say "yes," this is the template.
+
+With a quick glance I can see that there isn't a `<head>` element,
+but there is front matter with the `layout` set to `default`.
+Over to the `_layouts/default.html` I go.
+
+{% raw %}
+```html
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+
+    {%- include header.html -%}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </main>
+
+    {%- include footer.html -%}
+
+  </body>
+
+</html>
+
+```
+{% endraw %}
+
+No front matter here,
+but there is an [`include` tag](https://jekyllrb.com/docs/includes/) that specifically references "head.html".
+On to the `_includes/` directory.
+```text
+📂 ~/Ruby32-x64/lib/ruby/gems/3.2.0/gems/minima-2.5.2
+├── 📄 LICENSE.txt
+├── 📄 README.txt
+├── 📂 _includes
+│   ├── <> disqus_comments.html
+│   ├── <> footer.html
+│   ├── <> google-analytics.html
+│   ├── <> head.html
+│   ├── <> header.html
+│   ├── <> icon-github.html
+│   ├── 🖼️ icon-github.svg
+│   ├── <> icon-twitter.html
+│   ├── 🖼️ icon-twitter.svg
+│   └── <> social.html
+├── 📂 _layouts
+│   ├── <> default.html
+│   ├── <> home.html
+│   ├── <> page.html
+│   └── <> post.html
+├── 📂 _sass
+└── 📂 assets
+```
+
+Sure enough, there's a `_includes/head.html` file.
+{% raw %}
+```html
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+</head>
+
+```
+{% endraw %}
+
+And there resides the elusive `<head>` element.
+
+According to the Jekyll docs,
+all I have to do to customize this is copy this file to my repo's directory and then have my way with it.
+And that's what I did.
+```shell
+# From my repo's directory...
+$ cp ~/Ruby32-x64/lib/ruby/gems/3.2.0/gems/minima-2.5.2/_includes/head.html ./_includes/head.html
+```
+
+To make things easier on myself (and practice using an `include` tag),
+I created an additional file in my new `_includes/` directory—`_includes/analytics.html`—to hold my Google tag.
+```text
+📂 it176131.github.io
+└── 📂 _includes
+    ├── <> analytics.html
+    └── <> head.html
+```
+
+I then "included" the Google tag in `_includes/head.html` immediately after the `<head>` element
+(just like the Google Analytics instructions said to):
+{% raw %}
+```html
+<head>
+  {% include analytics.html %}  <!-- RIGHT HERE!!! -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+  {%- if jekyll.environment == 'production' and site.google_analytics -%}
+    {%- include google-analytics.html -%}
+  {%- endif -%}
+</head>
+
+```
+{% endraw %}
+
+To check if the tag was present on not just my blog posts but my main page as well,
+I spun up a local server and inspected the HTML:
+<center>
+    <img src="{{ page.images | relative_url }}/gtag.png">
+</center>
+
+No errors!
+I must be getting the hang of this.
+😏
 
 [//]: # (With some digging I discovered the `_includes/` and `_layouts/` directories.)
 [//]: # (The `_layouts/` directory houses the "templates" used by Jekyll to convert my pages to HTML.)
