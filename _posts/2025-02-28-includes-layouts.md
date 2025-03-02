@@ -420,11 +420,6 @@ No errors!
 I must be getting the hang of this.
 😏
 
-[//]: # (With some digging I discovered the `_includes/` and `_layouts/` directories.)
-[//]: # (The `_layouts/` directory houses the "templates" used by Jekyll to convert my pages to HTML.)
-[//]: # (The `_includes/` directory holds snippets of HTML that don't do anything by themselves,)
-[//]: # (but can augment the HTML in a layout template if "included.")
-
 This is where [front matter](https://jekyllrb.com/docs/front-matter/) at the top of each post started to make sense.
 On any given post on my blog you'll find a section at the top called _front matter_.
 Its job is to tell Jekyll _how to format this Markdown when converting to HTML_.
