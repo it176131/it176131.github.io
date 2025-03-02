@@ -424,6 +424,94 @@ I pushed all of my changes to GitHub and merged with my main branch.
 After deployment I checked my live-site and again saw the script.
 I felt like I had unlocked a level in my understanding of Jekyll, GitHub Pages, and HTML.
 
+# Two weeks later...
+I sat down to write this post and procrastinated, but it resulted in an improvement: my giscuss comment section is now automatically included at the bottom of all my blog posts!
+I achieved this using the skills I had learned adding the Google tag to my `<head>` element (and avoided all the errors from before 😁).
+There were some subtle differences though, which I (briefly) describe below.
+
+1. Created `_includes/comments.html` in my repo's directory.
+   ```text
+   📂 it176131.github.io
+   └── 📂 _includes
+       ├── <> analytics.html
+       ├── <> comments.html
+       └── <> head.html
+   ```
+2. Added the giscuss `<script>` that I normally add to the bottom of _all_ of my blog posts.
+   {% raw %}
+   ```html
+   <script src="https://giscus.app/client.js"
+        data-repo="it176131/it176131.github.io"
+        data-repo-id="R_kgDOK1ukqg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOK1ukqs4CcOnS"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+   </script>
+   ```
+   {% endraw %}
+3. Copied `_layouts/post.html` from my minima directory to my repo.
+   ```shell
+   # From my repo's directory...
+   $ cp ~/Ruby32-x64/lib/ruby/gems/3.2.0/gems/minima-2.5.2/_layouts/post.html ./_layouts/post.html
+   ```
+   ```text
+   📂 it176131.github.io
+   ├── 📂 _includes
+   │   ├── <> analytics.html
+   │   ├── <> comments.html
+   │   └── <> head.html
+   └── 📂 _layouts
+       └── <> post.html
+   ```
+4. Added an `include` tag to my repo-copy of `_layouts/post.html` referencing my `_includes/comments.html`.
+   {% raw %}
+   ```html
+   ---
+   layout: default
+   ---
+   <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+   
+     <header class="post-header">
+       <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+       <p class="post-meta">
+         <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+           {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+           {{ page.date | date: date_format }}
+         </time>
+         {%- if page.author -%}
+           • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+         {%- endif -%}</p>
+     </header>
+   
+     <div class="post-content e-content" itemprop="articleBody">
+       {{ content }}
+     </div>
+   
+   {% include comments.html %}
+   
+   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+   </article>
+   
+   ```
+   {% endraw %}
+5. Checked that a giscuss comment `<script>` existed on my blog posts _prior_ to publishing [_Comments_]({{ site.baseurl}}{% link _posts/2024-01-10-comments.md %}) (I was too lazy to go back and add them 😅).
+   <center>
+      <img src="{{ page.images | relative_url }}/comments.png">
+      <figcaption>It exists ✅</figcaption>
+   </center>
+6. Deleted all the giscuss comment `<script>` elements from all the posts I had added it to and made sure that my existing comments remained.
+7. Committed, pushed, and merged.
+
+
 I completed all of this on February 1, 2025—the day after I published [_2024:
 Year in Review_]({{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %}).
 For the last couple of weeks I've been looking at my site's web traffic.
