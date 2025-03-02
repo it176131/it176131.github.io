@@ -511,44 +511,24 @@ There were some subtle differences though, which I (briefly) describe below.
 6. Deleted all the giscuss comment `<script>` elements from all the posts I had added it to and made sure that my existing comments remained.
 7. Committed, pushed, and merged.
 
-
-I completed all of this on February 1, 2025—the day after I published [_2024:
+# But why?
+I successfully started tracking web traffic on February 1, 2025—the day after I published [_2024:
 Year in Review_]({{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %}).
-For the last couple of weeks I've been looking at my site's web traffic.
+Two weeks after that I figured out how to automatically include a comment section at the end of every post I publish.
+For the last month I've been looking at my site's web traffic off and on.
 It's been enjoyable to see.
-I don't have a lot of visitors; maybe one or two a day with most of them going to my more recent posts.
+I don't have a lot of visitors (I probably account for +90% of them); maybe one or two a day with most of them going to my more recent posts.
 But it feels good to be seen.
 
-In January 2024, when my site was a few posts old, I added the ability to comment and react to my posts via [giscuss](https://giscus.app/).
-After adding Google Analytics to my `_includes/` and letting Jekyll handle the automation,
-I figured it was hightime to do the same with my comments.
-
-Yes,
-I've literally been copy/pasting an HTML script to the bottom of every post
-since I published [_Comments_]({{ site.baseurl }}{% link _posts/2024-01-10-comments.md %}).
-It's been tedious, and I've accidentally published multiple times without the script,
-having to go back and add it after the fact.
-It's not that I didn't want to automate it
-—I considered writing a pre-commit hook to check for it—I just didn't know how.
-
-Until now.
-> [!NOTE]
-> 
-> Walk through adding the giscuss `<script>` to `_includes/` and referencing it in `_layouts/post.html`.
-
-Much better.
-After testing that I wouldn't lose my existing comments and reactions,
-I removed the old `<script>` elements from the bottoms of my existing posts.
-Now I can write and publish without having to worry that readers won't be able to leave feedback.
-
-Last year, when I first added the ability to comment, my goal was to get feedback on my posts.
+In January 2024, when my site was just a few posts old, I added the ability to comment and react to my posts via [giscuss](https://giscus.app/).
+My goal was to get feedback on my posts.
 To have conversations with my readers.
 
-After sharing my posts on LinkedIn to spread the word that I have a blog, a weird even occurred:
+After sharing my posts on LinkedIn to spread the word that I have a blog, a weird event occurred:
 readers started reacting and writing comments on my LinkedIn post rather than my actual blog posts.
 
 It's kind of funny.
-I got through an effort to allow interaction on my site and it turns out all I had to do was share on LinkedIn.
+I go through an effort to allow interaction on my site and it turns out all I had to do was share on LinkedIn.
 I can think of reasons why this happened:
 - readers don't have GitHub accounts so can't comment directly
 - the path of least resistance to interact is on LinkedIn where the post was discovered
