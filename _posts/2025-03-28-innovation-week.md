@@ -228,8 +228,8 @@ Now we have a filtered repo dedicated to the sponsored project with history.
 Next, we should add a remote location so it's viewable by other contributors and not living on our local machine.
 To do that, make a new repo on your desired platform, e.g., GitHub, and make sure there's nothing in it.
 No `README.md`, `.gitignore`, nothing.
-After it's been created, get the URL as if you were going to clone it.
-Go back to your terminal and run the following:
+After it's been created, get the URL as if you were going to clone it,
+go back to your terminal, and run the following:
 ```shell
 # From inside sponsored/
 $ git remote add origin <URL>
