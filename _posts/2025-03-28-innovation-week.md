@@ -253,7 +253,7 @@ $ git push -u origin new-branch  # followed by a PR of new-branch -> master
 And that's it!
 Kind of.
 The sponsored project has its own repo, but it still exists in the monorepo too.
-To celebrate its graduation and give it a final sendoff we should do the following:
+To celebrate its graduation and give it a final sendoff, we should do the following:
 1. Update the monorepo README.md to say `not-dead` was sponsored (maybe with a date and link to the new repo?)
 2. Delete the original `libs/not-dead/` directory to keep other contributors from diverging its history.
 
