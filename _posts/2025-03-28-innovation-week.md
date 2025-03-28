@@ -238,7 +238,7 @@ $ git remote add origin <URL>
 This connects your local repo to the remote repo you just created.
 Now push your history (with force if necessary):
 ```shell
-$ git push --set-upstream origin master  # with `--force` if needed. 
+$ git push --set-upstream origin master  # with optional `--force` 
 ```
 
 If this doesn't work, e.g. you have branch policies in place preventing you from pushing directly to the primary branch
