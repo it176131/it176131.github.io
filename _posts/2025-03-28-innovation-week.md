@@ -69,7 +69,7 @@ $ git clone https://url/path/to/repo/called/mono.git  # the monorepo
 > You can do that with:
 > ```shell
 > $ cd your-local-repo/
-> $ git pull # I prefer `git pull --rebase` as I don't want to add a merge commit. It keeps my history linear and clean.
+> $ git pull  # I prefer `git pull --rebase` as I don't want to add a merge commit. It keeps my history linear and clean.
 > ```
 
 With both repos updated it's time to pack up `not-dead` into a subdirectory and move it into `mono`.
