@@ -14,7 +14,6 @@ Individual contributors (ICs) like myself can't sponsor projects because,
 well, we don't have allocated funds to do such a thing.
 Hence, the beauty of innovation week.
 
-Back to the monorepo.
 In past innovation weeks, normally I only hear about what others are working on at stand-up meetings.
 It's almost the equivalent of a 30-second teaser trailer minus any visual aid.
 For projects that last longer than a week, stand-up briefings start to make sense.
