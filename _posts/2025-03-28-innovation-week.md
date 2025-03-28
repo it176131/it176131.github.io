@@ -33,7 +33,7 @@ Without forcing anyone to change their workflow (hopefully 🤞),
 the monorepo can be a safe place for ideas to come together and be seen by other contributors.
 It removes the silo-effect of every idea having its own repo
 and being nearly unfindable, while also maintaining some form of separation via dedicated subdirectories.
-It also acts as a small portfolio in case a people-leader comes along in three years
+It also acts as a pseudo staging ground in case a people-leader comes along in three years
 and wants to know if we can solve a problem that one of us just so happened to ideate on.
 Anything is possible.
 
