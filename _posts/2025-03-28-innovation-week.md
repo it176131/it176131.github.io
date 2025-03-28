@@ -110,51 +110,47 @@ $ git merge --allow-unrelated-histories not-dead/master  # or not-dead/main if t
 $ git remote remove not-dead
 ```
 
-<blockquote>
-<details>
-<summary><h3>⚠️ Using Git LFS? Experiencing an issue? Expand me for a potential solution!</h3></summary>
-
-If you tried to move a repo with LFS tracked files to the monorepo and got some kind of LFS error message, don't fret.
-I, too, hit a snag when I ran the following:
-```shell
-$ git merge --allow-unrelated-histories not-dead/master
-```
-
-The error I received looked something like this:
-```text
-Error downloading object: <some-file.some-extension> (<some-hash>):
-Smudge error:
-Error downloading <some-file.some-extension>
-(<some-hash>):
-[<some-hash>]
-Object does not exist on the server or you don't have permissions to access it:
-[404] Object does not exist on the server or you don't have permissions to access it
-```
-
-When this error occurs, it can appear like everything is fine.
-Your files will appear to have made it to the monorepo as expected,
-but if you check your `git log` you may notice a lack of history related to your LFS-tracked repo.
-Yes, the files made it, but not their commits.
-And the whole point of doing all this was to bring them along for the ride!
-So what do we do?
-
-_After_ running `git fetch not-dead` and _before_ running `git merge --allow-unrelated-histories not-dead/master`,
-we need to fetch all the LFS objects for our `not-dead/master` branch.
-> If you need to back-track at this point, you can.
-> Delete your equivalent of the new `not-dead/` directory in the monorepo and all its contents.
-> This will get you back to just before running `git fetch not-dead`.
-
-We run the following to fetch our `not-dead` LFS objects and bring them to our monorepo:
-```shell
-# From the monorepo...
-$ git lfs fetch not-dead master
-```
-
-Now when we run `git merge --allow-unrelated-histories not-dead/master` we won't get the LFS error.
-Only smiles.
-🙂
-</details>
-</blockquote>
+># ⚠️ Using Git LFS? Experiencing an issue? Expand me for a potential solution!
+>
+> If you tried to move a repo with LFS tracked files to the monorepo and got some kind of LFS error message, don't fret.
+> I, too, hit a snag when I ran the following:
+> ```shell
+> $ git merge --allow-unrelated-histories not-dead/master
+> ```
+> 
+> The error I received looked something like this:
+> ```text
+> Error downloading object: <some-file.some-extension> (<some-hash>):
+> Smudge error:
+> Error downloading <some-file.some-extension>
+> (<some-hash>):
+> [<some-hash>]
+> Object does not exist on the server or you don't have permissions to access it:
+> [404] Object does not exist on the server or you don't have permissions to access it
+> ```
+> 
+> When this error occurs, it can appear like everything is fine.
+> Your files will appear to have made it to the monorepo as expected,
+> but if you check your `git log` you may notice a lack of history related to your LFS-tracked repo.
+> Yes, the files made it, but not their commits.
+> And the whole point of doing all this was to bring them along for the ride!
+> So what do we do?
+> 
+> _After_ running `git fetch not-dead` and _before_ running `git merge --allow-unrelated-histories not-dead/master`,
+> we need to fetch all the LFS objects for our `not-dead/master` branch.
+> > If you need to back-track at this point, you can.
+> > Delete your equivalent of the new `not-dead/` directory in the monorepo and all its contents.
+> > This will get you back to just before running `git fetch not-dead`.
+> 
+> We run the following to fetch our `not-dead` LFS objects and bring them to our monorepo:
+> ```shell
+> # From the monorepo...
+> $ git lfs fetch not-dead master
+> ```
+> 
+> Now when we run `git merge --allow-unrelated-histories not-dead/master` we won't get the LFS error.
+> Only smiles.
+> 🙂
 
 And voilà!
 We've successfully moved my `not-dead` repo into the monorepo and maintained history.
