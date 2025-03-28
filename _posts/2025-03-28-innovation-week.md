@@ -190,7 +190,7 @@ $ git clone mono sponsored --no-local
 ```
 > [!NOTE]
 > 
-> The `--no-local` flag is important!
+> The [`--no-local` flag](https://git-scm.com/docs/git-clone#Documentation/git-clone.txt-code--localcode) is important!
 > When git performs a local clone it defaults to optimized behaviors that save space where available.
 > We don't want this.
 > By supplying `--no-local` we're essentially telling git to perform the clone as if it were coming from a URL.
