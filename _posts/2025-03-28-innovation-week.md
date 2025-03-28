@@ -4,7 +4,7 @@ title: "Innovation Week: Incubation à la Monorepo"
 date: 2025-03-28
 ---
 
-In an attempt to promote collaboration, I created a monorepo for "innovation week."
+In an attempt to promote collaboration, I created a [monorepo](https://en.wikipedia.org/wiki/Monorepo) for "innovation week."
 Innovation week happens four times a year at the end (or beginning) of each quarter.
 The purpose is to allow people to work on a project that could benefit the company without sponsorship.
 
