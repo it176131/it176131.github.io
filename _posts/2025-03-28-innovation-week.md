@@ -210,7 +210,7 @@ I can do this with the following:
 $ git filter-repo --path-rename libs/not-dead/:  # the colon (:) is needed!
 ```
 
-Now if we check the contents we should see whatever was in `libs/not-dead` at the root of `sponsored/`.
+Now if we check the contents we should see whatever was in `libs/not-dead/` at the root of `sponsored/`.
 
 > [!NOTE]
 > 
