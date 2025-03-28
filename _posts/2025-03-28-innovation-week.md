@@ -140,7 +140,7 @@ So what do we do?
 
 _After_ running `git fetch not-dead` and _before_ running `git merge --allow-unrelated-histories not-dead/master`,
 we need to fetch all the LFS objects for our `not-dead/master` branch.
-> At this point if you need to back-track you can.
+> If you need to back-track at this point, you can.
 > Delete your equivalent of the new `not-dead/` directory in the monorepo and all its contents.
 > This will get you back to just before running `git fetch not-dead`.
 
