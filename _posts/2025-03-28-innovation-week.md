@@ -169,11 +169,11 @@ $ git add . && git commit  # Don't forget to commit the directory movement!
 ```
 
 # Three years later...
-The `monorepo` has become home to many innovative ideas and now a people-leader wants to sponsor one of them.
+The `monorepo` has become home to many innovative ideas, and now a people-leader wants to sponsor one of them.
 Hooray!
 🥳
 What do we do now?
-We move the idea out of the monorepo and into its own repo of course!
+We move the idea out of the monorepo and into its own repo, of course!
 But not without its commit history.
 We can do this using `git filter-repo` (again).
 
