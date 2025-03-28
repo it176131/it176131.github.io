@@ -48,7 +48,7 @@ I had already made a decent number of commits to my recently resurrected repo an
 At the same time, I needed to move the code to the monorepo so it would be easier to find in the future.
 How do I maintain history and move my repo into a subdirectory of the monorepo?
 
-After some Googling I came across this Stack Overflow question,
+After some Googling, I came across this Stack Overflow question,
 [_Merge two Git repositories without breaking file history_](https://stackoverflow.com/questions/13040958/merge-two-git-repositories-without-breaking-file-history),
 from 2012.
 Of course someone else has already tried to do this.
