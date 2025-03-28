@@ -241,7 +241,7 @@ Now push your history (with force if necessary):
 $ git push --set-upstream origin master  # with optional `--force` 
 ```
 
-If this doesn't work, e.g. you have branch policies in place preventing you from pushing directly to the primary branch
+If this doesn't work, e.g., you have branch policies in place preventing you from pushing directly to the primary branch
 (normally a good idea!), you can change branch names, push,
 then open a Pull Request (PR) to merge your local repo with the remote.
 For example:
