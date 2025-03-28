@@ -226,7 +226,7 @@ Now if we check the contents we should see whatever was in `libs/not-dead/` at t
 
 Now we have a filtered repo dedicated to the sponsored project with history.
 Next, we should add a remote location so it's viewable by other contributors and not living on our local machine.
-To do that, make a new repo on your desired platform, e.g. GitHub, and make srue there's nothing in it.
+To do that, make a new repo on your desired platform, e.g., GitHub, and make srue there's nothing in it.
 No README.md, .gitignore, nothing.
 After it's been created, get the URL as if you were going to clone it.
 Go back to your terminal and run the following:
