@@ -92,7 +92,7 @@ $ ls not-dead/
 ```
 Using the `--to-subdirectory-filter` flag with argument "not-dead"
 took the contents of my `not-dead` repo and moved it all inside a subdirectory of the same name...
-all while preserving the history.
+all while preserving (i.e., rewriting with new commits) the history.
 ```shell
 $ cd not-dead/
 $ git log
