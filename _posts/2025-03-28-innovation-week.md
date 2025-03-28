@@ -110,8 +110,8 @@ $ git merge --allow-unrelated-histories not-dead/master  # or not-dead/main if t
 $ git remote remove not-dead
 ```
 
-># ⚠️ Using Git LFS? Experiencing an issue? Expand me for a potential solution!
->
+> # ⚠️ Using Git LFS? Experiencing an issue? Expand me for a potential solution!
+> 
 > If you tried to move a repo with LFS tracked files to the monorepo and got some kind of LFS error message, don't fret.
 > I, too, hit a snag when I ran the following:
 > ```shell
