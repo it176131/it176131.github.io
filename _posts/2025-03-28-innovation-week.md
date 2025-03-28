@@ -132,7 +132,7 @@ Object does not exist on the server or you don't have permissions to access it:
 ```
 
 When this error occurs, it can appear like everything is fine.
-Your files will appear to have made it the monorepo as expected,
+Your files will appear to have made it to the monorepo as expected,
 but if you check your `git log` you may notice a lack of history related to your LFS-tracked repo.
 Yes, the files made it, but not their commits.
 And the whole point of doing all this was to bring them along for the ride!
