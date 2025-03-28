@@ -37,6 +37,7 @@ It also acts as a pseudo staging ground in case a people-leader comes along in t
 and wants to know if we can solve a problem that one of us just so happened to ideate on.
 Anything is possible.
 
+# Resurrection
 I had the idea for the monorepo a few days ago and have since shared it with my immediate team.
 Just before writing this, I thought about an idea for the week to work on,
 and then it hit me—I already have code in repo purgatory that I could resurrect!
