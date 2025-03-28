@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "Innovation Week: Incubation à la Monorepo"
+title: "Innovation Week: (Idea) Resurrection à la Monorepo"
 date: 2025-03-28
 ---
 
