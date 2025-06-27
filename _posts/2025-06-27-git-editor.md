@@ -16,3 +16,14 @@ How would you feel if nothing happened when you clicked a spot with your mouse?
 Or worse, you tried to type something and the cursor block started moving around the page and then began editing?
 I don't remember what I did, but pretty sure I ended up closing the whole CLI down and starting over... this time
 carefully avoiding the <kbd>ENTER</kbd> key until _after_ I had typed `-m <some commit message>`.
+
+I continued to work like this for a handful of years, picking up some other `git` commands along the way:
+[`git clone`](https://git-scm.com/docs/git-clone), [`git log`](https://git-scm.com/docs/git-log), [`git push`](https://git-scm.com/docs/git-push), [`git pull`](https://git-scm.com/docs/git-pull) [`git remote`](https://git-scm.com/docs/git-remote).
+Not a ton, but enough to be useful.
+
+Between 2019 and 2022 I tried to learn a bit more about the [`git config`](https://git-scm.com/docs/git-config) settings, especially when it came to
+working around my employer's firewall.
+Understanding how to set and edit environment variables, adding to my system's PATH, downloading certificate packages
+and pointing `git` to them.
+For the most part I could do this with a mouse and some `git config` options, but at some point I discovered that I
+could set my `git` editor and do more at once.
