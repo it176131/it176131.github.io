@@ -41,3 +41,16 @@ explicitly, `git config --global --get <some.config.option>`
 To unset the option you use `git config --global --unset <some.config.option>`.
 > Note that if you set a `--global` config option, then you must specify the option as `--global` when you unset it,
 > otherwise it may not work.
+
+This is all fine, but what if you're not quite comfortable with the CLI yet?
+Or you want to use your mouse a bit more?
+We can allow that by setting the `core.editor` to `notepad`, the classic text editor.
+```shell
+# Set the editor with the following command.
+$ git config --global core.editor notepad
+```
+Then to make edits to the config (`--global` for this example), run the following:
+```shell
+$ git config --global --edit
+```
+This will open your `git config` settings in a notepad editor, allowing the use of your trusty mouse.
