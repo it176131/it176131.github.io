@@ -27,3 +27,17 @@ Understanding how to set and edit environment variables, adding to my system's P
 and pointing `git` to them.
 For the most part I could do this with a mouse and some `git config` options, but at some point I discovered that I
 could set my `git` editor and do more at once.
+
+# My Handy Dandy ~~Notebook~~ Notepad
+Viewing all of my existing `git config` settings is pretty easy; open a git-compatible CLI and type `git config --list`.
+By default, this will show _all_ of your config settings: local (repo specific), global (i.e., user), and system.
+If you want to view a specific group of settings, e.g., the local settings, you can add the flag `--local`, as in,
+`git config --local --list`.
+
+Editing the config is a bit more involved.
+To set a global config option you use `git config --global <some.config.option> <the.value>`.
+To view that the option has been set, `git config --global <some.config.option>` (will be empty if not set), or more
+explicitly, `git config --global --get <some.config.option>`
+To unset the option you use `git config --global --unset <some.config.option>`.
+> Note that if you set a `--global` config option, then you must specify the option as `--global` when you unset it,
+> otherwise it may not work.
