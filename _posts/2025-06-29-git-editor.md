@@ -21,8 +21,8 @@ I continued to work like this for a handful of years, picking up some other `git
 [`git clone`](https://git-scm.com/docs/git-clone), [`git log`](https://git-scm.com/docs/git-log), [`git push`](https://git-scm.com/docs/git-push), [`git pull`](https://git-scm.com/docs/git-pull) [`git remote`](https://git-scm.com/docs/git-remote).
 Not a ton, but enough to be useful.
 
-Between 2019 and 2022 I tried to learn a bit more about the [`git config`](https://git-scm.com/docs/git-config) settings, especially when it came to
-working around my employer's firewall.
+Between 2019 and 2022 I started using the CLI a lot and tried to learn a bit more about the [`git config`](https://git-scm.com/docs/git-config)
+settings, especially when it came to working around my employer's firewall.
 Understanding how to set and edit environment variables, adding to my system's PATH, downloading certificate packages
 and pointing `git` to them.
 For the most part I could do this with a mouse and some `git config` options, but at some point I discovered that I
