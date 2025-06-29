@@ -36,12 +36,28 @@ If you want to view a specific group of settings, e.g., the local settings, you 
 `git config --local --list`.
 
 Editing the config is a bit more involved.
-To set a global config option you use `git config --global <some.config.option> <the.value>`.
-To view that the option has been set, `git config --global <some.config.option>` (will be empty if not set), or more
-explicitly, `git config --global --get <some.config.option>`
-To unset the option you use `git config --global --unset <some.config.option>`.
-> Note that if you set a `--global` config option, then you must specify the option as `--global` when you unset it,
-> otherwise it may not work.
+To set a `--global` config option, e.g., `user.name` (useful for signing commit messages 😉):
+```shell
+# Must use quotes if a space is present.
+$ git config set --global user.name "Ian Thompson"
+# DEPRECATED --> $ git config --global user.name "Ian Thompson"
+```
+Want to check the value?
+```shell
+# Will return an empty string if not set,
+# or an error if the section doesn't exist,
+# e.g., `git config get --global blah`
+$ git config get --global user.name
+# DEPRECATED --> $ git config --global user.name`
+```
+To unset the option:
+```shell
+$ git config unset --global user.name
+# DEPRECATED --> $ git config --global --unset user.name
+```
+> [!NOTE]
+> If you set a `--global` config option, then you must specify the option as `--global` when you unset it, otherwise it
+> may not work.
 
 This is all fine, but what if you're not quite comfortable with the CLI yet?
 Or you want to use your mouse a bit more?
