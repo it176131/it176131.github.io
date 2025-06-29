@@ -29,7 +29,8 @@ For the most part I could do this with a mouse and some `git config` options, bu
 could set my `git` editor and do more at once.
 
 # My Handy Dandy ~~Notebook~~ Notepad
-Viewing all of my existing `git config` settings is pretty easy; open a git-compatible CLI and type `git config --list`.
+Viewing all of my existing `git config` settings is pretty straightforward; open a git-compatible CLI and type
+`git config --list`.
 By default, this will show _all_ of your config settings: local (repo specific), global (i.e., user), and system.
 If you want to view a specific group of settings, e.g., the local settings, you can add the flag `--local`, as in,
 `git config --local --list`.
