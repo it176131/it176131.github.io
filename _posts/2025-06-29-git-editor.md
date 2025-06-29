@@ -2,6 +2,7 @@
 layout: "post"
 title: "Git's Core Editor: (Back to) Vim"
 date: 2025-06-29
+images: "/assets/images/2025-06-29-git-editor"
 ---
 
 Based on my GitHub history, I probably started using [`git`](https://git-scm.com/) from the [CLI](https://en.wikipedia.org/wiki/Command-line_interface) sometime between 2015 and 2018.
@@ -71,3 +72,14 @@ Opening the config (`--global` for this example) for mass edits then becomes as 
 $ git config edit --global
 ```
 This will open your `git config` settings in a notepad editor, allowing the use of your trusty mouse.
+
+# New Job, New Lessons
+In 2022, I changed jobs and got a new machine.
+I installed the latest version of `git` and noticed a setting I hadn't before:
+<center>
+    <figure>
+        <img src="{{ page.images | relative_url }}/choose-default-editor.png">
+        <img src="{{ page.images | relative_url }}/editor-options.png">
+        <figcaption>Set `git`'s `core.editor` at install</figcaption>
+    </figure>
+</center>
