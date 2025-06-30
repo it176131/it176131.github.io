@@ -73,13 +73,13 @@ $ git config edit --global
 ```
 This will open your `git config` settings in a notepad editor, allowing the use of your trusty mouse.
 
-# New Job, New Lessons
+# More Detail, Better Commits
 In 2022, I changed jobs and got a new machine.
-I installed the latest version of `git` and noticed a setting I hadn't before:
-<center>
-    <figure>
-        <img src="{{ page.images | relative_url }}/choose-default-editor.png">
-        <img src="{{ page.images | relative_url }}/editor-options.png">
-        <figcaption>Set `git`'s `core.editor` at install</figcaption>
-    </figure>
-</center>
+While installing the latest version of `git`—_not version 2.50.0, by the way_—I noticed a setting I hadn't before:
+
+|-------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| ![Git Default Editor 1]({{ page.images | relative_url }}/choose-default-editor.png) | ![Git Default Editor 2]({{ page.images | relative_url }}/editor-options.png) |
+
+You can set the default editor (i.e., `core.editor`) at installation!
+That's convenient.
+Obviously I picked `notepad` and continued on.
