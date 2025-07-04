@@ -83,3 +83,57 @@ While installing the latest version of `git`—_not version 2.50.0, by the way_�
 You can set the default editor (i.e., `core.editor`) at installation!
 That's convenient.
 Obviously I picked `notepad` and continued on.
+
+A few months into the new gig, I demoed some work with a group of colleagues and had written some code that I
+thought was worth keeping.
+I switched to my CLI and wrote:
+```shell
+$ git commit -a -m "some commit message related to what my code does"
+```
+And before I hit <kbd>ENTER<kbd>, one of the veterans on my team stopped me.
+"Leave off the '-m' so you can write a more detailed commit message.
+It'll help you and future developers understand more about what you did and why."
+
+I was confused—and annoyed; my flow had been interrupted—but I tried it.
+```shell
+$ git commit -a
+```
+Notepad opened with something like this:
+```text
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch git-editor
+# Your branch is up to date with 'origin/git-editor'.
+#
+# Changes to be committed:
+#	modified:   _posts/2025-07-04-git-editor.md
+#
+
+```
+
+"Okay, now add a brief summary of what your committed work does—_and why_—to the top of the editor.
+Then go down to the 'Changes to be committed' section and uncomment the 'modified' line.
+You can add another file-specific summary under each file path saying what happened in it."
+
+"Why can't I just use the '-m' from the CLI?" I really wanted to commit my work and move on.
+
+"This allows you to keep a more detailed change log, which helps others understand your reasoning without having to read
+your code line-by-line."
+
+"But nobody uses that," I was getting frustrated.
+
+"I do."
+
+Stalemate.
+I didn't want to change my process.
+Anger.
+I didn't want to do more work.
+End demo.
+
+I _obsessively_ thought about what my colleague had shown me over the next few days.
+Google searches of "how to write a better commit message," and "use the git log better."
+In the end I determined that most people wrote commit messages like I did—'-m' style.
+But something deep inside told me to try my colleague's method.
+I changed my style, and to my honest surprise reading over my logs is actually enjoyable now.
