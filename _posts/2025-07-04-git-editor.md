@@ -1,8 +1,8 @@
 ---
 layout: "post"
 title: "Git's Core Editor: (Back to) Vim"
-date: 2025-06-29
-images: "/assets/images/2025-06-29-git-editor"
+date: 2025-07-04
+images: "/assets/images/2025-07-04-git-editor"
 ---
 
 Based on my GitHub history, I probably started using [`git`](https://git-scm.com/) from the [CLI](https://en.wikipedia.org/wiki/Command-line_interface) sometime between 2015 and 2018.
