@@ -24,7 +24,7 @@ images: "/assets/images/2025-01-25-recent-posts-action"
 
 First post of 2025!
 
-I ended 2024 with my post, [_pydantic-xml: Parsing My RSS Feed_]({{ site.baseurl }}{% link _posts/2024-12-23-pydantic-xml.md %}),
+I ended 2024 with my post, [_pydantic-xml: Parsing My RSS Feed_]({{ site.baseurl }}{% link _posts/2024/12/2024-12-23-pydantic-xml.md %}),
 and mentioned that I was trying to add my most recent blog post to my GitHub profile using a custom GitHub action and workflow.
 I'm happy to share that after a couple of weeks, I figured it out. 😎
 
@@ -309,7 +309,7 @@ ENTRYPOINT ["python", "/main.py"]
 
 I'm not going
 to walk through the [_main.py_ ℹ️](## "it176131.github.io/.github/actions/recent-posts/main.py") file line-by-line
-as I covered most of it in my [previous post]({{ site.baseurl }}{% link _posts/2024-12-23-pydantic-xml.md %}).
+as I covered most of it in my [previous post]({{ site.baseurl }}{% link _posts/2024/12/2024-12-23-pydantic-xml.md %}).
 However,
 I will note that I made some changes so that it can directly modify the [_README.md_ ℹ️](## "it176131/README.md")
 file.
