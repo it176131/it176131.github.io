@@ -7,7 +7,7 @@ audio: "/assets/audio"
 ---
 
 In [_2024:
-Year in Review_]({{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %})
+Year in Review_]({{ site.baseurl }}{% link _posts/2025/01/2025-01-31-year-in-review.md %})
 I mentioned wanting to write better posts and that I would be looking at analytics.
 The day after I published,
 I figured out how to track web traffic with [Google Analytics](https://developers.google.com/analytics).
@@ -507,7 +507,7 @@ There were some subtle differences though, which I (briefly) describe below.
    
    ```
    {% endraw %}
-5. Checked that a giscuss comment `<script>` existed on my blog posts _prior_ to publishing [_Comments_]({{ site.baseurl}}{% link _posts/2024-01-10-comments.md %}) (I was too lazy to go back and add comments to my older posts 😅).
+5. Checked that a giscuss comment `<script>` existed on my blog posts _prior_ to publishing [_Comments_]({{ site.baseurl}}{% link _posts/2024/01/2024-01-10-comments.md %}) (I was too lazy to go back and add comments to my older posts 😅).
    <center>
       <img src="{{ page.images | relative_url }}/comments.png">
       <figcaption>It exists ✅</figcaption>
@@ -517,7 +517,7 @@ There were some subtle differences though, which I (briefly) describe below.
 
 # But why?
 I successfully started tracking web traffic on February 1, 2025—the day after I published [_2024:
-Year in Review_]({{ site.baseurl }}{% link _posts/2025-01-31-year-in-review.md %}).
+Year in Review_]({{ site.baseurl }}{% link _posts/2025/01/2025-01-31-year-in-review.md %}).
 Two weeks after that I figured out how to automatically include a comment section at the end of every post I publish.
 For the last month I've been looking at my site's web traffic off and on.
 It's been enjoyable to see.

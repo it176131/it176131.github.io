@@ -11,7 +11,7 @@ images: "/assets/images/2025-01-31-year-in-review"
 
 I've been thinking long and hard about what to put in this post.
 I considered doing something similar to my first post of January 2024,
-[_New Year_]({{ site.baseurl }}{% link _posts/2024-01-01-new-year.md %}), but I want it to be better somehow.
+[_New Year_]({{ site.baseurl }}{% link _posts/2024/01/2024-01-01-new-year.md %}), but I want it to be better somehow.
 
 I considered adding a "Goals" section at the end.
 Figured if I made them public, then maybe people would cheer me on and ask about my progress.
@@ -66,7 +66,7 @@ I'll call them "areas for improvement."
 # ~~Losses~~ Areas for improvement
 - My blog post,
 [_Basket Analysis, Part I:
-  Navigating the API_"]({{ site.baseurl }}{% link _posts/2024-05-07-basket-analysis-pt1.html %}).
+  Navigating the API_"]({{ site.baseurl }}{% link _posts/2024/05/2024-05-07-basket-analysis-pt1.html %}).
   I'm not proud of this post, and I keep it on my blog as a reminder to not write something similar.
   I think it's because it doesn't talk about basket analysis at all,
   and that I called it "Part I" without ever writing a "Part II."
@@ -75,8 +75,8 @@ I'll call them "areas for improvement."
   What I enjoyed writing.
   That included problems I was actively or had recently solved,
   or follow-ups to questions or comments from an earlier post,
-  like [_scikit-learn's Pipeline and Friends, Part II: Efficient Fitting_]({{ site.baseurl }}{% link _posts/2024-02-17-sklearn-pipeline-pt2.html%})
-  or [_Contributing, Part II: Test-Driven Development_]({{ site.baseurl }}{% link _posts/2024-03-24-contributing-pt2.md %}).
+  like [_scikit-learn's Pipeline and Friends, Part II: Efficient Fitting_]({{ site.baseurl }}{% link _posts/2024/02/2024-02-17-sklearn-pipeline-pt2.html%})
+  or [_Contributing, Part II: Test-Driven Development_]({{ site.baseurl }}{% link _posts/2024/03/2024-03-24-contributing-pt2.md %}).
 - Overspending on my investment property.
   This isn't exactly a "loss"
   as I did get the property for less than the asking price
