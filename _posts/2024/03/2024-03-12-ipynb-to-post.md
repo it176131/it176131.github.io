@@ -4,7 +4,7 @@ title: "Notebook ➡️ Post"
 date: 2024-03-12
 ---
 
-After I published my [post introducing the Stack Overflow API]({{ site.baseurl }}{% link _posts/2024-03-09-stack-overflow-api.html %}),
+After I published my [post introducing the Stack Overflow API]({{ site.baseurl }}{% link _posts/2024/03/2024-03-09-stack-overflow-api.html %}),
 I began working to keep my promise.
 I set up a virtual environment, installed some packages and dug in.
 About five code cells later I discovered a missing feature in the software I was using.
