@@ -25,7 +25,7 @@ Check it out here 👉 [https://it176131.github.io/feed.xml](https://it176131.gi
 
 # pydantic-xml
 I mentioned
-using [`pydantic`](https://docs.pydantic.dev/latest/) in [a previous post]({{ site.baseurl }}{% link _posts/2024-11-29-dynamic-enums.md %})
+using [`pydantic`](https://docs.pydantic.dev/latest/) in [a previous post]({{ site.baseurl }}{% link _posts/2024/11/2024-11-29-dynamic-enums.md %})
 for parsing and validating JSON files.
 If you explore the library's main page,
 you'll hopefully come across a link to the [`awesome-pydantic` repo](https://github.com/Kludex/awesome-pydantic)
