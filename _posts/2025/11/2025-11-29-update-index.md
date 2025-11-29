@@ -11,3 +11,8 @@ Most users probably hover around the basics—[`git clone`](https://git-scm.com/
 [`git push`](https://git-scm.com/docs/git-push), [`git pull`](https://git-scm.com/docs/git-pull)—and don't use much else.
 But for the fraction who decide to venture a bit further either out of curiosity or necessity,
 they're bound to learn about [`git rebase`](https://git-scm.com/docs/git-rebase) and encounter a [merge conflict](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts) or two.
+
+I recently restructured my blog's repo,
+moving all of my posts into respective YYYY/MM/ directories instead of all living at the same level.
+It took a few PRs (`jekyll` wasn't playing nicely),
+but I got it working and everything was republished without altering the posts' URLs.
