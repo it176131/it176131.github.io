@@ -16,3 +16,13 @@ I recently restructured my blog's repo,
 moving all of my posts into respective YYYY/MM/ directories instead of all living at the same level.
 It took a few PRs (`jekyll` wasn't playing nicely),
 but I got it working and everything was republished without altering the posts' URLs.
+
+After `git pull`-ing and updating my local main branch, I switched back to the blog post I was working on prior.
+This branch was made before the restructure, and so the post wasn't in the correct (new) subdirectory.
+As I was already a few commits in and didn't want to add a new one _simply_ to move it to a subdirectory,
+I decided to `git rebase` and edit the initial commit where I created the file.
+This would allow me to move the file to its respective YYYY/MM/ directory, making it look like it was always there.
+With a quick `git rebase -i <initial-commit-hash>~`,
+a couple [vim](https://www.vim.org/) commands, and a `git mv`, I'd changed history.
+To get the remaining commits to follow suit I ran `git rebase --continue`... merge conflict.
+🤬
