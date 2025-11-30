@@ -26,3 +26,16 @@ With a quick `git rebase -i <initial-commit-hash>~`,
 a couple [vim](https://www.vim.org/) commands, and a `git mv`, I'd changed history.
 To get the remaining commits to follow suit I ran `git rebase --continue`... merge conflict.
 🤬
+
+# Recreating the problem
+I've resolved this merge conflict two different ways,
+both of which would be easier to understand if I recreated the problem and let you follow along.
+Let's start by making a new local repo and adding a README.md.
+```shell
+# Somewhere on your machine...
+$ mkdir tmp  # Make the directory.
+$ cd tmp
+$ git init  # Convert it to a repo.
+$ touch README.md  # Create the README.md and track it with git.
+$ git add README.md && git commit
+```
