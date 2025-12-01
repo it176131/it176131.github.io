@@ -2,6 +2,7 @@
 layout: "post"
 title: "Rebase More Efficiently—Update the Index"
 date: 2025-11-29
+images: "/assets/images/2025-11-30-update-index"
 ---
 
 Git offers a lot of functionality.
@@ -134,3 +135,13 @@ hint: To abort and get back to the state before "git rebase", run "git rebase --
 hint: Disable this message with "git config set advice.mergeConflict false"
 Could not apply 56846f2... # Added some text to start building up the commit history.
 ```
+
+What do I do now?
+First, it'd probably be good to draw a picture of what the conflict is telling us.
+<center>
+    <figure>
+        <img src="{{ page.images | relative_url }}/initial-branch.png">
+        <figcaption>The initial branch</figcaption>
+    </figure>
+</center>
+This is what the initial branch looked like before we rebased and attempted to rewrite history.
