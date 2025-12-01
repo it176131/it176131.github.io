@@ -44,3 +44,9 @@ We'll be smart git users and create a new branch rather than directly editing th
 ```shell
 $ git checkout -b new-feat
 ```
+
+Add a new file and track it.
+```shell
+$ touch 2025-11-30-new-file.txt
+$ git add 2025-11-30-new-file.txt && git commit
+```
