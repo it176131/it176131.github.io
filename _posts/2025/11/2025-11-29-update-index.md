@@ -63,3 +63,19 @@ $ git commit -a
 $ echo "happy little trees" >> 2025-11-30-new-file.txt
 $ git commit -a
 ```
+
+This is the part where I decide to restructure the repo.
+Instead of having all files at the same directory level,
+```text
+tmp/
+├── 2025-11-30-new-file.txt
+└── README.md
+```
+I want to have them in a subdirectory structure organized by year and month.
+```text
+tmp/
+├── 2025
+│   └── 11
+│       └── 2025-11-30-new-file.txt
+└── README.md
+```
