@@ -110,3 +110,11 @@ In the rebase editor I replace _pick_ for _e_ (or _edit_) on the first commit,
 save, and quit.
 I'm now right between commits `91335bc`, where I created the file,
 and `56846f2`, the commit that follows immediately after.
+
+I create the new subdirectory `2025/11/`, `git mv` the file,
+and amend the changes to the previous commit with the `--amend` flag.
+```shell
+$ mkdir 2025/11/ -p
+$ git mv 2025-11-30-new-file.txt 2025/11/2025-11-30-new-file.txt
+$ git commit --amend  # Recall that `git mv` automatically stages the changes for you; no need to `git add` or use the `-a` flag.
+```
