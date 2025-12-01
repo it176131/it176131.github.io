@@ -39,3 +39,8 @@ $ git init  # Convert it to a repo.
 $ touch README.md  # Create the README.md and track it with git.
 $ git add README.md && git commit
 ```
+
+We'll be smart git users and create a new branch rather than directly editing the main/master/primary/whatever branch.
+```shell
+$ git checkout -b new-feat
+```
