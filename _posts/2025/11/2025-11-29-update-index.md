@@ -50,3 +50,16 @@ Add a new file and track it.
 $ touch 2025-11-30-new-file.txt
 $ git add 2025-11-30-new-file.txt && git commit
 ```
+
+Now we need to make a few commits to build out the history.
+```shell
+# Write some text to the file and commit the changes.
+$ echo "test" > 2025-11-30-new-file.txt
+$ git commit -a
+# Add some more text to the bottom, commit again.
+$ echo "abc 123" >> 2025-11-30-new-file.txt
+$ git commit -a
+# Maybe one more... 🌳
+$ echo "happy little trees" >> 2025-11-30-new-file.txt
+$ git commit -a
+```
