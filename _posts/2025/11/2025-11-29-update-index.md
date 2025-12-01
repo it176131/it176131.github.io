@@ -84,3 +84,8 @@ tmp/
 There are two different ways I could do this:
 1. `git mv` the file and commit the changes at the end of the current branch
 2. `git rebase` and edit the initial commit where I created the file making it look like the proposed file structure always existed
+
+The first option is fine,
+but it adds a commit and makes the git history look as if we made the decision to modify the directory structure midway through the development of our feature branch.
+The second option repurposes the initial commit, but is a bit more involved.
+I'm choosing the second option because I want a cleaner history.
