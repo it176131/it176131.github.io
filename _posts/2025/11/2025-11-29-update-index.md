@@ -156,3 +156,22 @@ This results in a new commit hash replacing `91335bc` → `91335bc*`.
         <figcaption>The new hash</figcaption>
     </figure>
 </center>
+
+Before we run `git rebase --continue`,
+our [`HEAD`](https://git-scm.com/book/ms/v2/Git-Internals-Git-References#ref_the_ref) is at the amended commit,
+`91335bc*`.
+<center>
+    <figure>
+        <img src="{{ page.images | relative_url }}/head-loc.png">
+        <figcaption>`91335bc*` ↔ `HEAD`</figcaption>
+    </figure>
+</center>
+
+The contents of which are,
+```text
+tmp/
+├── 2025
+│   └── 11
+│       └── 2025-11-30-new-file.txt
+└── README.md
+```
