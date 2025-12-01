@@ -89,3 +89,24 @@ The first option is fine,
 but it adds a commit and makes the git history look as if we made the decision to modify the directory structure midway through the development of our feature branch.
 The second option repurposes the initial commit, but is a bit more involved.
 I'm choosing the second option because I want a cleaner history.
+
+On my feature branch—`new-feat`—I find the commit where I first created _2025-11-30-new-file.txt_,
+```shell
+$ commit=$(git log --format=%h --reverse -- 2025-11-30-new-file.txt | head -1)
+```
+and rebase:
+```shell
+git rebase -i $commit~
+```
+
+In the rebase editor I replace _pick_ for _e_ (or _edit_) on the first commit,
+```diff
+- 1   pick 91335bc # Tracking new file for blog purposes.
++ 1   e 91335bc # Tracking new file for blog purposes.
+    1 pick 56846f2 # Added some text to start building up the commit history.
+    2 pick d0e2157 # Another commit for a bit more history.
+    3 pick d21596e # Last commit before rebasing and attempting to cause a merge conflict.
+```
+save, and quit.
+I'm now right between commits `91335bc`, where I created the file,
+and `56846f2`, the commit that follows immediately after.
