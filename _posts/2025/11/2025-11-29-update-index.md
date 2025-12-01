@@ -145,3 +145,14 @@ First, it'd probably be good to draw a picture of what the conflict is telling u
     </figure>
 </center>
 This is what the initial branch looked like before we rebased and attempted to rewrite history.
+
+During the rebase we went back to commit `91335bc`,
+`git mv`-ed _2025-11-30-new-file.txt_ from the root directory to the new `2025/11/` directory,
+and amended commit `91335bc` with that change.
+This results in a new commit hash replacing `91335bc` → `91335bc*`.
+<center>
+    <figure>
+        <img src="{{ page.images | relative_url }}/amended-commit.png">
+        <figcaption>The new hash</figcaption>
+    </figure>
+</center>
