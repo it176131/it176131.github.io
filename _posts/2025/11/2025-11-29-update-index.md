@@ -79,3 +79,8 @@ tmp/
 │       └── 2025-11-30-new-file.txt
 └── README.md
 ```
+
+# Solutions
+There are two different ways I could do this:
+1. `git mv` the file and commit the changes at the end of the current branch
+2. `git rebase` and edit the initial commit where I created the file making it look like the proposed file structure always existed
