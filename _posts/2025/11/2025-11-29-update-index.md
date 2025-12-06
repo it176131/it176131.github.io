@@ -223,3 +223,10 @@ tmp/
 ├── 2025-11-30-new-file.txt
 └── README.md
 ```
+
+Unfortunately, `git` thinks that the original _2025-11-30-new-file.txt_ was _deleted_ in `HEAD` instead of _moved_
+(or more specifically, _added_ at a different location).
+That's why the error message says:
+```shell
+CONFLICT (modify/delete): 2025-11-30-new-file.txt deleted in HEAD and modified in 56846f2 (Added some text to start building up the commit history.).  Version 56846f2 (Added some text to start building up the commit history.) of 2025-11-30-new-file.txt left in tree.
+```
