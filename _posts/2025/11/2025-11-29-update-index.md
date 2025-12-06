@@ -317,3 +317,15 @@ Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         modified:   2025/11/2025-11-30-new-file.txt
 ```
+
+Great!
+Now we continue the rebase using the _new_ file and the same commit message as in `56846f2`.
+```shell
+$ git rebase --continue
+[detached HEAD 35c6ea7] Added some text to start building up the commit history.
+ 1 file changed, 1 insertion(+)
+Successfully rebased and updated refs/heads/new-feat.
+```
+
+And voilà!
+We've successfully handled the merge conflict and rewritten `git` history.
