@@ -175,3 +175,16 @@ tmp/
 │       └── 2025-11-30-new-file.txt
 └── README.md
 ```
+
+When we try to continue the rebase, we run into the merge conflict:
+```shell
+$ git rebase --continue
+CONFLICT (modify/delete): 2025-11-30-new-file.txt deleted in HEAD and modified in 56846f2 (Added some text to start building up the commit history.).  Version 56846f2 (Added some text to start building up the commit history.) of 2025-11-30-new-file.txt left in tree.
+error: could not apply 56846f2... Added some text to start building up the commit history.
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+Could not apply 56846f2... # Added some text to start building up the commit history.
+```
