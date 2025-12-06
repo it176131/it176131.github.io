@@ -230,3 +230,22 @@ That's why the error message says:
 ```shell
 CONFLICT (modify/delete): 2025-11-30-new-file.txt deleted in HEAD and modified in 56846f2 (Added some text to start building up the commit history.).  Version 56846f2 (Added some text to start building up the commit history.) of 2025-11-30-new-file.txt left in tree.
 ```
+
+So what do we do?
+We want to keep the changes made in `56846f2`,
+but they need to be applied to _2025/11/2025-11-30-new-file.txt_ instead of _2025-11-30-new-file.txt_.
+Luckily the changes made in `56846f2` already exist in the old file, so we can write them to the new file using `cat`,
+```shell
+$ cat 2025-11-30-new-file.txt > 2025/11/2025-11-30-new-file.txt
+```
+
+The contents of both files are now identical:
+```shell
+# Using `cat` to check the contents of both files.
+$ cat 2025-11-30-new-file.txt
+test
+```
+```shell
+$ cat 2025/11/2025-11-30-new-file.txt
+test
+```
