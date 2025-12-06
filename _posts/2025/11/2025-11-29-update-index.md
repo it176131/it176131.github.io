@@ -202,4 +202,24 @@ tmp/
 
 _2025-11-30-new-file.txt_ is in two different places,
 one is from `HEAD` and the other is where `56846f2` expects the file to be.
+
+Recall that in commit `56846f2`,
+<center>
+    <figure>
+        <img src="{{ page.images | relative_url }}/modify-commit.png">
+        <figcaption>`56846f2` on initial branch</figcaption>
+    </figure>
+</center>
+we modified the original _tmp/2025-11-30-new-file.txt_ by adding a line of text:
+```text
+# The contents of tmp/2025-11-30-new-file.txt at commit 56846f2.
+test
+```
+
+For `git` to be able to apply this change, the file needs to exist, i.e., be in the same place:
+```text
+# Like this 👇
+tmp/
+├── 2025-11-30-new-file.txt
+└── README.md
 ```
