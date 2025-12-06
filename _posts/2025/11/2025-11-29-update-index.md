@@ -188,3 +188,18 @@ hint: To abort and get back to the state before "git rebase", run "git rebase --
 hint: Disable this message with "git config set advice.mergeConflict false"
 Could not apply 56846f2... # Added some text to start building up the commit history.
 ```
+
+Why?
+If we look at the current directory structure in the middle of the conflict we can see part of the issue:
+```text
+tmp/
+├── 2025
+│   └── 11
+│       └── 2025-11-30-new-file.txt
+├── 2025-11-30-new-file.txt
+└── README.md
+```
+
+_2025-11-30-new-file.txt_ is in two different places,
+one is from `HEAD` and the other is where `56846f2` expects the file to be.
+```
