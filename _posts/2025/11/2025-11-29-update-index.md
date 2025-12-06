@@ -249,3 +249,71 @@ test
 $ cat 2025/11/2025-11-30-new-file.txt
 test
 ```
+
+Now we need to tell `git` to keep the changes applied to the new file and forget about the old one.
+```shell
+$ git status
+interactive rebase in progress; onto 74e9a59
+Last commands done (2 commands done):
+   edit 91335bc # Tracking new file for blog purposes.
+   pick 56846f2 # Added some text to start building up the commit history.
+Next commands to do (2 remaining commands):
+   pick d0e2157 # Another commit for a bit more history.
+   pick d21596e # Last commit before rebasing and attempting to cause a merge conflict.
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'new-feat' on '74e9a59'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        deleted by us:   2025-11-30-new-file.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   2025/11/2025-11-30-new-file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+We do this by `git rm`-ing the old file,
+```shell
+...
+Unmerged paths:
+  (use "git restore --staged <file>..." to unstage)
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        deleted by us:   2025-11-30-new-file.txt
+...
+```
+and `git add`-ing the new file.
+```shell
+...
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   2025/11/2025-11-30-new-file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+```shell
+$ git rm 2025-11-30-new-file.txt
+$ git add 2025/11/2025-11-30-new-file.txt
+$ git status
+interactive rebase in progress; onto 74e9a59
+Last commands done (2 commands done):
+   edit 91335bc # Tracking new file for blog purposes.
+   pick 56846f2 # Added some text to start building up the commit history.
+Next commands to do (2 remaining commands):
+   pick d0e2157 # Another commit for a bit more history.
+   pick d21596e # Last commit before rebasing and attempting to cause a merge conflict.
+  (use "git rebase --edit-todo" to view and edit)
+You are currently rebasing branch 'new-feat' on '74e9a59'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   2025/11/2025-11-30-new-file.txt
+```
