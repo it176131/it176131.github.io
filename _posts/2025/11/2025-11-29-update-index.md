@@ -329,3 +329,26 @@ Successfully rebased and updated refs/heads/new-feat.
 
 And voilà!
 We've successfully handled the merge conflict and rewritten `git` history.
+
+But is there another way where we avoid the merge conflict entirely?
+Technically, yes!
+Let's go back to just before we rebased.
+```shell
+$ git reflog
+34cd4bc (HEAD -> new-feat) HEAD@{0}: rebase (finish): returning to refs/heads/new-feat
+34cd4bc (HEAD -> new-feat) HEAD@{1}: rebase (pick): Last commit before rebasing and attempting to cause a merge conflict.
+708ddcc HEAD@{2}: rebase (pick): Another commit for a bit more history.
+d9c7052 HEAD@{3}: rebase (continue): Added some text to start building up the commit history.
+2214bde HEAD@{4}: commit (amend): Tracking new file for blog purposes.
+91335bc HEAD@{5}: rebase: fast-forward
+74e9a59 (master) HEAD@{6}: rebase (start): checkout 91335bcf66be3bc1d7ee864fbde62b65e4dbfa2b~
+d21596e HEAD@{7}: commit: Last commit before rebasing and attempting to cause a merge conflict.
+d0e2157 HEAD@{8}: commit: Another commit for a bit more history.
+56846f2 HEAD@{9}: commit: Added some text to start building up the commit history.
+91335bc HEAD@{10}: commit: Tracking new file for blog purposes.
+74e9a59 (master) HEAD@{11}: checkout: moving from master to new-feat
+74e9a59 (master) HEAD@{12}: commit (initial): Initial commit.
+```
+```shell
+$ git reset --hard HEAD@{7}
+```
