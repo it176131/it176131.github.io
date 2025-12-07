@@ -360,4 +360,29 @@ We've just "undid" our rebase and are back at what the initial branch looked lik
         <figcaption>The initial branch</figcaption>
     </figure>
 </center>
+
+So what's the trick to avoiding the merge conflict?
+Moving the file at the end of the branch with a new commit instead of rewriting history.
+😜
+```shell
+$ mkdir 2025/11/ -p
+$ git mv 2025-11-30-new-file.txt 2025/11/
+$ git commit
+[new-feat 9aaff49] Moved file to new directory structure, YYYY/MM/.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename 2025-11-30-new-file.txt => 2025/11/2025-11-30-new-file.txt (100%)
+```
+<center>
+    <figure>
+        <img src="{{ page.images | relative_url }}/new-commit.png">
+        <figcaption>Adding a commit to the end</figcaption>
+    </figure>
+</center>
+
+```text
+tmp/
+├── 2025
+│   └── 11
+│       └── 2025-11-30-new-file.txt
+└── README.md
 ```
