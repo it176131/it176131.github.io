@@ -352,3 +352,12 @@ d0e2157 HEAD@{8}: commit: Another commit for a bit more history.
 ```shell
 $ git reset --hard HEAD@{7}
 ```
+
+We've just "undid" our rebase and are back at what the initial branch looked like.
+<center>
+    <figure>
+        <img src="{{ page.images | relative_url }}/initial-branch.png">
+        <figcaption>The initial branch</figcaption>
+    </figure>
+</center>
+```
