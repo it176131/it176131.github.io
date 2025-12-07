@@ -386,3 +386,19 @@ tmp/
 │       └── 2025-11-30-new-file.txt
 └── README.md
 ```
+
+# Comparison
+You may be asking yourself,
+"why the heck would I want to rebase and deal with potential merge conflicts when I could solve the issue with a new commit?!"
+It's a valid question, and I asked myself the same thing.
+
+The truth is, both get you to the solution, but one may be better under certain circumstances.
+To help _you_ decide which approach to use for _your_ situation, let's run through a couple scenarios.
+
+| Scenario            | Rebase & Edit                                                                                                                          | New Commit                                                                                                    |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| **History View**    | **Clean, linear, and logical.** The file appears to have been in the correct place since it was created.                               | **Messy/Noisy.** History shows the file was created in one place, and then moved in a later, separate commit. |
+| **Cherry-picking**  | **Easy.** Subsequent commits depend on the correct, new path, making them easy to cherry-pick onto other branches.                     | **Difficult.** If you cherry-pick a commit before the move, you may need to manually resolve path issues.     |
+| **Review/Auditing** | Easy to review the file's entire lifecycle without path confusion.                                                                     | Requires reviewers to understand that every commit before the move used an outdated path.                     |
+| **Risk/Effort**     | **High effort/risk.** Requires an interactive rebase, which can lead to conflicts (as you experienced) and is a destructive operation. | **Low effort/risk.** A simple `git mv` and `git commit`. Safe and fast.                                       |
+| **When to Use**     | **Local, unpushed branches** that you want to be perfect before merging.                                                               | **Published branches** (where rewriting history is forbidden) or when the move is a feature/bug fix itself.   |
