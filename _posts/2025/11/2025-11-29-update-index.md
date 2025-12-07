@@ -402,3 +402,16 @@ To help _you_ decide which approach to use for _your_ situation, let's run throu
 | **Review/Auditing** | Easy to review the file's entire lifecycle without path confusion.                                                                     | Requires reviewers to understand that every commit before the move used an outdated path.                     |
 | **Risk/Effort**     | **High effort/risk.** Requires an interactive rebase, which can lead to conflicts (as you experienced) and is a destructive operation. | **Low effort/risk.** A simple `git mv` and `git commit`. Safe and fast.                                       |
 | **When to Use**     | **Local, unpushed branches** that you want to be perfect before merging.                                                               | **Published branches** (where rewriting history is forbidden) or when the move is a feature/bug fix itself.   |
+
+I'm a fan of clean, linear histories.
+I also tend to be the only developer on my branches.
+And I like to take calculated risks if it means I'm going to learn something valuable.
+Because of this, I (clearly) chose to rebase and handle the merge conflict.
+
+You aren't me.
+And I won't shame you if you decide to avoid rebasing and add that extra commit instead.
+Just know that there's another option out there that might be worth learning.
+And if you get stuck in the middle of the `git rebase` and wanna go back to adding a new commit?
+```shell
+$ git rebase --abort
+```
